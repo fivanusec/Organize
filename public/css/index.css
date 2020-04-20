@@ -1,0 +1,130 @@
+@media only screen and (min-width:320px){
+    #secondCard{
+        width: 100%;
+    }
+    #thirdCard{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:375px){
+    #secondCard{
+        width: 100%;
+    }
+    #thirdCard{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:576px){
+    #secondCard{
+        width: 100%;
+    }
+    #thirdCard{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:768px){
+    #secondCard{
+        width: 100%;
+    }
+    #thirdCard{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:1024px){
+    #secondCard{
+        width: 100%;
+    }
+    #thirdCard{
+        width: 100%;
+    }
+}
+
+div{
+    font-family: 'EB Garamond', serif;
+}
+
+@keyframes cardAnimation{
+    0%{opacity: 20%;}
+    25%{opacity: 40%;}
+    50%{opacity: 60%;}
+    75%{opacity: 80%;}
+    100%{opacity: 100%;}
+}
+
+#firstCard{
+    animation-name: cardAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: initial;
+}
+
+#secondCard{
+    animation-name: cardAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: initial;
+    background-color: rgb(201, 150, 150);
+}
+
+#thirdCard{
+    animation-name: cardAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: initial;
+    background-color: white;
+}
+
+#interfaceCont1{
+    height: 500px;
+    position: relative;
+    left: -10000px;
+    -webkit-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+}
+
+#interfaceCont2{
+    height: 500px;
+    position: relative;
+    left: -10000px;
+    -webkit-animation: slide 1s forwards;
+    -webkit-animation-delay: 1s;
+    animation: slide 1s forwards;
+    animation-delay: 1s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.learnMore-btn-1{
+    font-family: 'Merienda One', cursive;
+    float: center;
+    width: 49%;
+    border-radius: 4px;
+    background-color:white;
+    border: none;
+    color: rgb(201, 150, 150);
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 55px;
+}
+
+.learnMore-btn-2{
+    font-family: 'Merienda One', cursive;
+    float: center;
+    width: 49%;
+    border-radius: 4px;
+    background-color:rgb(201, 150, 150);
+    border: none;
+    color: white;
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 55px;
+}
