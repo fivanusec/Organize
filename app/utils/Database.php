@@ -11,13 +11,13 @@ class Database
     private $sql=null;
     private $error=false;
     private $count=0;
-    
+
     public function __construct(){
         try{
             $host="localhost";
             $name="Organize";
             $username="admin";
-            $password="00259641";
+            $password="password";
             $this->_PDO=new PDO("mysql:host={$host};dbname={$name}", $username, $password);
             $this->_PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $this->_PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -25,7 +25,7 @@ class Database
             die($e->getMessage());
         }
     }
-    
+
     public static function getIstance(){
         if(!isset(self::$Database)){
             self::$Database= new Database;
@@ -51,7 +51,7 @@ class Database
             return false;
         }
     }
-    
+
     public function action($action, $table, array $where=[]){
         if(count($where)===3){
             $operator = $where[1];
@@ -71,7 +71,7 @@ class Database
         }
         return false;
     }
-    
+
     public function query($sql, array $params = []) {
         $this->_count = 0;
         $this->_error = false;
@@ -85,12 +85,12 @@ class Database
                 $this->_count = $this->_query->rowCount();
             } else {
                 $this->_error = true;
-                //die(print_r($this->_query->errorInfo()));
+                die(print_r($this->_query->errorInfo()));
             }
         }
         return $this;
     }
-    
+
     public function insert($table, array $fields) {
         if (count($fields)) {
             $params = [];
@@ -129,7 +129,7 @@ class Database
     public function delete($table,$id,array $where){
         return($this->action('DELETE',$table,$where));
     }
-    
+
     public function select($table, array $where = []) {
         return($this->action('SELECT *', $table, $where));
     }
@@ -141,15 +141,15 @@ class Database
     public function results($key = null) {
         return(isset($key) ? $this->_results[$key] : $this->_results);
     }
-    
+
     public function error() {
         return($this->_error);
     }
-    
+
     public function count() {
         return($this->_count);
     }
-    
+
     public function first() {
         return($this->results(0));
     }

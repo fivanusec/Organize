@@ -44,7 +44,7 @@ class Model{
         return($this->Db->insert($table, $fields));
     }
 
-    protected function update($table, array $fields, $recordID=null){
+    /*protected function update($table, array $fields, $recordID=null){
         if($table=="users"){
             if (!$recordID and $this->exists()) {
                 $recordID = $this->data()->ID;
@@ -69,7 +69,7 @@ class Model{
             }
             return(!$this->Db->update($table, $recordID, $fields));
         }
-    }
+    }*/
     
     public function exists() {
         return(!empty($this->data));

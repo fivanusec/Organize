@@ -11,12 +11,12 @@ class UserRegister{
             $User=new User;
             $userID = $User->createUser([
                 "ID"=>rand(0,9999999999),
-                "Ime"=>utils\Input::post("name"),
-                "Prezime"=>utils\Input::post("surname"),
+                "Name"=>utils\Input::post("name"),
+                "Surname"=>utils\Input::post("surname"),
                 "Email"=>utils\Input::post("regEmail"),
                 "Password"=>utils\Hash::generate(utils\Input::post("regPassword"),$salt),
                 "User_Type"=>utils\Input::post("type"),
-                "News"=>utils\Input::post("news")==="on",
+                "news"=>utils\Input::post("news")==="on",
                 "salt"=>$salt
             ]);
             utils\Flash::success("Registration was successfull!");
@@ -28,4 +28,3 @@ class UserRegister{
         return false;
     }
 }
-

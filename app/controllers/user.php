@@ -21,7 +21,6 @@ class User extends core\Controller{
     }
 
     public function todo(string $user="",string $TodoID=""){
-
         utils\Auth::checkAuth();
 
         if($user){

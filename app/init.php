@@ -22,7 +22,7 @@ define("HTMLENTITIES_ENCODING", "UTF-8");
 define("HTMLENTITIES_DOUBLE_ENCODE", false);
 
 //defines
-define("NAMESPACE_CONTROLLER", "App\Controllers\\");
+define("NAMESPACE_CONTROLLER", "\App\Controllers\\");
 require_once CORE . 'app.php';
 require_once CORE . 'controller.php';
 require_once ROOT . "vendor/autoload.php";

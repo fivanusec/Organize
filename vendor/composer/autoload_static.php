@@ -20,11 +20,41 @@ class ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7
         ),
     );
 
+    public static $classMap = array (
+        'app\\controllers\\Home' => __DIR__ . '/../..' . '/app/controllers/home.php',
+        'app\\controllers\\Login' => __DIR__ . '/../..' . '/app/controllers/login.php',
+        'app\\controllers\\User' => __DIR__ . '/../..' . '/app/controllers/user.php',
+        'app\\core\\App' => __DIR__ . '/../..' . '/app/core/app.php',
+        'app\\core\\Controller' => __DIR__ . '/../..' . '/app/core/controller.php',
+        'app\\core\\Model' => __DIR__ . '/../..' . '/app/core/Model.php',
+        'app\\core\\Presenter' => __DIR__ . '/../..' . '/app/core/Presenter.php',
+        'app\\core\\View' => __DIR__ . '/../..' . '/app/core/view.php',
+        'app\\models\\Cards' => __DIR__ . '/../..' . '/app/models/Cards.php',
+        'app\\models\\CreateCard' => __DIR__ . '/../..' . '/app/models/CreateCard.php',
+        'app\\models\\CreateTodo' => __DIR__ . '/../..' . '/app/models/CreateTodo.php',
+        'app\\models\\Todo' => __DIR__ . '/../..' . '/app/models/Todo.php',
+        'app\\models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
+        'app\\models\\UserLogin' => __DIR__ . '/../..' . '/app/models/UserLogin.php',
+        'app\\models\\UserRegister' => __DIR__ . '/../..' . '/app/models/UserRegister.php',
+        'app\\prezenter\\Cards' => __DIR__ . '/../..' . '/app/prezenter/Cards.php',
+        'app\\prezenter\\User' => __DIR__ . '/../..' . '/app/prezenter/User.php',
+        'app\\utils\\Auth' => __DIR__ . '/../..' . '/app/utils/Auth.php',
+        'app\\utils\\Cookies' => __DIR__ . '/../..' . '/app/utils/Cookies.php',
+        'app\\utils\\Database' => __DIR__ . '/../..' . '/app/utils/Database.php',
+        'app\\utils\\Flash' => __DIR__ . '/../..' . '/app/utils/Flash.php',
+        'app\\utils\\Hash' => __DIR__ . '/../..' . '/app/utils/Hash.php',
+        'app\\utils\\Input' => __DIR__ . '/../..' . '/app/utils/Input.php',
+        'app\\utils\\React' => __DIR__ . '/../..' . '/app/utils/React.php',
+        'app\\utils\\Redirect' => __DIR__ . '/../..' . '/app/utils/Redirect.php',
+        'app\\utils\\Session' => __DIR__ . '/../..' . '/app/utils/Session.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7::$classMap;
 
         }, null, ClassLoader::class);
     }
