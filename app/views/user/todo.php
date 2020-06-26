@@ -4,12 +4,25 @@
     margin-bottom: 10px;
     margin-left: 20px;
   }
+
+  .btn-del {
+    height: 10px;
+    width: 10px;
+    color: rgb(201, 150, 150);
+    float: right;
+    margin-top: -10px;
+    font-size: 20px;
+  }
+
+  .btn-del:hover {
+    color: darkgrey;
+  }
 </style>
 <div class="container border-left border-bottom border-top border-right justify-content-center">
   <div class="button-box text-center">
     <br>
     <a class="btn btn-primary" style="color:white; background-color: rgb(201, 150, 150); border:none;" data-toggle="modal" data-target="#createModal">New Todo List</a>
-    <a class="btn btn-secondary" style="border:none; color:white;">Delete Card</a>
+    <a href="<?=$this->makeURL("user/dash/{$this->user->ID}")?>" class="btn btn-secondary" style="color:white; border:none;">Dashboard</a>
   </div>
   <br>
 </div>
@@ -23,9 +36,14 @@
           <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?></h5>
           <p class="card-text"><?= $this->Todo_List[$count]->Todo_Description; ?></p>
           <a href="<?= $this->makeUrl("user/todoList/{$this->user->ID}/{$this->todoID}/{$this->Todo_List[$count]->Todo_List_ID}"); ?>" style="color:white; background-color: rgb(201, 150, 150); border:none;" class="btn btn-primary">Open todo</a>
-          <a class="btn btn-secondary" style="border:none; color:white;">Delete todo</a>
+          <a id="del<?= $this->Todo_List[$count]->Todo_List_ID; ?>" class="btn btn-secondary" style="border:none; color:white;">Delete todo</a>
         </div>
       </div>
+      <script>
+        document.getElementById("del<?= $this->Todo_List[$count]->Todo_List_ID; ?>").onclick = function() {
+          alert("DELETE!");
+        }
+      </script>
     <?php endfor; ?>
     <br>
   </div>
@@ -57,4 +75,4 @@
       </div>
     </div>
   </div>
-<?php include VIEW . 'user/teamplate/footer.php'; ?>
+  <?php include VIEW . 'user/teamplate/footer.php'; ?>

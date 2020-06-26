@@ -84,4 +84,8 @@ function getID(clickedID) {
   return clickedID;
 }
 
+function loadDelBtn(){
+  
+}
+
 

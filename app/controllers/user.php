@@ -98,5 +98,25 @@ class User extends core\Controller{
             'user'=>(new prezenter\User($User->data()))->present()
         ]);
     }
+
+    public function editUser(string $user=""){
+        utils\Auth::checkAuth();
+
+        if($user){
+            $userSession="USER";
+            if(utils\Session::sessionExists($userSession)){
+                $user=utils\Session::get($userSession);
+            }
+        }
+
+        if(!$User=models\User::getInstance($user)){
+            echo "Error";
+        }
+
+        $this->View->render('user/editUser',[
+            'title'=>'Edit user',
+            'user'=>(new prezenter\User($User->data()))->present()
+        ]);
+    }
 }
 

@@ -13,6 +13,13 @@
                     <h2><?=$this->user->userName." ".$this->user->userSurname;?></h2>
                     <p><?=$this->user->type; ?></p>
                  <?php endif;?>
+                 <button id="editUser" class="button" style="margin-left:215px;margin-top:-85px" href="<?=$this->makeUrl("user/editUser/{$this->user->ID}");?>">
+                 <i class="fa fa-edit"></i> Edit</button>
+                 <script>
+                      document.getElementById("editUser").onclick = function(){
+                        window.location.href="<?=$this->makeUrl("user/editUser/{$this->user->ID}");?>";
+                      }
+                  </script>
                 </div>
             </div>
         </div>
@@ -29,16 +36,26 @@
             <div class="container" id="dayContainer">
                 <div class="row" id="row">
                 <?php for($count=0;$count<count($this->cards);$count++):?>
-					          <button id="<?=$this->cards[$count]->Todo_ID; ?>" href="<?=$this->makeUrl("user/todo/{$this->cards[$count]->Todo_ID}");?>" class="column">
+                    <div class="column text-center">
+                      <div class="card-body">
+                        <a id="del<?=$this->cards[$count]->Todo_ID;?>" class="btn-del" href="#"><i class="fa fa-times"></i></a>
                         <h2><?=$this->cards[$count]->Card_Name; ?></h2>
                         <p><?=$this->cards[$count]->Card_Description; ?></p>
-                    </button>
+                        <button id="<?=$this->cards[$count]->Todo_ID; ?>" class="btn btn-secondary">Open</button>
+                      </div>
+                    </div>
                     <script>
                       document.getElementById("<?=$this->cards[$count]->Todo_ID;?>").onclick = function(){
                         window.location.href="<?=$this->makeUrl("user/todo/{$this->user->ID}/{$this->cards[$count]->Todo_ID}"); ?>";
                       }
                     </script>
-                  <?php endfor;?>
+                    <script>
+                      document.getElementById("del<?=$this->cards[$count]->Todo_ID;?>").onclick = function(){
+                        //window.location.href="<?=$this->makeUrl("user/todo/{$this->user->ID}/{$this->cards[$count]->Todo_ID}"); ?>";
+                        alert("DELETE!");
+                      }
+                    </script>
+                <?php endfor;?>
                 </div>
             </div>
             <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
