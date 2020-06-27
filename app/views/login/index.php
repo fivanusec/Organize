@@ -13,7 +13,7 @@
     </li>
   </ul>
 
-  <script type="text/javascript">
+ <script type="text/javascript">
   $(function () {
     $('#signin').tab('show')
   })
@@ -57,7 +57,7 @@
   });
   </script>
 
-  <div class="tab-content">
+  <div onload="loadSignIn()" class="tab-content">
     <div class="tab-pane fade in" id="signin">
       <title>Sign in</title>
       <br>

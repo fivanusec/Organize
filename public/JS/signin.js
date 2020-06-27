@@ -54,4 +54,3 @@ function checkpassword(password) {
     document.getElementById("success").setAttribute('style','width:0%');
   }
 }
-

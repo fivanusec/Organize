@@ -10,7 +10,7 @@
         <script type="text/javascript" src="/public/JS/jquery-3.4.1.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
-    <body onload="setOnLoad(null)">
+    <body>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a href="<?=$this->makeURL('home/index') ?>" class="navbar-brand">
                 Organize!

@@ -1,23 +1,5 @@
 <?php include VIEW . 'user/teamplate/header.php'; ?>
-<style>
-  .card {
-    margin-bottom: 10px;
-    margin-left: 20px;
-  }
-
-  .btn-del {
-    height: 10px;
-    width: 10px;
-    color: rgb(201, 150, 150);
-    float: right;
-    margin-top: -10px;
-    font-size: 20px;
-  }
-
-  .btn-del:hover {
-    color: darkgrey;
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="/public/css/todo.css">
 <div class="container border-left border-bottom border-top border-right justify-content-center">
   <div class="button-box text-center">
     <br>
