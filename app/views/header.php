@@ -2,8 +2,8 @@
     use app\utils\Flash;
 ?>
 <html>
-    <title><?=$data['title'] ?></title>
     <head>
+        <title><?= $this->escapeHTML($this->title);?></title>
         <link rel="stylesheet" type="text/css" href="/public/css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script type="text/javascript" src="/public/JS/header.js"></script>

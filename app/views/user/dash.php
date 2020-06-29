@@ -1,8 +1,7 @@
-<?php include VIEW . 'user/teamplate/header.php'; ?>
-    <script src="/public/JS/organizeDash.js">
-		</script>
-    <link rel="stylesheet" href="/public/css/organizeDash.css">
-    
+
+    <?= $this->getJS(); ?>
+    <?= $this->getCSS(); ?>
+
     <div class="container">
             <div class="row">
                 <div class="column-pic">
@@ -88,4 +87,3 @@
             </div>
         </div>
     
-<?php include VIEW. 'user/teamplate/footer.php'; ?>

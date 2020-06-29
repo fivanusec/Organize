@@ -20,7 +20,9 @@
          */
 
         public function index(){
-            $this->View->render('home/index',[
+            $this->View->addCSS("css/index.css");
+            $this->View->addJS("JS/index.js");
+            $this->View->renderMain('home/index',[
                 'title'=>'Organize!'
             ]);
         }

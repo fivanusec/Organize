@@ -3,7 +3,7 @@
 ?>
 <html>
 	<title>
-		<?= $data['title'] ?>
+		<?= $this->escapeHTML($this->title);?>
 	</title>
 	<head>
 		<link rel="stylesheet" href="/public/css/style.css">

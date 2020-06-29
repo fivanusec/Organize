@@ -26,3 +26,11 @@ define("NAMESPACE_CONTROLLER", "\App\Controllers\\");
 require_once CORE . 'app.php';
 require_once CORE . 'controller.php';
 require_once ROOT . "vendor/autoload.php";
+
+//defaults app
+define("HEADER_MAIN",'user/teamplate/header');
+define("FOOTER_MAIN",'user/teamplate/footer');
+
+//defaults main {TEMP NAMES}
+define("HEADER_FOR_MAIN",'header');
+define("FOOTER_FOR_MAIN",'footer');

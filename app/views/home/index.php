@@ -1,7 +1,5 @@
-<?php include VIEW.'header.php' ?>
-<link rel="stylesheet" type="text/css" href="/public/css/index.css">
-<script type="text/javascript" src="/public/JS/index.js">
-</script>
+<?= $this->getJS(); ?>
+<?= $this->getCSS();?>
 
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id="firstCard">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
@@ -73,5 +71,3 @@
         </div>
     </div>
 </div>
-
-<?php include VIEW.'footer.php' ?>

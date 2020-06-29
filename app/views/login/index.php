@@ -1,8 +1,5 @@
-<?php include VIEW.'header.php'; ?>
-
-<link rel="stylesheet" type="text/css" href="/public/css/signin.css">
-<script src="/public/JS/signin.js"></script>
-
+<?= $this->getJS(); ?>
+<?= $this->getCSS();?>
 <div class="container-fluid">
   <ul class="nav nav-tabs" role="tablist" id="userTab">
     <li class="nav-item active">
@@ -137,4 +134,3 @@
     </div>
   </div>
 </div>
-<?php include VIEW.'footer.php' ?>

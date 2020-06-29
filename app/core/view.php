@@ -11,13 +11,17 @@ namespace app\core;
 
 class View{
     
-    /**TODO */
+    /** @var string for HTML <script> tag for loading external scripts */
     protected $_script="";
+
+    /** @var string for HTML <link> tag for loading external stylesheets */
     protected $_link="";
+
+    /** @var string the title of the page */
     protected $title="";
 
     /**
-    * Gets view from extended controller
+    * Gets view from extended controller for rendering main app
     * @access public
     * @param string $view
     * @param array $data[optional]
@@ -27,10 +31,39 @@ class View{
 
     public function render($view, array $data=[]){
         $this->addData($data);
-        $filename=VIEW.$view.'.php';
-        if(file_exists($filename)){
-            require_once $filename;
-        }
+        $this->getFile(HEADER_MAIN);
+        $this->getFile($view);
+        $this->getFile(FOOTER_MAIN);
+    }
+
+    /**
+    * Gets view from extended controller for rendering without headers
+    * @access public
+    * @param string $view
+    * @param array $data[optional]
+    * @return void
+    * @since 0.1[ALPHA]
+    */
+
+    public function renderWithoutHeader($view,array $data = []){
+        $this->addData($data);
+        $this->getFile($view);
+    }
+
+    /**
+    * Gets view from extended controller for rendering home page
+    * @access public
+    * @param string $view
+    * @param array $data[optional]
+    * @return void
+    * @since 0.1[ALPHA]
+    */
+
+    public function renderMain($view,array $data = []){
+        $this->addData($data);
+        $this->getFile(HEADER_FOR_MAIN);
+        $this->getFile($view);
+        $this->getFile(FOOTER_FOR_MAIN);
     }
 
     /**
@@ -70,9 +103,12 @@ class View{
             $this->{$key} = $value;
         }
     }
-
+    
     /**
-     * Implement in progress
+     * Adds CSS to called view in form of <link> tags
+     * @param  mixed $_link
+     * @return void
+     * @since 0.1[ALPHA]
      */
 
     public function addCSS($files){
@@ -81,11 +117,18 @@ class View{
         }
 
         foreach($files as $file){
-            if (file_exists(PUBLIC_CSS . $file)) {
+            if (file_exists(PUBLIC_ROOT. $file)) {
                 $this->_link .= '<link type="text/css" rel="stylesheet" href="' . $this->makeURL($file) . '" />' . "\n";
             }
         }
     }
+
+     /**
+     * Adds JS to called view in form of <script> tag
+     * @param  mixed $_script
+     * @return void
+     * @since 0.1[ALPHA]
+     */
 
     public function addJS($files){
         if(!is_array($files)){
@@ -93,17 +136,43 @@ class View{
         }
 
         foreach($files as $file){
-            if (file_exists(PUBLIC_JS . $file)) {
+            if (file_exists(PUBLIC_ROOT . $file)) {
                 $this->_script .= '<script type="text/javascript" src="' . $this->makeURL($file) . '"></script>' . "\n";
             }
         }
     }
 
+    /**
+     * Return <link> tags that loads in the view
+     * @access public
+     * @return string
+     */
+
     public function getCSS(){
         return $this->_link;
     }
 
+    /**
+     * Return <script> tags that loads in the view
+     * @access public
+     * @return string
+     */
+
     public function getJS(){
         return $this->_script;
+    }
+
+    /**
+     * Requires in a view file if it exists.
+     * @access public
+     * @param string $filepath
+     * @return void
+     */
+
+    public function getFile($file){
+        $filename=VIEW.$file.'.php';
+        if(file_exists($filename)){
+            require $filename;
+        }
     }
 }

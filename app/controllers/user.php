@@ -42,6 +42,7 @@ class User extends core\Controller{
             }
         }
 
+        $this->View->addCSS("css/todo.css");
         $this->View->render('user/todo',[
             'title'=>'Todo',
             'user'=>(new prezenter\User($User->data()))->present(),
@@ -70,9 +71,11 @@ class User extends core\Controller{
         }else{
             $cards =[];
         }
-        
+
+        $this->View->addJS("JS/organizeDash.js");
+        $this->View->addCSS("css/organizeDash.css");
         $this->View->render('user/dash',[
-            'title'=>'Dash',
+            'title'=>"Dash",
             'user'=>(new prezenter\User($User->data()))->present(),
             'cards'=>($cards)
         ]);
@@ -93,6 +96,7 @@ class User extends core\Controller{
             echo "Error";
         }
 
+        $this->View->addCSS("css/todoList.css");
         $this->View->render('user/todo_list',[
             'title'=>'Todo List',
             'user'=>(new prezenter\User($User->data()))->present()
@@ -113,6 +117,7 @@ class User extends core\Controller{
             echo "Error";
         }
 
+        $this->View->addCSS("css/editUser.css");
         $this->View->render('user/editUser',[
             'title'=>'Edit user',
             'user'=>(new prezenter\User($User->data()))->present()

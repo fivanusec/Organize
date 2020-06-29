@@ -32,7 +32,9 @@ class Login extends core\Controller{
     public function index(){
         utils\Auth::checkUnAuth();
 
-        $this->View->render('login/index',[
+        $this->View->addCSS("css/signin.css");
+        $this->View->addJS("JS/signin.js");
+        $this->View->renderMain('login/index',[
            'title'=>'Log in'
         ]);
     }

@@ -1,5 +1,5 @@
-<?php include VIEW . 'user/teamplate/header.php'; ?>
-<link rel="stylesheet" type="text/css" href="/public/css/todo.css">
+
+<?= $this->getCSS(); ?>
 <div class="container border-left border-bottom border-top border-right justify-content-center">
   <div class="button-box text-center">
     <br>
@@ -57,4 +57,3 @@
       </div>
     </div>
   </div>
-  <?php include VIEW . 'user/teamplate/footer.php'; ?>

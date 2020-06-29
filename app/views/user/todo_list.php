@@ -1,6 +1,4 @@
-<?php include VIEW . 'user/teamplate/header.php'; ?>
-
-<link rel="stylesheet" type="text/css" href="/public/css/todoList.css">
+<?= $this->getCSS();?>
 
 <!--Modal for todo list-->
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
@@ -205,4 +203,3 @@
         </div>
     </div>
 </div>
-<?php include VIEW . 'user/teamplate/footer.php'; ?>
