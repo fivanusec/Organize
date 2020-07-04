@@ -117,11 +117,19 @@ class User extends core\Controller{
             echo "Error";
         }
 
+        $this->View->addJS("JS/edituser.js");
         $this->View->addCSS("css/editUser.css");
         $this->View->render('user/editUser',[
             'title'=>'Edit user',
             'user'=>(new prezenter\User($User->data()))->present()
         ]);
+    }
+
+    public function updateuser(string $user){
+        if(!models\UpdateUser::updateuser($user)){
+            utils\Redirect::to("/public/user/editUser/{$user}");
+        }
+        utils\Redirect::to("/public/user/editUser/{$user}");
     }
 }
 

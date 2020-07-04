@@ -1,81 +1,82 @@
 <?= $this->getCSS(); ?>
+<?= $this->getJS(); ?>
 <div class="container py-2">
     <div class="row  my-2">
         <div class="col-lg-4">
             <h2 class="text-center font-weight-light">User profile</h2>
         </div>
         <div class="col-lg-8">
-            <div class="alert alert-info alert-dismissable"> <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user. </div>
+            
         </div>
         <div class="col-lg-8 order-lg-1 personal-info">
-            <form role="form">
+            <form action="<?=$this->makeUrl("user/updateuser/{$this->user->ID}"); ?>" role="form" method="POST">
             <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">First name</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" value="Jane" />
+                        <input name="name" class="form-control" type="text" value="<?=$this->user->Name;?>" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" value="Bishop" />
+                        <input name="surname" class="form-control" type="text" value="<?=$this->user->Surname;?>" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Email</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="email" value="email@gmail.com" />
+                        <input name="email" class="form-control" type="email" value="<?=$this->user->Email;?>" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Company</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" value="" />
+                        <input name="company" class="form-control" type="text" value="<?=$this->user->Company;?>" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">User type</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" value="" />
+                        <input name="usertype" class="form-control" type="text" value="<?=$this->user->Type;?>" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Website</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="url" value="" />
+                        <input name="website" class="form-control" type="url" value="<?=$this->user->Website;?>" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Address</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" value="" placeholder="Street" />
+                        <input name="address" class="form-control" type="text" value="<?=$this->user->Address;?>" placeholder="Street" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label"></label>
                     <div class="col-lg-6">
-                        <input class="form-control" type="text" value="" placeholder="City" />
+                        <input name="city" class="form-control" type="text" value="<?=$this->user->City;?>" placeholder="City" />
                     </div>
                     <div class="col-lg-3">
-                        <input class="form-control" type="text" value="" placeholder="State" />
+                        <input name="state" class="form-control" type="text" value="<?=$this->user->State;?>" placeholder="State" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Password</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="password" value="11111122333" />
+                        <input id="password1" name="password" class="form-control" type="password" value="" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="password" value="11111122333" />
+                        <input id="password2" class="form-control" type="password" value="" />
                     </div>
-                </div>
+                </div> 
                 <div class="form-group row">
                     <div class="col-lg-9 ml-auto text-right">
-                        <input type="reset" class="btn btn-outline-secondary" value="Cancel" />
-                        <input type="button" class="btn btn-primary" value="Save Changes" />
+                        <button class="btn btn-secondary">Cancel</button>
+                        <button id="save" class="btn">Save changes</button>
                     </div>
                 </div>
             </form>

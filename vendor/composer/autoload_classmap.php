@@ -18,6 +18,7 @@ return array(
     'app\\models\\CreateCard' => $baseDir . '/app/models/CreateCard.php',
     'app\\models\\CreateTodo' => $baseDir . '/app/models/CreateTodo.php',
     'app\\models\\Todo' => $baseDir . '/app/models/Todo.php',
+    'app\\models\\UpdateUser' => $baseDir . '/app/models/UpdateUser.php',
     'app\\models\\User' => $baseDir . '/app/models/User.php',
     'app\\models\\UserLogin' => $baseDir . '/app/models/UserLogin.php',
     'app\\models\\UserRegister' => $baseDir . '/app/models/UserRegister.php',

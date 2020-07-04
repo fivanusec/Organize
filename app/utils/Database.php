@@ -76,7 +76,7 @@ class Database
         $this->_count = 0;
         $this->_error = false;
         $this->_results = [];
-        if (($this->_query = $this->_PDO->prepare($sql))) {
+       if (($this->_query = $this->_PDO->prepare($sql))) {
             foreach ($params as $key => $value) {
                 $this->_query->bindValue($key, $value);
             }
@@ -85,7 +85,7 @@ class Database
                 $this->_count = $this->_query->rowCount();
             } else {
                 $this->_error = true;
-                die(print_r($this->_query->errorInfo()));
+                //die(print_r($this->_query->errorInfo()));
             }
         }
         return $this;
@@ -119,11 +119,11 @@ class Database
                 }
                 $x ++;
             }
-            if (!$this->query("UPDATE `{$table}` SET {$set} WHERE `id` = {$id}", $params)->error()) {
+            if (!$this->query("UPDATE {$table} SET {$set} WHERE ID = {$id}", $params)->error()) {
                 return true;
             }
+            return false;
         }
-        return false;
     }
 
     public function delete($table,$id,array $where){

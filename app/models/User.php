@@ -26,11 +26,10 @@ class User extends core\Model{
         return $userID;
     }
 
-    public function updateUser(array $fields){
-        if($userID = $this->update("users",$fields)){
+    public function updateUser(array $fields,$ID=null){
+        if($this->update("users",$fields,$ID)){
             throw new Exception("There was a problem");
         }
-        return $userID;
     }
 }
 

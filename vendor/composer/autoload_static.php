@@ -33,6 +33,7 @@ class ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7
         'app\\models\\CreateCard' => __DIR__ . '/../..' . '/app/models/CreateCard.php',
         'app\\models\\CreateTodo' => __DIR__ . '/../..' . '/app/models/CreateTodo.php',
         'app\\models\\Todo' => __DIR__ . '/../..' . '/app/models/Todo.php',
+        'app\\models\\UpdateUser' => __DIR__ . '/../..' . '/app/models/UpdateUser.php',
         'app\\models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
         'app\\models\\UserLogin' => __DIR__ . '/../..' . '/app/models/UserLogin.php',
         'app\\models\\UserRegister' => __DIR__ . '/../..' . '/app/models/UserRegister.php',

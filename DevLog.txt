@@ -1,0 +1,9 @@
+1. Update problem still reamins, see what is best fix for that. 
+    ->FIX! Problem was simple field in DB instead of Company somehow there was Copamany!
+2. Refactor Javascript(bit better than last time) + additions
+    ->Refactor signin.js
+    ->Add edituser.js
+    ->
+3. Fix problem while trying to access app after reloading
+    ->FIX - just needed to add simple ID redirecit that is pulling from session
+4. Add debug featrue to project.

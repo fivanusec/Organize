@@ -1,4 +1,3 @@
-
 <?= $this->getCSS(); ?>
 <div class="container border-left border-bottom border-top border-right justify-content-center">
   <div class="button-box text-center">

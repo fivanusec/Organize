@@ -44,32 +44,12 @@ class Model{
         return($this->Db->insert($table, $fields));
     }
 
-    /*protected function update($table, array $fields, $recordID=null){
-        if($table=="users"){
-            if (!$recordID and $this->exists()) {
-                $recordID = $this->data()->ID;
-            }
-            return(!$this->Db->update($table, $recordID, $fields));
+    protected function update($table, array $fields, $recordID=null){
+        if(!$recordID and $this->exists()){
+            $recordID = $this->data()->ID;
         }
-        if($table=="Cards"){
-            if (!$recordID and $this->exists()) {
-                $recordID = $this->data()->Card_ID;
-            }
-            return(!$this->Db->update($table, $recordID, $fields));
-        }
-        if($table=="Todo_List"){
-            if (!$recordID and $this->exists()) {
-                $recordID = $this->data()->Todo_List_ID;
-            }
-            return(!$this->Db->update($table, $recordID, $fields));
-        }
-        if($table=="Todo_Items"){
-            if (!$recordID and $this->exists()) {
-                $recordID = $this->data()->Todo_Items_ID;
-            }
-            return(!$this->Db->update($table, $recordID, $fields));
-        }
-    }*/
+        return(!$this->Db->update($table, $recordID, $fields));
+    }
     
     public function exists() {
         return(!empty($this->data));

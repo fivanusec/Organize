@@ -9,8 +9,8 @@
                 </div>
                 <div class="column-pic-1">
                 <?php if(isset($this->user)):?>
-                    <h2><?=$this->user->userName." ".$this->user->userSurname;?></h2>
-                    <p><?=$this->user->type; ?></p>
+                    <h2><?=$this->user->Name." ".$this->user->Surname;?></h2>
+                    <p><?=$this->user->Type; ?></p>
                  <?php endif;?>
                  <button id="editUser" class="button" style="margin-left:215px;margin-top:-85px" href="<?=$this->makeUrl("user/editUser/{$this->user->ID}");?>">
                  <i class="fa fa-edit"></i> Edit</button>
