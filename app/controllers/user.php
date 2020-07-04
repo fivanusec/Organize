@@ -6,19 +6,50 @@ use app\utils;
 use app\models;
 use app\prezenter;
 
+    /**
+     *
+     * @author Filip Ivanusec<fivanusec@gmail.com>
+     * @version 0.1[ALPHA]
+     *
+    */
+
+
 class User extends core\Controller{
     
+    /**
+     * createCard: Sends user ID to create card
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+    */
+
     public function createCard(string $userID=""){
         if(!models\CreateCard::_create($userID)){
             utils\Redirect::to("/public/user/dash/{$userID}"); 
         }
     }
 
+    /**
+     * createTodo: Sends TODO ID to create TODO card
+     *  @access public
+     *  @return void
+     *  @since 0.1[ALPHA]
+    */
+
     public function createTodo(string $userID="",string $TodoID=""){
         if(!models\CreateTodo::_create($TodoID)){
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
+
+    /**
+     * Todo: Renders TODO View
+     * @example user/todo
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * 
+    */
 
     public function todo(string $user="",string $TodoID=""){
         utils\Auth::checkAuth();
@@ -51,6 +82,15 @@ class User extends core\Controller{
         ]);
     }
     
+    /**
+     * Dash: Renders DASH View
+     * @example user/dash
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * 
+    */
+
     public function dash(string $user=""){
         
         utils\Auth::checkAuth();
@@ -81,6 +121,15 @@ class User extends core\Controller{
         ]);
     }
 
+    /**
+     * TodoList: Renders Todo list view
+     * @example user/todo
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * 
+    */
+
     public function todoList(string $user="", string $TodoID="", string $todoListID=""){
 
         utils\Auth::checkAuth();
@@ -103,6 +152,15 @@ class User extends core\Controller{
         ]);
     }
 
+    /**
+     * Edituser: Render edit user view
+     * @example user/edituser
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * 
+    */
+
     public function editUser(string $user=""){
         utils\Auth::checkAuth();
 
@@ -124,6 +182,15 @@ class User extends core\Controller{
             'user'=>(new prezenter\User($User->data()))->present()
         ]);
     }
+
+    /**
+     * Updateuser: Updates user in Database
+     * @example user/updateuser
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * 
+    */
 
     public function updateuser(string $user){
         if(!models\UpdateUser::updateuser($user)){
