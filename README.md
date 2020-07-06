@@ -1,3 +1,3 @@
 # Organize project
 
-Simple app that helps organizeing your day.
+Simple app that helps organizing your day.
