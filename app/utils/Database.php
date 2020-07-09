@@ -73,6 +73,7 @@ class Database
     }
 
     public function query($sql, array $params = []) {
+        //echo $sql;
         $this->_count = 0;
         $this->_error = false;
         $this->_results = [];
@@ -106,7 +107,7 @@ class Database
         return false;
     }
 
-    public function update($table, $id, array $fields){
+    public function update($table, $id, array $fields, $fieldName){
         if (count($fields)) {
             $x = 1;
             $set = "";
@@ -119,14 +120,14 @@ class Database
                 }
                 $x ++;
             }
-            if (!$this->query("UPDATE {$table} SET {$set} WHERE ID = {$id}", $params)->error()) {
+            if (!$this->query("UPDATE {$table} SET {$set} WHERE {$fieldName} = {$id}", $params)->error()) {
                 return true;
             }
             return false;
         }
     }
 
-    public function delete($table,$id,array $where){
+    public function delete($table,array $where){
         return($this->action('DELETE',$table,$where));
     }
 

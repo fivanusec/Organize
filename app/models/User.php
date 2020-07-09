@@ -27,7 +27,7 @@ class User extends core\Model{
     }
 
     public function updateUser(array $fields,$ID=null){
-        if($this->update("users",$fields,$ID)){
+        if($this->update("users","ID",$fields,$ID)){
             throw new Exception("There was a problem");
         }
     }

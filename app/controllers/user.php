@@ -13,8 +13,38 @@ use app\prezenter;
      *
     */
 
-
 class User extends core\Controller{
+
+    /**
+     * deletecard: Deletes card and all of it's content
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     */
+
+    public function deletecard($Card, $userID=""){
+        if(models\Cards::getDelete($Card)){
+            utils\Redirect::to("/public/user/dash/{$userID}");
+        }
+    }
+
+    public function updateCard($Card, $userID){
+        if(models\UpdateCard::_update($Card)){
+            utils\Redirect::to("/public/user/dash/{$userID}");
+        }
+    }
+
+    public function updateTodo($TodoListID, $TodoID,$userID){
+        if(models\UpdateTodo::_update($TodoListID)){
+            utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
+        }
+    }
+
+    public function deleteTodo($Todo_ID, $userID, $TodoID){
+        if(models\Todo::getDelete($Todo_ID)){
+            utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
+        }
+    }
     
     /**
      * createCard: Sends user ID to create card
@@ -199,4 +229,3 @@ class User extends core\Controller{
         utils\Redirect::to("/public/user/editUser/{$user}");
     }
 }
-

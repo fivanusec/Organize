@@ -44,11 +44,15 @@ class Model{
         return($this->Db->insert($table, $fields));
     }
 
-    protected function update($table, array $fields, $recordID=null){
+    protected function delete($table, array $where =[]){
+       return($this->Db->delete($table,$where));
+    }
+
+    protected function update($table, $ID,array $fields, $recordID=null){
         if(!$recordID and $this->exists()){
             $recordID = $this->data()->ID;
         }
-        return(!$this->Db->update($table, $recordID, $fields));
+        return(!$this->Db->update($table, $recordID, $fields,$ID));
     }
     
     public function exists() {
