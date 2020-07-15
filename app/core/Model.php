@@ -15,6 +15,11 @@ class Model{
     public function data() {
         return($this->data);
     }
+
+    public function upload($targetFile, $ID){
+        $upload = utils\PictrueHandler::upload($targetFile,$ID);
+        return $upload;
+    }
     
     protected function find($table, array $where = []) {
         $data = $this->Db->select($table, $where);

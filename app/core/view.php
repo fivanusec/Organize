@@ -20,6 +20,8 @@ class View{
     /** @var string the title of the page */
     protected $title="";
 
+    protected $img="";
+
     /**
     * Gets view from extended controller for rendering main app
     * @access public
@@ -142,6 +144,18 @@ class View{
         }
     }
 
+    public function addIMG($files, $class="profilePic"){
+        if(!is_array($files)){
+            $files = (array)$files;
+        }
+
+        foreach($files as $file){
+            if(file_exists(PUBLIC_ROOT . $file)){
+                $this->img .= '<img class="'.$class.'" id="profilePicture" alt="avatar" src="'.$this->makeURL($file).'"/>';
+            }
+        }
+    }
+
     /**
      * Return <link> tags that loads in the view
      * @access public
@@ -160,6 +174,10 @@ class View{
 
     public function getJS(){
         return $this->_script;
+    }
+
+    public function getIMG(){
+        return $this->img;
     }
 
     /**

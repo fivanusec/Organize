@@ -1,8 +1,6 @@
-1. Add Edit btn to Cards
-2. Added code for deleting cards + deleting cards connected 
-3. Added new file UpdateCards.php
-    ->Update cards is completed.
-4. Added new file UpdateTodo.php
-    ->Update todo is completed
-5.Aded code for deleting todo 
-    -> Todo code is connected
+1.Scan profile pic from database
+    ->Automatic additon
+    ->File upoload
+    ->Still remains some fixes to upload and getting to connect profile picture from DB
+2.Add Dashboard btn to edit user page
+3.

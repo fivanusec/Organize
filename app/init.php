@@ -6,6 +6,7 @@ define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('PUBLIC_ROOT',ROOT.'public'.DIRECTORY_SEPARATOR);
 define('PUBLIC_CSS',PUBLIC_ROOT.'css');
 define('PUBLIC_JS',PUBLIC_ROOT.'JS');
+define('PUBLIC_IMG',PUBLIC_ROOT.'img'.DIRECTORY_SEPARATOR);
 
 //app
 define('APP', ROOT . 'app' . DIRECTORY_SEPARATOR);

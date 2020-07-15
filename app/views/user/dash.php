@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="column-pic">
-      <img class="profilePic" id="profilePicture" src="/public/img/user.png">
+      <?= $this->getIMG(); ?>
     </div>
     <div class="column-pic-1">
       <?php if (isset($this->user)) : ?>
@@ -110,7 +110,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="button" style="font-size: 24px;" data-toggle="modal" data-target="#editModal<?= $this->Cards[$count]->Card_ID; ?>">Update</button>
+                <button type="submit" class="button" style="font-size: 24px;" data-toggle="modal" data-target="#editModal<?= $this->cards[$count]->Card_ID; ?>">Update</button>
               </div>
             </form>
           </div>

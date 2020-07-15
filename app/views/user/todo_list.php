@@ -69,7 +69,7 @@
 <!--Cards that show notes and todo list-->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <!--<div class="col-md-6">
             <div class="box box-aqua">
                 <div class="box-header ui-sortable-handle">
                     <i class="ion ion-clipboard"></i>
@@ -82,7 +82,7 @@
                     <a type="button" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</a>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="col-md-4">
             <div class="box box-aqua">
                 <div class="box-header ui-sortable-handle">
