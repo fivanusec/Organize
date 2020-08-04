@@ -25,8 +25,4 @@ class ProfilePictrue extends core\Model{
     public function insertDB($table,array $fields){
         return($this->create($table, $fields));
     }
-
-    /*public function setDefault(){
-
-    }*/
 }

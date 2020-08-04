@@ -207,10 +207,21 @@ class User extends core\Controller
             echo "Error";
         }
 
+        if($todoListID){
+            if($TodoList = models\TodoList::getInstance($todoListID)){
+                $todolist = $TodoList->data();
+            }else{
+                $todolist = [];
+            }
+        }
+
         $this->View->addCSS("css/todoList.css");
         $this->View->render('user/todo_list', [
             'title' => 'Todo List',
-            'user' => (new prezenter\User($User->data()))->present()
+            'user' => (new prezenter\User($User->data()))->present(),
+            'todolist' => ($todolist),
+            'todolistID' =>$todoListID,
+            'todoID'=>$TodoID
         ]);
     }
 
@@ -271,5 +282,11 @@ class User extends core\Controller
             utils\Redirect::to("/public/user/editUser/{$user}");
         }
         utils\Redirect::to("/public/user/editUser/{$user}");
+    }
+
+    public function createTodoListItem(string $User_ID, string $TodoID, string $TodoListID){
+        if(!models\CreateTodoListItem::_create($TodoListID)){
+            utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
+        }
     }
 }

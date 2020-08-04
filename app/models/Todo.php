@@ -24,7 +24,17 @@ class Todo extends Core\Model{
 
     public function findTodo($Todo_ID){
         $field=filter_var($Todo_ID, FILTER_VALIDATE_INT) ? "Todo_ID" : (is_numeric($Todo_ID) ? "Todo_ID" : "Todo_List_ID");
-        return($this->findInner(["Todo_Prep","Todo_List"],[$field,'=',$Todo_ID,"Todo_Prep.Todo_List_ID",'=',"Todo_List.Todo_List_ID"]));
+        return($this->findInner(
+            [
+                "Todo_Prep",
+                "Todo_List"
+            ],
+            [   $field,'=',$Todo_ID,
+                "Todo_Prep.Todo_List_ID",
+                '=',
+                "Todo_List.Todo_List_ID"
+            ]
+        ));
     }
     
     public function createTodo(array $fields){
@@ -41,7 +51,6 @@ class Todo extends Core\Model{
     }
     
     public function deleteTodo($todo){
-        echo $todo;
         $fieldCard = filter_var($todo, FILTER_VALIDATE_INT) ? "Todo_List_ID" : (is_numeric($todo) ? "Todo_List_ID" : "Todo_Name");
         return($this->delete("Todo_List",[$fieldCard,"=",$todo]));
     }

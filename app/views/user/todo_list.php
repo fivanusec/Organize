@@ -11,7 +11,7 @@
                 </button>
             </div>
             <div class="modal-body" role="form">
-                <form method="POST" action="#">
+                <form method="POST" action="<?=$this->makeUrl("user/createTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
                     <div class="form-group">
                         <label for="card-name" class="col-form-label">Name:</label>
                         <input name="TodoName" type="text" class="form-control" id="name">
@@ -58,7 +58,6 @@
 <div class="container border-left border-bottom border-top border-right justify-content-center">
     <div class="button-box text-center">
         <br>
-        <a class="btn btn-primary" style="color:white; background-color: rgb(201, 150, 150); border:none;" data-toggle="modal" data-target="#createModal">New Todo List</a>
         <a class="btn btn-primary" style="color:white; background-color: rgb(201, 150, 150); border:none;" data-toggle="modal" data-target="#createNotesModal">New Notes</a>
         <a class="btn btn-secondary" style="border:none; color:white;">Delete</a>
     </div>
@@ -92,6 +91,25 @@
 
                 <div class="box-body">
                     <ul class="todo-list ui-sortable">
+                        <?php for($count=0;$count<count($this->todolist);$count++): ?>
+                        <li>
+                            <span class="handle ui-sortable-handle">
+                                <i class="fa fa-ellipsis-v"></i>
+                                <i class="fa fa-ellipsis-v"></i>
+                            </span>
+                            <input type="checkbox" value="" name="">
+                            <span class="text"><?=$this->todolist[$count]->Todo_Item_Name; ?></span>
+
+                            <div class="tools">
+                                <a class="tool-link" href="#">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a class="tool-link" href="#">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <?php endfor; ?>
                         <li>
                             <span class="handle ui-sortable-handle">
                                 <i class="fa fa-ellipsis-v"></i>

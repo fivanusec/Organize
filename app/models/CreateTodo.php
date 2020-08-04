@@ -28,5 +28,4 @@ class CreateTodo{
             utils\Flash::warning($e->getMessage());
         }
     }
-
 }
