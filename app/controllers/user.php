@@ -27,7 +27,8 @@ class User extends core\Controller
 
     public function deletecard($Card, $userID = "")
     {
-        if (models\Cards::getDelete($Card)) {
+        if (models\Cards::getDelete($Card)) 
+        {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
     }
@@ -41,22 +42,26 @@ class User extends core\Controller
 
     public function updateTodo($TodoListID, $TodoID, $userID)
     {
-        if (models\UpdateTodo::_update($TodoListID)) {
+        if (models\UpdateTodo::_update($TodoListID)) 
+        {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
 
     public function deleteTodo($Todo_ID, $userID, $TodoID)
     {
-        if (models\Todo::getDelete($Todo_ID)) {
+        if (models\Todo::getDelete($Todo_ID)) 
+        {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
 
     public function uploadProfilePictrue($User_ID)
     {
-        if(models\UploadProfilePictrue::_upload($User_ID)){
-            if(models\UploadProfilePictrue::_createDB($User_ID)){
+        if(models\UploadProfilePictrue::_upload($User_ID))
+        {
+            if(models\UploadProfilePictrue::_createDB($User_ID))
+            {
                 utils\Redirect::to("/public/user/editUser/{$User_ID}");
             }
         }
@@ -72,7 +77,8 @@ class User extends core\Controller
 
     public function createCard(string $userID = "")
     {
-        if (!models\CreateCard::_create($userID)) {
+        if (!models\CreateCard::_create($userID)) 
+        {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
     }
@@ -86,7 +92,8 @@ class User extends core\Controller
 
     public function createTodo(string $userID = "", string $TodoID = "")
     {
-        if (!models\CreateTodo::_create($TodoID)) {
+        if (!models\CreateTodo::_create($TodoID)) 
+        {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
@@ -106,25 +113,31 @@ class User extends core\Controller
 
         if ($user) {
             $userSession = "USER";
-            if (utils\Session::sessionExists($userSession)) {
+            if (utils\Session::sessionExists($userSession)) 
+            {
                 $user = utils\Session::get($userSession);
             }
         }
 
-        if (!$User = models\User::getInstance($user)) {
+        if (!$User = models\User::getInstance($user)) 
+        {
             echo "Error";
         }
 
         if ($TodoID) {
-            if ($Todo = models\Todo::getInstance($TodoID)) {
+            if ($Todo = models\Todo::getInstance($TodoID)) 
+            {
                 $todo = $Todo->data();
-            } else {
+            } 
+            else 
+            {
                 $todo = [];
             }
         }
 
         $this->View->addCSS("css/todo.css");
-        $this->View->render('user/todo', [
+        $this->View->render('user/todo', 
+        [
             'title' => 'Todo',
             'user' => (new prezenter\User($User->data()))->present(),
             'todoID' => $TodoID,
@@ -148,26 +161,33 @@ class User extends core\Controller
 
         if ($user) {
             $userSession = "USER";
-            if (utils\Session::sessionExists($userSession)) {
+            if (utils\Session::sessionExists($userSession)) 
+            {
                 $user = utils\Session::get($userSession);
             }
         }
 
-        if (!$User = models\User::getInstance($user)) {
+        if (!$User = models\User::getInstance($user)) 
+        {
             echo "Error";
         }
 
-        if ($Card = models\Cards::getInstance($user)) {
+        if ($Card = models\Cards::getInstance($user)) 
+        {
             $cards = $Card->data();
-        } else {
+        } 
+        else 
+        {
             $cards = [];
         }
         
         $picture = "img/user.png";
 
-        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) {
+        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) 
+        {
             $profilepictrue = $ProfilePicture->data();
-            if(!empty($profilepictrue)){
+            if(!empty($profilepictrue))
+            {
                 $picture = $profilepictrue->Image_Dir;
             }
         }
@@ -175,7 +195,8 @@ class User extends core\Controller
         $this->View->addIMG($picture);
         $this->View->addJS("JS/organizeDash.js");
         $this->View->addCSS("css/organizeDash.css");
-        $this->View->render('user/dash', [
+        $this->View->render('user/dash', 
+        [
             'title' => "Dash",
             'user' => (new prezenter\User($User->data()))->present(),
             'cards' => ($cards)
@@ -196,27 +217,35 @@ class User extends core\Controller
 
         utils\Auth::checkAuth();
 
-        if ($user) {
+        if ($user) 
+        {
             $userSession = "USER";
-            if (utils\Session::sessionExists($userSession)) {
+            if (utils\Session::sessionExists($userSession)) 
+            {
                 $user = utils\Session::get($userSession);
             }
         }
 
-        if (!$User = models\User::getInstance($user)) {
+        if (!$User = models\User::getInstance($user)) 
+        {
             echo "Error";
         }
 
-        if($todoListID){
-            if($TodoList = models\TodoList::getInstance($todoListID)){
+        if($todoListID)
+        {
+            if($TodoList = models\TodoList::getInstance($todoListID))
+            {
                 $todolist = $TodoList->data();
-            }else{
+            }
+            else
+            {
                 $todolist = [];
             }
         }
 
         $this->View->addCSS("css/todoList.css");
-        $this->View->render('user/todo_list', [
+        $this->View->render('user/todo_list', 
+        [
             'title' => 'Todo List',
             'user' => (new prezenter\User($User->data()))->present(),
             'todolist' => ($todolist),
@@ -238,22 +267,27 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if ($user) {
+        if ($user) 
+        {
             $userSession = "USER";
-            if (utils\Session::sessionExists($userSession)) {
+            if (utils\Session::sessionExists($userSession)) 
+            {
                 $user = utils\Session::get($userSession);
             }
         }
 
-        if (!$User = models\User::getInstance($user)) {
+        if (!$User = models\User::getInstance($user)) 
+        {
             echo "Error";
         }
 
         $picture = "img/user.png";
 
-        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) {
+        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) 
+        {
             $profilepictrue = $ProfilePicture->data();
-            if(!empty($profilepictrue)){
+            if(!empty($profilepictrue))
+            {
                 $picture = $profilepictrue->Image_Dir;
             }
         }
@@ -261,7 +295,8 @@ class User extends core\Controller
         $this->View->addIMG($picture, "mx-auto img-fluid rounded-circle");
         $this->View->addJS("JS/edituser.js");
         $this->View->addCSS("css/editUser.css");
-        $this->View->render('user/editUser', [
+        $this->View->render('user/editUser', 
+        [
             'title' => 'Edit user',
             'user' => (new prezenter\User($User->data()))->present()
         ]);
@@ -278,14 +313,16 @@ class User extends core\Controller
 
     public function updateuser(string $user)
     {
-        if (!models\UpdateUser::updateuser($user)) {
+        if (!models\UpdateUser::updateuser($user)) 
+        {
             utils\Redirect::to("/public/user/editUser/{$user}");
         }
         utils\Redirect::to("/public/user/editUser/{$user}");
     }
 
     public function createTodoListItem(string $User_ID, string $TodoID, string $TodoListID){
-        if(!models\CreateTodoListItem::_create($TodoListID)){
+        if(!models\CreateTodoListItem::_create($TodoListID))
+        {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }

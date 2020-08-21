@@ -13,7 +13,8 @@ use app\utils;
  * @version 0.1[ALPHA]
 */
 
-class Login extends core\Controller{
+class Login extends core\Controller
+{
 
     /**
      * Initializes variables for usage in Login controller
@@ -29,12 +30,14 @@ class Login extends core\Controller{
      * @since 0.1[ALPHA]
      */
 
-    public function index(){
+    public function index()
+    {
         utils\Auth::checkUnAuth();
 
         $this->View->addCSS("css/signin.css");
         $this->View->addJS("JS/signin.js");
-        $this->View->renderMain('login/index',[
+        $this->View->renderMain('login/index',
+        [
            'title'=>'Log in'
         ]);
     }
@@ -48,10 +51,12 @@ class Login extends core\Controller{
      * @since 0.1[ALPHA]
      */
 
-    public function register(){
+    public function register()
+    {
         utils\Auth::checkUnAuth();
         
-        if(!models\UserRegister::_register()){
+        if(!models\UserRegister::_register())
+        {
             utils\Redirect::to("/public/login/index");
         }
         utils\Redirect::to("/public/login/index");
@@ -66,9 +71,11 @@ class Login extends core\Controller{
      * @since 0.1[ALPHA]
      */
     
-    public function login(){
+    public function login()
+    {
         utils\Auth::checkUnAuth();
-        if(models\UserLogin::_login()){
+        if(models\UserLogin::_login())
+        {
             $this->ID=utils\Session::get("USER");
             utils\Redirect::to("/public/user/dash/{$this->ID}");       
         }
@@ -84,15 +91,16 @@ class Login extends core\Controller{
      * @since 0.1[ALPHA]
      */
     
-    public function logOut($user=""){
-        if($user){
+    public function logOut($user="")
+    {
+        if($user)
+        {
             utils\Auth::checkAuth();
-            if(models\UserLogin::_logout()){
+            if(models\UserLogin::_logout())
+            {
                 utils\Redirect::to("/public/login/index");
             }
         }
         utils\Redirect::to("/public/user/dash/{$user}");
     }
 }
-
-

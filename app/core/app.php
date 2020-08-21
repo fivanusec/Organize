@@ -11,7 +11,8 @@ use Exception;
  * @version 0.1[ALPHA]
  */
 
-class App{
+class App
+{
     /** @var mixed Default controller class */
     private $controller='home';
 
@@ -21,24 +22,30 @@ class App{
     /** @var array Params that pass to Controller */
     private $params=[];
 
-    public function __construct(){
+    public function __construct()
+    {
         $url=$this->parseUrl();
         $this->getController($url);
         $this->getMethod($url);
         $this->getParams($url);       
     }
 
-    public function getMethod($url){
+    public function getMethod($url)
+    {
         if(isset($url[1])){
-            if(method_exists($this->controller, $url[1])){
+            if(method_exists($this->controller, $url[1]))
+            {
                 $this->method = $url[1];
             }
         }
     }
 
-    public function getController($url){
-        if(isset($url[0])){
-            if(file_exists(CONTROLLERS.$url[0].'.php')){
+    public function getController($url)
+    {
+        if(isset($url[0]))
+        {
+            if(file_exists(CONTROLLERS.$url[0].'.php'))
+            {
                 $this->controller=$url[0];
             }
         }
@@ -47,19 +54,23 @@ class App{
         $this->controller= new $this->controller;
     }
 
-    private function getParams($url){
+    private function getParams($url)
+    {
         unset($url[0]);
         unset($url[1]);
         $this->params = $url ? array_values($url) : [];
     }
 
-    public function parseUrl(){
-        if($url=Input::get("url")){
+    public function parseUrl()
+    {
+        if($url=Input::get("url"))
+        {
             return $url=explode('/',filter_var(rtrim($url, '/'), FILTER_SANITIZE_URL));
         }
     }
 
-    public function run(){
+    public function run()
+    {
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 }

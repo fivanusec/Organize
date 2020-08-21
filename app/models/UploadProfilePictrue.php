@@ -7,10 +7,13 @@ use Exception;
 
 class UploadProfilePictrue
 {
-    public static function _createDB($UserID){
-        try{
+    public static function _createDB($UserID)
+    {
+        try
+        {
             $Pictrue = new  ProfilePictrue;
-            $picture = $Pictrue->insertDB("profile_images",[
+            $picture = $Pictrue->insertDB("profile_images",
+            [
                 "Image_ID"=>rand(0, 9999999999),
                 "User_ID"=>$UserID,
                 "Image_Name"=>"ProfilePicture{$UserID}",
@@ -19,7 +22,8 @@ class UploadProfilePictrue
             utils\Flash::success("Profile picture succesfuly updated!");
             return true;
         }
-        catch(Exception $e){
+        catch(Exception $e)
+        {
             utils\Flash::danger($e->getMessage());
             return false;
         }
@@ -27,13 +31,16 @@ class UploadProfilePictrue
 
     public static function _upload($UserID)
     {
-        try {
+        try 
+        {
             $ProfilePictrue = new ProfilePictrue;
             $TargetFile = $_FILES['file'];
             $upload = $ProfilePictrue->uploadPictrue($TargetFile, $UserID);
             utils\Flash::success("Upload was successfull!");
             return $upload;
-        } catch (Exception $e) {
+        } 
+        catch (Exception $e) 
+        {
             utils\Flash::danger($e->getMessage());
             return false;
         }

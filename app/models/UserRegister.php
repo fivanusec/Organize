@@ -4,12 +4,16 @@ namespace app\models;
 use Exception;
 use app\utils;
 
-class UserRegister{
-    public static function _register(){
+class UserRegister
+{
+    public static function _register()
+    {
         $salt = utils\Hash::generateSalt(32);
-        try{
+        try
+        {
             $User=new User;
-            $userID = $User->createUser([
+            $userID = $User->createUser(
+            [
                 "ID"=>rand(0,9999999999),
                 "Name"=>utils\Input::post("name"),
                 "Surname"=>utils\Input::post("surname"),
@@ -22,7 +26,8 @@ class UserRegister{
             utils\Flash::success("Registration was successfull!");
             return $userID;
         }
-        catch(Exception $e){
+        catch(Exception $e)
+        {
             utils\Flash::info($e->getMessage());
         }
         return false;

@@ -2,9 +2,12 @@
 namespace app\prezenter;
 use app\core;
 
-class User extends core\Presenter{
-    public function format(){
-        return[
+class User extends core\Presenter
+{
+    public function format()
+    {
+        return
+        [
             "ID"=>$this->data->ID,
             "Name"=>$this->data->Name,
             "Surname"=>$this->data->Surname,

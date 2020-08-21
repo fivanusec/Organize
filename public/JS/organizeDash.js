@@ -7,20 +7,25 @@ var i;
 // Declare store variable
 var sentID;
 
-function loadPic() {
+function loadPic() 
+{
   document.getElementById("profilePicture").src = "img/user.png";
 }
 
 // List View
-function listView() {
-  for (i = 0; i < elements.length; i++) {
+function listView() 
+{
+  for (i = 0; i < elements.length; i++) 
+  {
     elements[i].style.width = "100%";
   }
 }
 
 // Grid View
-function gridView() {
-  for (i = 0; i < elements.length; i++) {
+function gridView() 
+{
+  for (i = 0; i < elements.length; i++) 
+  {
     elements[i].style.width = "49%";
   }
 }

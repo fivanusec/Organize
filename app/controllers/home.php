@@ -9,7 +9,8 @@
      *
     */
 
-    class Home extends core\Controller{
+    class Home extends core\Controller
+    {
 
         /**
          * Index: Renders home/index controller
@@ -19,10 +20,12 @@
          * @since 0.1[ALPHA]
          */
 
-        public function index(){
+        public function index()
+        {
             $this->View->addCSS("css/index.css");
             $this->View->addJS("JS/index.js");
-            $this->View->renderMain('home/index',[
+            $this->View->renderMain('home/index',
+            [
                 'title'=>'Organize!'
             ]);
         }

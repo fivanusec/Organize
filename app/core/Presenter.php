@@ -1,14 +1,17 @@
 <?php
 namespace app\core;
 
-class Presenter{
+class Presenter
+{
     protected $data =null;
     
-    public function __construct($data = []) {
+    public function __construct($data = []) 
+    {
         $this->data = (Object) $data;
     }
     
-    public function present() {
+    public function present()
+    {
         return((Object) $this->format());
     }
 }

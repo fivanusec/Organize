@@ -1,10 +1,12 @@
 <?php
 namespace app\core;
 
-class Controller{
+class Controller
+{
     protected $View=null;
     
-    public function __construct(){
+    public function __construct()
+    {
         $this->View= new View();
     }
 }

@@ -9,7 +9,8 @@ namespace app\core;
  * @version 0.1[ALPHA]
  */
 
-class View{
+class View
+{
     
     /** @var string for HTML <script> tag for loading external scripts */
     protected $_script="";
@@ -31,7 +32,8 @@ class View{
     * @since 0.1[ALPHA]
     */
 
-    public function render($view, array $data=[]){
+    public function render($view, array $data=[])
+    {
         $this->addData($data);
         $this->getFile(HEADER_MAIN);
         $this->getFile($view);
@@ -47,7 +49,8 @@ class View{
     * @since 0.1[ALPHA]
     */
 
-    public function renderWithoutHeader($view,array $data = []){
+    public function renderWithoutHeader($view,array $data = [])
+    {
         $this->addData($data);
         $this->getFile($view);
     }
@@ -61,7 +64,8 @@ class View{
     * @since 0.1[ALPHA]
     */
 
-    public function renderMain($view,array $data = []){
+    public function renderMain($view,array $data = [])
+    {
         $this->addData($data);
         $this->getFile(HEADER_FOR_MAIN);
         $this->getFile($view);
@@ -75,7 +79,8 @@ class View{
      * @since 0.1[ALPHA]
      */
     
-    public function escapeHTML($string) {
+    public function escapeHTML($string) 
+    {
         return(htmlentities($string, HTMLENTITIES_FLAGS, HTMLENTITIES_ENCODING, HTMLENTITIES_DOUBLE_ENCODE));
     }
 
@@ -86,8 +91,10 @@ class View{
      * @since 0.1[ALPHA]
      */
     
-    public function makeURL($path = "") {
-        if (is_array($path)) {
+    public function makeURL($path = "") 
+    {
+        if (is_array($path)) 
+        {
             return(APP_URL . implode("/", $path));
         }
         return(APP_URL . $path);
@@ -100,8 +107,10 @@ class View{
      * @since 0.1[ALPHA]
      */
 
-    public function addData(array $data) {
-        foreach ($data as $key => $value) {
+    public function addData(array $data) 
+    {
+        foreach ($data as $key => $value) 
+        {
             $this->{$key} = $value;
         }
     }
@@ -113,13 +122,17 @@ class View{
      * @since 0.1[ALPHA]
      */
 
-    public function addCSS($files){
-        if(!is_array($files)){
+    public function addCSS($files)
+    {
+        if(!is_array($files))
+        {
             $files=(array)$files;
         }
 
-        foreach($files as $file){
-            if (file_exists(PUBLIC_ROOT. $file)) {
+        foreach($files as $file)
+        {
+            if (file_exists(PUBLIC_ROOT. $file)) 
+            {
                 $this->_link .= '<link type="text/css" rel="stylesheet" href="' . $this->makeURL($file) . '" />' . "\n";
             }
         }
@@ -132,25 +145,33 @@ class View{
      * @since 0.1[ALPHA]
      */
 
-    public function addJS($files){
-        if(!is_array($files)){
+    public function addJS($files)
+    {
+        if(!is_array($files))
+        {
             $files=(array)$files;
         }
 
-        foreach($files as $file){
-            if (file_exists(PUBLIC_ROOT . $file)) {
+        foreach($files as $file)
+        {
+            if (file_exists(PUBLIC_ROOT . $file)) 
+            {
                 $this->_script .= '<script type="text/javascript" src="' . $this->makeURL($file) . '"></script>' . "\n";
             }
         }
     }
 
-    public function addIMG($files, $class="profilePic"){
-        if(!is_array($files)){
+    public function addIMG($files, $class="profilePic")
+    {
+        if(!is_array($files))
+        {
             $files = (array)$files;
         }
 
-        foreach($files as $file){
-            if(file_exists(PUBLIC_ROOT . $file)){
+        foreach($files as $file)
+        {
+            if(file_exists(PUBLIC_ROOT . $file))
+            {
                 $this->img .= '<img class="'.$class.'" id="profilePicture" alt="avatar" src="'.$this->makeURL($file).'"/>';
             }
         }
@@ -162,7 +183,8 @@ class View{
      * @return string
      */
 
-    public function getCSS(){
+    public function getCSS()
+    {
         return $this->_link;
     }
 
@@ -172,11 +194,13 @@ class View{
      * @return string
      */
 
-    public function getJS(){
+    public function getJS()
+    {
         return $this->_script;
     }
 
-    public function getIMG(){
+    public function getIMG()
+    {
         return $this->img;
     }
 
@@ -187,9 +211,11 @@ class View{
      * @return void
      */
 
-    public function getFile($file){
+    public function getFile($file)
+    {
         $filename=VIEW.$file.'.php';
-        if(file_exists($filename)){
+        if(file_exists($filename))
+        {
             require $filename;
         }
     }
