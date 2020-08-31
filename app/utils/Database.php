@@ -18,8 +18,8 @@ class Database
         {
             $host="localhost";
             $name="Organize";
-            $username="admin";
-            $password="password";
+            $username="root";
+            $password="";
             $this->_PDO=new PDO("mysql:host={$host};dbname={$name}", $username, $password);
             $this->_PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $this->_PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

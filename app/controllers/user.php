@@ -19,13 +19,49 @@ class User extends core\Controller
 {
 
     /**
+     * Updateuser: Updates user in Database
+     * @example user/updateuser
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param string $user
+     */
+
+    public function updateuser(string $user)
+    {
+        if (!models\UpdateUser::updateuser($user)) 
+        {
+            utils\Redirect::to("/public/user/editUser/{$user}");
+        }
+        utils\Redirect::to("/public/user/editUser/{$user}");
+    }
+
+    /**
+     * createCard: Sends user ID to create card
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param string $userID
+     */
+
+    public function createCard(string $userID = "")
+    {
+        if (!models\CreateCard::_create($userID)) 
+        {
+            utils\Redirect::to("/public/user/dash/{$userID}");
+        }
+    }
+
+    /**
      * deletecard: Deletes card and all of it's content
      * @access public
      * @return void
      * @since 0.1[ALPHA]
+     * @param $Card
+     * @param string $userID
      */
 
-    public function deletecard($Card, $userID = "")
+    public function deletecard($Card, string $userID = "")
     {
         if (models\Cards::getDelete($Card)) 
         {
@@ -33,20 +69,66 @@ class User extends core\Controller
         }
     }
 
-    public function updateCard($Card, $userID)
+    /**
+     * updatecard: Deletes card and all of it's content
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param $Card
+     * @param string $userID
+     */
+
+    public function updateCard($Card, string $userID)
     {
         if (models\UpdateCard::_update($Card)) {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
     }
 
-    public function updateTodo($TodoListID, $TodoID, $userID)
+    /**
+     * createTodo: Sends TODO ID to create TODO card
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param string $userID
+     * @param string $TodoID 
+     */
+
+    public function createTodo(string $userID = "", string $TodoID = "")
+    {
+        if (!models\CreateTodo::_create($TodoID)) 
+        {
+            utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
+        }
+    }
+
+    /**
+     * updateTodo: Updates TODO 
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param $TodoListID
+     * @param $TodoID
+     * @param string $userID
+     */
+
+    public function updateTodo($TodoListID, $TodoID, string $userID)
     {
         if (models\UpdateTodo::_update($TodoListID)) 
         {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
+
+    /**
+     * updateTodo: Deletes TODO
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param $Todo_ID
+     * @param string $userID
+     * @param $TodoID
+     */
 
     public function deleteTodo($Todo_ID, $userID, $TodoID)
     {
@@ -55,6 +137,14 @@ class User extends core\Controller
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
+
+    /**
+     * uploadProfilePictrue: Creates and uploads profile pictrue to /img
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param $User_ID
+     */
 
     public function uploadProfilePictrue($User_ID)
     {
@@ -69,32 +159,58 @@ class User extends core\Controller
     }
 
     /**
-     * createCard: Sends user ID to create card
+     * createTodoListItem: Creates and puts todo list item in database
      * @access public
      * @return void
      * @since 0.1[ALPHA]
+     * @param string $User_ID
+     * @param string $TodoID
+     * @param string $TodoListID
      */
 
-    public function createCard(string $userID = "")
+    public function createTodoListItem(string $User_ID, string $TodoID, string $TodoListID)
     {
-        if (!models\CreateCard::_create($userID)) 
+        if(!models\CreateTodoListItem::_create($TodoListID))
         {
-            utils\Redirect::to("/public/user/dash/{$userID}");
+            utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
 
     /**
-     * createTodo: Sends TODO ID to create TODO card
-     *  @access public
-     *  @return void
-     *  @since 0.1[ALPHA]
+     * deleteTodoListItem: Finds and deletes todo list item from database
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param string $User_ID
+     * @param string $Todo_ID
+     * @param string $TodoListID
+     * @param string $TodoItemID
      */
 
-    public function createTodo(string $userID = "", string $TodoID = "")
+    public function deleteTodoListItem(string $User_ID, string $TodoID, string $TodoListID, string $TodoItemID)
     {
-        if (!models\CreateTodo::_create($TodoID)) 
+        if(models\TodoList::getDelete($TodoItemID))
         {
-            utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
+            utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
+        }
+    }
+
+    /**
+     * updateTodoListItem: Finds and updates todo list item name from database
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param string $User_ID
+     * @param string $Todo_ID
+     * @param string $TodoListID
+     * @param string $TodoItemID
+     */
+
+    public function updateTodoListItem(string $User_ID, string $TodoID, string $TodoListID, string $TodoItemID)
+    {
+        if(models\UpdateTodoItem::_update($TodoItemID))
+        {
+            utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
 
@@ -104,7 +220,8 @@ class User extends core\Controller
      * @access public
      * @return void
      * @since 0.1[ALPHA]
-     * 
+     * @param string $user
+     * @param string $TodoID
      */
 
     public function todo(string $user = "", string $TodoID = "")
@@ -151,7 +268,7 @@ class User extends core\Controller
      * @access public
      * @return void
      * @since 0.1[ALPHA]
-     * 
+     * @param string $user
      */
 
     public function dash(string $user = "")
@@ -209,7 +326,9 @@ class User extends core\Controller
      * @access public
      * @return void
      * @since 0.1[ALPHA]
-     * 
+     * @param string $user
+     * @param string $TodoID
+     * @param string $odoListID
      */
 
     public function todoList(string $user = "", string $TodoID = "", string $todoListID = "")
@@ -260,7 +379,7 @@ class User extends core\Controller
      * @access public
      * @return void
      * @since 0.1[ALPHA]
-     * 
+     * @param $user
      */
 
     public function editUser(string $user = "")
@@ -300,30 +419,5 @@ class User extends core\Controller
             'title' => 'Edit user',
             'user' => (new prezenter\User($User->data()))->present()
         ]);
-    }
-
-    /**
-     * Updateuser: Updates user in Database
-     * @example user/updateuser
-     * @access public
-     * @return void
-     * @since 0.1[ALPHA]
-     * 
-     */
-
-    public function updateuser(string $user)
-    {
-        if (!models\UpdateUser::updateuser($user)) 
-        {
-            utils\Redirect::to("/public/user/editUser/{$user}");
-        }
-        utils\Redirect::to("/public/user/editUser/{$user}");
-    }
-
-    public function createTodoListItem(string $User_ID, string $TodoID, string $TodoListID){
-        if(!models\CreateTodoListItem::_create($TodoListID))
-        {
-            utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
-        }
     }
 }
