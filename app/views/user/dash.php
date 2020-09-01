@@ -36,21 +36,21 @@
       <?php for ($count = 0; $count < count($this->cards); $count++) : ?>
         <div class="column text-center">
           <div class="card-body">
-            <a id="del<?= $this->cards[$count]->Todo_ID; ?>" class="btn-del" href="#"><i class="fa fa-times"></i></a>
-            <h2><?= $this->cards[$count]->Card_Name; ?></h2>
-            <p><?= $this->cards[$count]->Card_Description; ?></p>
-            <button id="<?= $this->cards[$count]->Todo_ID; ?>" class="btn btn-secondary">Open</button>
-            <button class="btn btn-secondary" data-toggle="modal" data-target="#editModal<?=$this->cards[$count]->Card_ID;?>">Edit</button>
+            <a id="del<?= $this->cards[$count]->todoID; ?>" class="btn-del" href="#"><i class="fa fa-times"></i></a>
+            <h2><?= $this->cards[$count]->Name; ?></h2>
+            <p><?= $this->cards[$count]->Description; ?></p>
+            <button id="<?= $this->cards[$count]->todoID; ?>" class="btn btn-secondary">Open</button>
+            <button class="btn btn-secondary" data-toggle="modal" data-target="#editModal<?=$this->cards[$count]->ID;?>">Edit</button>
           </div>
         </div>
         <script>
-          document.getElementById("<?= $this->cards[$count]->Todo_ID; ?>").onclick = function() {
+          document.getElementById("<?= $this->cards[$count]->todoID; ?>").onclick = function() {
             window.location.href = "<?= $this->makeUrl("user/todo/{$this->user->ID}/{$this->cards[$count]->Todo_ID}"); ?>";
           }
         </script>
         <script>
-          document.getElementById("del<?= $this->cards[$count]->Todo_ID; ?>").onclick = function() {
-            window.location.href = "<?= $this->makeUrl("user/deletecard/{$this->cards[$count]->Card_ID}/{$this->user->ID}"); ?>";
+          document.getElementById("del<?= $this->cards[$count]->todoID; ?>").onclick = function() {
+            window.location.href = "<?= $this->makeUrl("user/deletecard/{$this->cards[$count]->ID}/{$this->user->ID}"); ?>";
           }
         </script>
       <?php endfor; ?>
@@ -79,7 +79,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="button" style="font-size: 24px;" data-toggle="modal" data-target="#createModal" onclick="createNewcard()">Create</button>
+              <button type="submit" class="button" style="font-size: 24px;" data-toggle="modal" data-target="#createModal">Create</button>
             </div>
           </form>
         </div>
@@ -89,7 +89,7 @@
 
   <!--Edit modal-->
   <?php for ($count = 0; $count < count($this->cards); $count++) : ?>
-    <div class="modal fade" id="editModal<?=$this->cards[$count]->Card_ID;?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editModal<?=$this->cards[$count]->ID; ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="form">
         <div class="modal-content">
           <div class="modal-header">
@@ -99,18 +99,18 @@
             </button>
           </div>
           <div class="modal-body" role="form">
-            <form method="POST" action="<?= $this->makeUrl("user/updateCard/{$this->cards[$count]->Card_ID}/{$this->user->ID}"); ?>">
+            <form method="POST" action="<?= $this->makeUrl("user/updateCard/{$this->cards[$count]->ID}/{$this->user->ID}"); ?>">
               <div class="form-group">
                 <label for="card-name" class="col-form-label">Name:</label>
-                <input name="cardNameEdit<?=$this->cards[$count]->Card_ID?>" type="text" class="form-control" id="name" value="<?= $this->cards[$count]->Card_Name; ?>">
+                <input name="cardNameEdit<?=$this->cards[$count]->ID; ?>" type="text" class="form-control" id="name" value="<?= $this->cards[$count]->Name; ?>">
               </div>
               <div class="form-group">
                 <label for="card-description" class="col-form-label">Description</label>
-                <input name="cardDescEdit<?=$this->cards[$count]->Card_ID?>" value="<?= $this->cards[$count]->Card_Description; ?>" type="text" class="form-control" id="description">
+                <input name="cardDescEdit<?=$this->cards[$count]->ID; ?>" value="<?= $this->cards[$count]->Description; ?>" type="text" class="form-control" id="description">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="button" style="font-size: 24px;" data-toggle="modal" data-target="#editModal<?= $this->cards[$count]->Card_ID; ?>">Update</button>
+                <button type="submit" class="button" style="font-size: 24px;" data-toggle="modal" data-target="#editModal<?= $this->cards[$count]->ID; ?>">Update</button>
               </div>
             </form>
           </div>

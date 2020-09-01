@@ -2,6 +2,10 @@
 namespace app\prezenter;
 use app\core;
 
+/**
+ * User presenter
+ */
+
 class User extends core\Presenter
 {
     public function format()

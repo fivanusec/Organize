@@ -7,11 +7,6 @@ var i;
 // Declare store variable
 var sentID;
 
-function loadPic() 
-{
-  document.getElementById("profilePicture").src = "img/user.png";
-}
-
 // List View
 function listView() 
 {

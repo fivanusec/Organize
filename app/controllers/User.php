@@ -5,7 +5,6 @@ namespace app\controllers;
 use app\core;
 use app\utils;
 use app\models;
-use app\models\ProfilePictrue;
 use app\prezenter;
 
 /**
@@ -316,7 +315,7 @@ class User extends core\Controller
         [
             'title' => "Dash",
             'user' => (new prezenter\User($User->data()))->present(),
-            'cards' => ($cards)
+            'cards' => (new prezenter\Cards($cards->data()))->present()
         ]);
     }
 

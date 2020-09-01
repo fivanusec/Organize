@@ -16,10 +16,10 @@ class Database
     {
         try
         {
-            $host="localhost";
-            $name="Organize";
-            $username="root";
-            $password="";
+            $host = Config::get("DATABASE_HOST");
+            $name = Config::get("DATABASE_NAME");
+            $username = Config::get("DATABASE_USERNAME");
+            $password = Config::get("DATABASE_PASSWORD");
             $this->_PDO=new PDO("mysql:host={$host};dbname={$name}", $username, $password);
             $this->_PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $this->_PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -52,7 +52,7 @@ class Database
                 $filed2=$where[3];
                 $field3=$where[5];
                 $value=$where[2];
-                $params =[":value"=>$value];
+                $params =[":value" => $value];
                 if(!$this->query("{$action} FROM {$tables[0]} INNER JOIN {$tables[1]} ON {$filed2} {$operator1} {$field3} WHERE {$tables[0]}.{$field1} {$operator} :value",$params)->error())
                 {
                     return $this;

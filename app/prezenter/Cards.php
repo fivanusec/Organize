@@ -1,7 +1,10 @@
 <?php
 namespace app\prezenter;
-
 use app\core;
+
+/**
+ * Cards presenter
+ */
 
 class Cards extends core\Presenter
 {
@@ -9,10 +12,10 @@ class Cards extends core\Presenter
     {
         return 
         [
-            "cardID"=>$this->data->Card_ID,
-            "cardName" => $this->data->Card_Name,
-            "cardDesc"=>$this->data->Card_Description
+            "ID"=>$this->data->Card_ID,
+            "Name" => $this->data->Card_Name,
+            "Description"=>$this->data->Card_Description,
+            "todoID" => $this->data->Todo_ID
         ];
     }
 }
-

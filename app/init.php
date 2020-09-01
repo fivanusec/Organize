@@ -17,6 +17,7 @@ define('CORE', ROOT . 'app' . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR
 define('CONTROLLERS', ROOT . 'app' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR);
 define("APP_PROTOCOL", stripos($_SERVER["SERVER_PROTOCOL"], "https") === true ? "https://" : "http://");
 define("APP_URL", str_replace("", "public/", dirname($_SERVER["SCRIPT_NAME"])) . "/");
+define("APP_CONFIG", APP . DIRECTORY_SEPARATOR . "config.php");
 define("HELLO", "HELLO");
 define("HTMLENTITIES_FLAGS", ENT_QUOTES);
 define("HTMLENTITIES_ENCODING", "UTF-8");
