@@ -330,7 +330,7 @@ class User extends core\Controller
         [
             'title' => "Dash",
             'user' => (new prezenter\User($User->data()))->present(),
-            'cards' => (new prezenter\Cards($cards->data()))->present()
+            'cards' => ($cards)
         ]);
     }
 
