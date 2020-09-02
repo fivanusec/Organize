@@ -16,7 +16,7 @@ use app\prezenter;
 
 class User extends core\Controller
 {
-
+    
     /**
      * Updateuser: Updates user in Database
      * @example user/updateuser
