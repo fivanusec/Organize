@@ -78,3 +78,4 @@ class Model{
         return(!empty($this->data));
     }
 }
+
