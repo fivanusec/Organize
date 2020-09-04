@@ -228,6 +228,17 @@ class User extends core\Controller
         }
     }
 
+    public function createNote(string $User_ID, string $TodoID, string $TodoListID)
+    {
+        if(models\Notes::getInstance($TodoListID))
+        {
+            if(models\updateNote::_update($TodoListID))
+            {
+                utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
+            }
+        }
+    }
+
     /**
      * Todo: Renders TODO View
      * @example user/todo

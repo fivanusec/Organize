@@ -67,10 +67,10 @@
                 </button>
             </div>
             <div class="modal-body" role="form">
-                <form method="POST" action="#">
+                <form method="POST" action="<?=$this->makeUrl("user/createNote/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}");?>">
                     <div class="form-group">
                         <label for="card-name" class="col-form-label">Name:</label>
-                        <input name="NotesName" type="text" class="form-control" id="name">
+                        <input name="noteName" type="text" class="form-control" id="name">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -107,7 +107,7 @@
                     <textarea rows="14" cols="65" style="resize:none; height: 276px;"></textarea>
                 </div>
                 <div class="box-footer clearfix no-border">
-                    <a type="button" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</a>
+                    <a href="<?=$this->makeUrl("user/updateNote/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}");?>" type="button" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</a>
                 </div>
             </div>
         </div>
