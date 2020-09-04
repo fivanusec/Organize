@@ -18,8 +18,8 @@ class Notes extends core\Model
 
     public function findNote($note)
     {
-        $field = filter_var($note, FILTER_VALIDATE_INT) ? "Todo_ID" : (is_numeric($note) ? "Todo_ID" : "Note_Name");
-        return($this->find(
+        $field = filter_var($note, FILTER_VALIDATE_INT) ? "Todo_List_ID" : (is_numeric($note) ? "Todo_List_ID" : "Note_Name");
+        return($this->findAll(
             "notes",
             [
                 $field,

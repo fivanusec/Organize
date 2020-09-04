@@ -219,12 +219,17 @@ class User extends core\Controller
 
     public function createNote(string $User_ID, string $TodoID, string $TodoListID)
     {
-        if(models\Notes::getInstance($TodoListID))
+        if(!models\CreateNote::_create($TodoListID))
         {
-            if(models\CreateNote::_create($TodoListID))
-            {
-                utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
-            }
+            utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
+        }
+    }
+
+    public function updateNote(string $NoteID, string $User_ID, string $TodoID, string $TodoListID)
+    {
+        if(models\updateNote::_update($NoteID))
+        {
+            utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
 
@@ -376,6 +381,18 @@ class User extends core\Controller
             }
         }
 
+        if($todoListID)
+        {
+            if($Notes = models\Notes::getInstance($todoListID))
+            {
+                $notes = $Notes->data();
+            }
+            else
+            {
+                $notes = [];
+            }
+        }
+
         $this->View->addCSS("css/todoList.css");
         $this->View->render('user/todo_list', 
         [
@@ -383,7 +400,8 @@ class User extends core\Controller
             'user' => (new prezenter\User($User->data()))->present(),
             'todolist' => ($todolist),
             'todolistID' =>$todoListID,
-            'todoID'=>$TodoID
+            'notes' => ($notes),
+            'todoID' => $TodoID
         ]);
     }
 
