@@ -67,7 +67,7 @@
                 </button>
             </div>
             <div class="modal-body" role="form">
-                <form method="POST" action="#">
+                <form method="POST" action="<?= $this->makeUrl("user/createNote/{$this->user->ID}/{$this->todoID}/{$this->todolistID}"); ?>">
                     <div class="form-group">
                         <label for="card-name" class="col-form-label">Name:</label>
                         <input name="TodoName" type="text" class="form-control" id="name">
@@ -98,7 +98,8 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="box box-aqua">
+            <?php for($count = 0; $count < count($this->notes); $count++): ?>
+                <div class="box box-aqua">
                 <div class="box-header ui-sortable-handle">
                     <i class="ion ion-clipboard"></i>
                     <h3 class="box-title">Notes: name</h3>
@@ -107,9 +108,10 @@
                     <textarea rows="14" cols="65" style="resize:none; height: 276px;"></textarea>
                 </div>
                 <div class="box-footer clearfix no-border">
-                    <a type="button" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</a>
+                    <a href="<?= $this->makeUrl("user/updateNote/{$this->user->ID}/{$this->todoID}/{$this->todolistID}"); ?>" type="button" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</a>
                 </div>
             </div>
+            <?php endfor; ?>
         </div>
         <div class="col-md-4">
             <div class="box box-aqua">

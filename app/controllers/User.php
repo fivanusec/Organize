@@ -228,6 +228,17 @@ class User extends core\Controller
         }
     }
 
+    public function updateNote(string $User_ID, string $TodoID, string $TodoListID)
+    {
+        if(models\Notes::getInstance($TodoListID))
+        {
+            if(models\UpdateNote::_update($TodoListID))
+            {
+                utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
+            }
+        }
+    }
+
     /**
      * Todo: Renders TODO View
      * @example user/todo
@@ -255,7 +266,8 @@ class User extends core\Controller
             echo "Error";
         }
 
-        if ($TodoID) {
+        if ($TodoID) 
+        {
             if ($Todo = models\Todo::getInstance($TodoID)) 
             {
                 $todo = $Todo->data();
@@ -290,7 +302,8 @@ class User extends core\Controller
 
         utils\Auth::checkAuth();
 
-        if ($user) {
+        if ($user) 
+        {
             $userSession = "USER";
             if (utils\Session::sessionExists($userSession)) 
             {
@@ -330,7 +343,7 @@ class User extends core\Controller
         [
             'title' => "Dash",
             'user' => (new prezenter\User($User->data()))->present(),
-            'cards' => (new prezenter\Cards($cards->data()))->present()
+            'cards' => ($cards)
         ]);
     }
 
@@ -383,7 +396,7 @@ class User extends core\Controller
             'user' => (new prezenter\User($User->data()))->present(),
             'todolist' => ($todolist),
             'todolistID' =>$todoListID,
-            'todoID'=>$TodoID
+            'todoID' => $TodoID
         ]);
     }
 
