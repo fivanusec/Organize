@@ -16,7 +16,7 @@ use app\prezenter;
 
 class User extends core\Controller
 {
-
+    
     /**
      * Updateuser: Updates user in Database
      * @example user/updateuser
@@ -315,7 +315,7 @@ class User extends core\Controller
         [
             'title' => "Dash",
             'user' => (new prezenter\User($User->data()))->present(),
-            'cards' => (new prezenter\Cards($cards->data()))->present()
+            'cards' => ($cards)
         ]);
     }
 

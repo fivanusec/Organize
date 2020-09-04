@@ -70,7 +70,7 @@
                 <form method="POST" action="#">
                     <div class="form-group">
                         <label for="card-name" class="col-form-label">Name:</label>
-                        <input name="TodoName" type="text" class="form-control" id="name">
+                        <input name="NotesName" type="text" class="form-control" id="name">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
