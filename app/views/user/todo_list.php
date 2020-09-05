@@ -98,11 +98,6 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <?php for($count = 0; $count < count($this->notes); $count++): ?>
-        <div class="col-md-4">
-            <div class="box box-aqua">
-                <div class="box-header ui-sortable-handle">
-                        <i class="ion ion-clipboard"></i>
-                        <h3 class="box-title">Notes: <?= $this->notes[$count]->Note_Name; ?></h3>
                 </div>
                 <form  metohd="POST" action = "<?=$this->makeUrl("user/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
                    <div class = "form-group">
