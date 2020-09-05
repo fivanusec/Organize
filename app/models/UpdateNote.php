@@ -23,6 +23,6 @@ class UpdateNote
 		{
 			utils\Flash::info($e->getMessage());
 		}
-		//return false;
+		return false;
 	}
 }

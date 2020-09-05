@@ -104,7 +104,7 @@
                         <i class="ion ion-clipboard"></i>
                         <h3 class="box-title">Notes: <?= $this->notes[$count]->Note_Name; ?></h3>
                 </div>
-               <form  metohd="POST" action = "<?=$this->makeUrl("user/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
+                <form  metohd="POST" action = "<?=$this->makeUrl("user/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
                    <div class = "form-group">
                         <textarea name="noteData<?= $this->notes[$count]->Note_ID; ?>" id="note-text" class="form-control" rows="14" cols="65" style="resize:none; height: 276px;"> <?= $this->notes[$count]->Note_Data; ?></textarea>
                    </div>
