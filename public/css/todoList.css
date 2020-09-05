@@ -100,3 +100,8 @@
 .tool-link:hover{
     text-decoration: none;
 }
+
+#notes-text
+{
+    resize: none;
+}

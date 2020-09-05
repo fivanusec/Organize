@@ -295,7 +295,8 @@ class User extends core\Controller
 
         utils\Auth::checkAuth();
 
-        if ($user) {
+        if ($user) 
+        {
             $userSession = "USER";
             if (utils\Session::sessionExists($userSession)) 
             {

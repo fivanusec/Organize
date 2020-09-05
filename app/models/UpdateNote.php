@@ -13,10 +13,9 @@ class UpdateNote
 			$note = new Notes;
 			$note->updateNote(
 				[
-					"Note_Data" => utils\Input::post("noteData{$NoteID}")
+					"Note_Data" => utils\Input::request('noteData'. $NoteID)
 				],
 			$NoteID);
-
 			utils\Flash::success("Note succesfully updated!");
 			return true;
 		}
@@ -24,6 +23,6 @@ class UpdateNote
 		{
 			utils\Flash::info($e->getMessage());
 		}
-		return false;
+		//return false;
 	}
 }
