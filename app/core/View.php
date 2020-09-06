@@ -21,6 +21,7 @@ class View
     /** @var string the title of the page */
     protected $title="";
 
+    /** @var string for HTML <img> tag for loading profile image */
     protected $img="";
 
     /**
@@ -161,6 +162,13 @@ class View
         }
     }
 
+    /**
+     * Adds img to called view in form of <img> tag
+     * @param mixed $img
+     * @return void
+     * @since 0.1[ALPHA]
+     */
+
     public function addIMG($files, $class="profilePic")
     {
         if(!is_array($files))
@@ -198,6 +206,12 @@ class View
     {
         return $this->_script;
     }
+
+    /**
+     * Return <img> tag that loads profile picture
+     * @access public
+     * @return string
+     */
 
     public function getIMG()
     {

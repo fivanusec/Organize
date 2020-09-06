@@ -15,4 +15,3 @@ class Presenter
         return((Object) $this->format());
     }
 }
-

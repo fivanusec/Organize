@@ -70,7 +70,7 @@
                 <form method="POST" action="<?= $this->makeUrl("user/createNote/{$this->user->ID}/{$this->todoID}/{$this->todolistID}"); ?>">
                     <div class="form-group">
                         <label for="card-name" class="col-form-label">Name:</label>
-                        <input name="NotesName" type="text" class="form-control" id="name">
+                        <input name="noteName" type="text" class="form-control" id="name">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -97,19 +97,17 @@
 <!--Cards that show notes and todo list-->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <?php for($count = 0; $count < count($this->notes); $count++): ?>
-                <div class="box box-aqua">
-                <div class="box-header ui-sortable-handle">
-                    <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">Notes: name</h3>
+        <?php for($count = 0; $count < count($this->notes); $count++): ?>
                 </div>
-                <div class="box-body text-center">
-                    <textarea rows="14" cols="65" style="resize:none; height: 276px;"></textarea>
-                </div>
-                <div class="box-footer clearfix no-border">
-                    <a href="<?= $this->makeUrl("user/updateNote/{$this->user->ID}/{$this->todoID}/{$this->todolistID}"); ?>" type="button" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</a>
-                </div>
+                <form  metohd="POST" action = "<?=$this->makeUrl("user/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
+                   <div class = "form-group">
+                        <textarea name="noteData<?= $this->notes[$count]->Note_ID; ?>" id="note-text" class="form-control" rows="14" cols="65" style="resize:none; height: 276px;"> <?= $this->notes[$count]->Note_Data; ?></textarea>
+                   </div>
+                   <div class="box-footer clearfix no-border">
+                        <button type="submit" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</button>
+                        <a type="button" class="btn btn-default pull-right"><i class="fa fa-trash"></i> Delete notes</a>
+                   </div>
+               </form>
             </div>
             <?php endfor; ?>
         </div>

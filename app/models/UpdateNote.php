@@ -6,24 +6,23 @@ use Exception;
 
 class UpdateNote
 {
-    public static function _update($TodoListID)
-    {
-        try
-        {
-            $notes = new Notes;
-            $notes->updateNote(
-                [
-                    "Note_Data" => utils\Input::post("noteData")
-                ],
-            $TodoListID);
-            
-            utils\Flash::success("Note updated successfully!");
-            return true;
-        }
-        catch(Exception $e)
-        {
-            utils\Flash::info($e->getMessage());
-        }
-        return false;
-    }
+	public static function _update($NoteID)
+	{
+		try
+		{
+			$note = new Notes;
+			$note->updateNote(
+				[
+					"Note_Data" => utils\Input::request('noteData'. $NoteID)
+				],
+			$NoteID);
+			utils\Flash::success("Note succesfully updated!");
+			return true;
+		}
+		catch(Exception $e)
+		{
+			utils\Flash::info($e->getMessage());
+		}
+		return false;
+	}
 }

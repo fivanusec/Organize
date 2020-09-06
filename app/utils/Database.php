@@ -151,6 +151,7 @@ class Database
                 }
                 $x ++;
             }
+            var_dump($fields);
             if (!$this->query("UPDATE {$table} SET {$set} WHERE {$fieldName} = {$id}", $params)->error()) 
             {
                 return true;
