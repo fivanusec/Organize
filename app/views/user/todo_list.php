@@ -1,4 +1,5 @@
-<?= $this->getCSS();?>
+<?= $this->getCSS(); ?>
+<?= $this->getJS(); ?>
 
 <!--Modal for todo list-->
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
@@ -122,21 +123,27 @@
                     <ul class="todo-list ui-sortable">
                         <?php for($count=0; $count<count($this->todolist); $count++): ?>
                         <li>
-                            <span class="handle ui-sortable-handle">
-                                <i class="fa fa-ellipsis-v"></i>
-                                <i class="fa fa-ellipsis-v"></i>
-                            </span>
-                            <input type="checkbox" value="" name="">
-                            <span class="text"><?=$this->todolist[$count]->Todo_Item_Name; ?></span>
+                            <form method="POST" action="<?= $this->makeUrl("user/finishTask/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}")?>">
+                                <span class="handle ui-sortable-handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <?php if($this->todolist->Todo_Item_Completion == 1): ?>
+                                    <input onload="disable()" class="check-box-item disable" type="checkbox" checked="false" value="1" name="checkBoxItem<?= $this->todolist->Todo_Item_ID; ?>">
+                                <?php else: ?>
+                                    <input class="check-box-item" type="checkbox" checked="true" value="0" name="checkBoxItem<?= $this->todolist->Todo_Item_ID; ?>">
+                                <?php endif;?>
+                                <span class="text"><?=$this->todolist[$count]->Todo_Item_Name; ?></span>
 
-                            <div class="tools">
-                                <a href="" class="tool-link"  data-toggle="modal" data-target="#editModal<?= $this->todolist[$count]->Todo_Item_ID; ?>">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                <a class="tool-link" href="<?=$this->makeUrl("user/deleteTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}");?>">
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
-                            </div>
+                                <div class="tools">
+                                    <a href="" class="tool-link"  data-toggle="modal" data-target="#editModal<?= $this->todolist[$count]->Todo_Item_ID; ?>">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a class="tool-link" href="<?=$this->makeUrl("user/deleteTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}");?>">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                </div>
+                            </form>
                         </li>
                         <?php endfor; ?>
                     </ul>
