@@ -214,7 +214,25 @@ class User extends core\Controller
     }
 
     /**
-     * TESTING 
+     * Testing
+     */
+
+    public function finishTask(string $User_ID, string $TodoID, string $TodoListID, string $TodoItemID)
+    {
+        if(models\UpdateTodoItem::_finish($TodoItemID))
+        {
+            utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
+        }
+    }
+
+    /**
+     * createNote: Creates note on Todo list page
+     * @access public
+     * @return void
+     * @since ALPHA[0.1]
+     * @param string $User_ID
+     * @param string $TodoID
+     * @param string $TodoListID
      */
 
     public function createNote(string $User_ID, string $TodoID, string $TodoListID)
@@ -224,6 +242,17 @@ class User extends core\Controller
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
+
+    /**
+     * updateNote: Finds and updates notes data acording to textarea on Todo list page
+     * @access public
+     * @return void
+     * @since ALPHA[0.1]
+     * @param $NoteID
+     * @param string $User_ID
+     * @param string $TodoID
+     * @param string $TodoListID
+     */
 
     public function updateNote(string $NoteID, string $User_ID, string $TodoID, string $TodoListID)
     {
@@ -272,6 +301,7 @@ class User extends core\Controller
         }
 
         $this->View->addCSS("css/todo.css");
+        $this->View->addJS("JS/TodoList.js");
         $this->View->render('user/todo', 
         [
             'title' => 'Todo',

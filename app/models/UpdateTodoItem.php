@@ -25,5 +25,26 @@ class UpdateTodoItem
             utils\Flash::danger($e->getMessage());
             return false;
         }
-	}
+    }
+    
+    public static function _finish($TodoItemID)
+    {
+        try
+        {
+            $todo = new TodoList;
+            $todo->updateItem(
+            [
+                "Todo_Item_Completion"=>utils\Input::post("checkBoxItem{$TodoItemID}"),
+            ],
+            $TodoItemID);
+
+            utils\Flash::success("Well done!");
+            return true;
+        }
+        catch(Exception $e)
+        {
+            utils\Flash::danger($e->getMessage());
+            return false;
+        }
+    }
 }
