@@ -301,7 +301,6 @@ class User extends core\Controller
         }
 
         $this->View->addCSS("css/todo.css");
-        $this->View->addJS("JS/TodoList.js");
         $this->View->render('user/todo', 
         [
             'title' => 'Todo',
@@ -425,6 +424,7 @@ class User extends core\Controller
         }
 
         $this->View->addCSS("css/todoList.css");
+        $this->View->addJS("JS/TodoList.js");
         $this->View->render('user/todo_list', 
         [
             'title' => 'Todo List',

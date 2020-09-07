@@ -99,19 +99,24 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <?php for($count = 0; $count < count($this->notes); $count++): ?>
+            <div class="col-md-4">
+                <div class="box box-aqua" role="form">
+                    <div class="box-header ui-sortable-handle">
+                        <i class="ion ion-clipboard"></i>
+                            <h3 class="box-title">Notes: <?= $this->notes[$count]->Note_Name; ?></h3>
+                    </div>
+                    <from method = "POST" action="<?=$this->makeURL("user/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
+                        <div class="box-body text-center form-group">
+                            <textarea name="noteData<?= $this->notes[$count]->Note_ID; ?>" rows="14" cols="65" style="resize:none; height: 276px;"><?= $this->notes[$count]->Note_Data; ?></textarea>
+                        </div>
+                        <div class="box-footer clearfix no-border">
+                            <button type="submit" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</button>
+                            <a type="button" class="btn btn-default pull-right"><i class="fa fa-trash"></i> Delete notes</a>
+                        </div>
+                    </from>
                 </div>
-                <form  metohd="POST" action = "<?=$this->makeUrl("user/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
-                   <div class = "form-group">
-                        <textarea name="noteData<?= $this->notes[$count]->Note_ID; ?>" id="note-text" class="form-control" rows="14" cols="65" style="resize:none; height: 276px;"> <?= $this->notes[$count]->Note_Data; ?></textarea>
-                   </div>
-                   <div class="box-footer clearfix no-border">
-                        <button type="submit" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</button>
-                        <a type="button" class="btn btn-default pull-right"><i class="fa fa-trash"></i> Delete notes</a>
-                   </div>
-               </form>
             </div>
-            <?php endfor; ?>
-        </div>
+        <?php endfor; ?>
         <div class="col-md-4">
             <div class="box box-aqua">
                 <div class="box-header ui-sortable-handle">
@@ -127,12 +132,20 @@
                                     <i class="fa fa-ellipsis-v"></i>
                                     <i class="fa fa-ellipsis-v"></i>
                                 </span>
-                                <?php if($this->todolist->Todo_Item_Completion == 1): ?>
-                                    <input onload="disable()" class="check-box-item disable" type="checkbox" checked="false" value="1" name="checkBoxItem<?= $this->todolist->Todo_Item_ID; ?>">
+                                <?php if($this->todolist[$count]->Todo_Item_Completion != "0"): ?>
+                                    <input id ="item<?=  $this->todolist[$count]->Todo_Item_ID; ?>" class="check-box-item disable" type="checkbox" checked="true" value="0" name="checkBoxItem<?= $this->todolist[$count]->Todo_Item_ID; ?>" disabled>
+                                    <span class="text disable" id="text<?= $this->todolist[$count]->Todo_Item_ID; ?>"><?=$this->todolist[$count]->Todo_Item_Name; ?></span>
                                 <?php else: ?>
-                                    <input class="check-box-item" type="checkbox" checked="true" value="0" name="checkBoxItem<?= $this->todolist->Todo_Item_ID; ?>">
+                                    <input id="item<?=  $this->todolist[$count]->Todo_Item_ID; ?>" class="check-box-item" type="checkbox" value="1" name="checkBoxItem<?= $this->todolist[$count]->Todo_Item_ID; ?>">
+                                    <span class="text" id="text<?= $this->todolist[$count]->Todo_Item_ID; ?>"><?=$this->todolist[$count]->Todo_Item_Name; ?></span>
+                                    <script>
+                                        document.getElementById("item<?= $this->todolist[$count]->Todo_Item_ID; ?>").onclick = function()
+                                        {
+                                            disable(<?=  $this->todolist[$count]->Todo_Item_ID; ?>);
+                                            window.location.href = "<?= $this->makeUrl("user/finishTask/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}"); ?>";
+                                        }
+                                    </script>
                                 <?php endif;?>
-                                <span class="text"><?=$this->todolist[$count]->Todo_Item_Name; ?></span>
 
                                 <div class="tools">
                                     <a href="" class="tool-link"  data-toggle="modal" data-target="#editModal<?= $this->todolist[$count]->Todo_Item_ID; ?>">

@@ -1,6 +1,8 @@
-function disable()
+function disable(id)
 {
-    document.getElementsByClassName('check-box-item disable').disabled = true;
-    let text = document.getElementsByClassName('text');
-    text.classList.add(" disable");
+    $("#item" + id).prop('disabled', true);
+    if($("#item" + id).is(":checked"))
+    {
+        $("#text" + id).addClass(" disable");
+    }
 }

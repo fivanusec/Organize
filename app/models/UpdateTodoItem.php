@@ -34,7 +34,7 @@ class UpdateTodoItem
             $todo = new TodoList;
             $todo->updateItem(
             [
-                "Todo_Item_Completion"=>utils\Input::post("checkBoxItem{$TodoItemID}"),
+                "Todo_Item_Completion"=>utils\Input::post('checkBoxItem' . $TodoItemID) != "on"
             ],
             $TodoItemID);
 
