@@ -1,26 +1,24 @@
 <?php
 namespace app\utils;
-use app\utils;
 
 class Auth{
-
-    public static function checkAuth($redirect="login/index")
+    public static function checkAuth($redirect="Login/index")
     {
-        utils\Session::sessionStart();
-        if(!utils\Session::sessionExists("USER"))
+        Session::sessionStart();
+        if(!Session::sessionExists(Config::get("SESSION_USER")))
         {
-            utils\Session::closeSession();
-            utils\Redirect::to(APP_URL . $redirect);
+            Session::closeSession();
+            Redirect::to(APP_URL . $redirect);
         }
     }
     
-    public static function checkUnAuth($redirect="user/dash")
+    public static function checkUnAuth($redirect="User/dash")
     {
-        utils\Session::sessionStart();
-        if(utils\Session::sessionExists("USER"))
+        Session::sessionStart();
+        if(Session::sessionExists(Config::get("SESSION_USER")))
         {
-            $ID = Session::get("USER");
-            utils\Redirect::to(APP_URL . $redirect."/{$ID}");
+            $ID = Session::get(Config::get("SESSION_USER"));
+            Redirect::to(APP_URL . $redirect."/{$ID}");
         }
     }
 }

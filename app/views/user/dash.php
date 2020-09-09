@@ -11,11 +11,11 @@
         <h2><?= $this->user->Name . " " . $this->user->Surname; ?></h2>
         <p><?= $this->user->Type; ?></p>
       <?php endif; ?>
-      <button id="editUser" class="button" style="margin-left:215px;margin-top:-85px" href="<?= $this->makeUrl("user/editUser/{$this->user->ID}"); ?>">
+      <button id="editUser" class="button" style="margin-left:215px;margin-top:-85px" href="<?= $this->makeUrl("User/editUser/{$this->user->ID}"); ?>">
         <i class="fa fa-edit"></i> Edit</button>
       <script>
         document.getElementById("editUser").onclick = function() {
-          window.location.href = "<?= $this->makeUrl("user/edituser/{$this->user->ID}"); ?>";
+          window.location.href = "<?= $this->makeUrl("User/edituser/{$this->user->ID}"); ?>";
         }
       </script>
     </div>
@@ -45,12 +45,12 @@
         </div>
         <script>
           document.getElementById("<?= $this->cards[$count]->Todo_ID; ?>").onclick = function() {
-            window.location.href = "<?= $this->makeUrl("user/todo/{$this->user->ID}/{$this->cards[$count]->Todo_ID}"); ?>";
+            window.location.href = "<?= $this->makeUrl("User/todo/{$this->user->ID}/{$this->cards[$count]->Todo_ID}"); ?>";
           }
         </script>
         <script>
           document.getElementById("del<?= $this->cards[$count]->Todo_ID; ?>").onclick = function() {
-            window.location.href = "<?= $this->makeUrl("user/deletecard/{$this->cards[$count]->Card_ID}/{$this->user->ID}"); ?>";
+            window.location.href = "<?= $this->makeUrl("User/deletecard/{$this->cards[$count]->Card_ID}/{$this->user->ID}"); ?>";
           }
         </script>
       <?php endfor; ?>
@@ -68,7 +68,7 @@
           </button>
         </div>
         <div class="modal-body" role="form">
-          <form method="POST" action="<?= $this->makeUrl("user/createCard/{$this->user->ID}"); ?>">
+          <form method="POST" action="<?= $this->makeUrl("User/createCard/{$this->user->ID}"); ?>">
             <div class="form-group">
               <label for="card-name" class="col-form-label">Name:</label>
               <input name="cardName" type="text" class="form-control" id="name">
@@ -99,7 +99,7 @@
             </button>
           </div>
           <div class="modal-body" role="form">
-            <form method="POST" action="<?= $this->makeUrl("user/updateCard/{$this->cards[$count]->Card_ID}/{$this->user->ID}"); ?>">
+            <form method="POST" action="<?= $this->makeUrl("User/updateCard/{$this->cards[$count]->Card_ID}/{$this->user->ID}"); ?>">
               <div class="form-group">
                 <label for="card-name" class="col-form-label">Name:</label>
                 <input name="cardNameEdit<?=$this->cards[$count]->Card_ID?>" type="text" class="form-control" id="name" value="<?= $this->cards[$count]->Card_Name; ?>">

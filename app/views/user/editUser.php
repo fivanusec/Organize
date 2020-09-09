@@ -6,11 +6,11 @@
             <h2 class="text-center font-weight-light">User profile</h2>
         </div>
         <div class="col-lg-8">
-            <a href="<?= $this->makeURL("user/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="color:white; border:none;">Dashboard</a>
+            <a href="<?= $this->makeURL("User/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="color:white; border:none;">Dashboard</a>
         </div>
         <br>
         <div class="col-lg-8 order-lg-1 personal-info">
-            <form action="<?= $this->makeUrl("user/updateuser/{$this->user->ID}"); ?>" role="form" method="POST">
+            <form action="<?= $this->makeUrl("User/updateuser/{$this->user->ID}"); ?>" role="form" method="POST">
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">First name</label>
                     <div class="col-lg-9">
@@ -85,7 +85,7 @@
         <div class="col-lg-4 order-lg-0 text-center">
             <?= $this->getIMG(); ?>
             <h6 class="my-4">Upload a new photo</h6>
-            <form method="POST" enctype="multipart/form-data" action="<?= $this->makeURL("user/uploadProfilePictrue/{$this->user->ID}"); ?>">
+            <form method="POST" enctype="multipart/form-data" action="<?= $this->makeURL("User/uploadProfilePictrue/{$this->user->ID}"); ?>">
                 <div class="input-group px-xl-4">
                     <div class="custom-file">
                         <input name="file" type="file" class="custom-file-input" id="inputGroupFile02">

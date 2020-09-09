@@ -22,11 +22,11 @@
             </div>
             <?php
             if(isset($_SESSION["USER"])){
-                echo '<a href="'.$this->makeURL("user/dash").'" onclick="setOnLoad(this.id)" class="nav-link" id="signinBtn" style="color: white;">
+                echo '<a href="'.$this->makeURL("User/dash").'" onclick="setOnLoad(this.id)" class="nav-link" id="signinBtn" style="color: white;">
                         My organize
                     </a>';
             }else{
-                echo '<a href="'.$this->makeURL("login/index").'" onclick="setOnLoad(this.id)" class="nav-link" id="signinBtn" style="color: white;">
+                echo '<a href="'.$this->makeURL("Login/index").'" onclick="setOnLoad(this.id)" class="nav-link" id="signinBtn" style="color: white;">
                         Sign in
                     </a>';
             }

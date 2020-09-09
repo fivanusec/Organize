@@ -14,7 +14,7 @@
     <div class="tab-pane fade in" id="signin">
       <title>Sign in</title>
       <br>
-        <form method="POST" action="<?=$this->makeUrl("login/login"); ?>">
+        <form method="POST" action="<?=$this->makeUrl("Login/login"); ?>">
             <div class="row justify-content-center text-left">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -38,7 +38,7 @@
     <div class="tab-pane fade in" id="register">
       <br>
         <title>Register</title>
-          <form method="POST" action="<?=$this->makeUrl("login/register"); ?>">
+          <form method="POST" action="<?=$this->makeUrl("Login/register"); ?>">
               <div class="row justify-content-center text-left">
                   <div class="col-md-6">
                       <div class="form-group">

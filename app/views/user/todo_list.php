@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="modal-body" role="form">
-                <form method="POST" action="<?=$this->makeUrl("user/createTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
+                <form method="POST" action="<?=$this->makeUrl("User/createTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
                     <div class="form-group">
                         <label for="card-name" class="col-form-label">Name:</label>
                         <input name="TodoName" type="text" class="form-control" id="name">
@@ -40,7 +40,7 @@
                 </button>
             </div>
             <div class="modal-body" role="form">
-                <form method="POST" action="<?=$this->makeUrl("user/updateTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}");?>">
+                <form method="POST" action="<?=$this->makeUrl("User/updateTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}");?>">
                     <div class="form-group">
                         <label for="card-name" class="col-form-label">Name:</label>
                         <input name="TodoName<?= $this->todolist[$count]->Todo_Item_ID; ?>" type="text" class="form-control" value="<?= $this->todolist[$count]->Todo_Item_Name; ?>" id="name">
@@ -68,7 +68,7 @@
                 </button>
             </div>
             <div class="modal-body" role="form">
-                <form method="POST" action="<?= $this->makeUrl("user/createNote/{$this->user->ID}/{$this->todoID}/{$this->todolistID}"); ?>">
+                <form method="POST" action="<?= $this->makeUrl("User/createNote/{$this->user->ID}/{$this->todoID}/{$this->todolistID}"); ?>">
                     <div class="form-group">
                         <label for="card-name" class="col-form-label">Name:</label>
                         <input name="noteName" type="text" class="form-control" id="name">
@@ -89,7 +89,7 @@
     <div class="button-box text-center">
         <br>
         <a class="btn btn-primary" style="color:white; background-color: rgb(201, 150, 150); border:none;" data-toggle="modal" data-target="#createNotesModal">New Notes</a>
-        <a href="<?= $this->makeURL("user/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="border:none; color:white;">Dashboard</a>
+        <a href="<?= $this->makeURL("User/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="border:none; color:white;">Dashboard</a>
     </div>
     <br>
 </div>
@@ -105,7 +105,7 @@
                         <i class="ion ion-clipboard"></i>
                             <h3 class="box-title">Notes: <?= $this->notes[$count]->Note_Name; ?></h3>
                     </div>
-                    <from method = "POST" action="<?=$this->makeURL("user/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
+                    <from method = "POST" action="<?=$this->makeURL("User/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
                         <div class="box-body text-center form-group">
                             <textarea name="noteData<?= $this->notes[$count]->Note_ID; ?>" rows="14" cols="65" style="resize:none; height: 276px;"><?= $this->notes[$count]->Note_Data; ?></textarea>
                         </div>
@@ -127,7 +127,7 @@
                     <ul class="todo-list ui-sortable">
                         <?php for($count=0; $count<count($this->todolist); $count++): ?>
                         <li>
-                            <form method="POST" action="<?= $this->makeUrl("user/finishTask/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}")?>">
+                            <form method="POST" action="<?= $this->makeUrl("User/finishTask/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}")?>">
                                 <span class="handle ui-sortable-handle">
                                     <i class="fa fa-ellipsis-v"></i>
                                     <i class="fa fa-ellipsis-v"></i>
@@ -142,7 +142,7 @@
                                         document.getElementById("item<?= $this->todolist[$count]->Todo_Item_ID; ?>").onclick = function()
                                         {
                                             disable(<?=  $this->todolist[$count]->Todo_Item_ID; ?>);
-                                            window.location.href = "<?= $this->makeUrl("user/finishTask/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}"); ?>";
+                                            window.location.href = "<?= $this->makeUrl("User/finishTask/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}"); ?>";
                                         }
                                     </script>
                                 <?php endif;?>
@@ -151,7 +151,7 @@
                                     <a href="" class="tool-link"  data-toggle="modal" data-target="#editModal<?= $this->todolist[$count]->Todo_Item_ID; ?>">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a class="tool-link" href="<?=$this->makeUrl("user/deleteTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}");?>">
+                                    <a class="tool-link" href="<?=$this->makeUrl("User/deleteTodoListItem/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}");?>">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                 </div>

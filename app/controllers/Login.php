@@ -57,9 +57,9 @@ class Login extends core\Controller
         
         if(!models\UserRegister::_register())
         {
-            utils\Redirect::to("/public/login/index");
+            utils\Redirect::to("/public/Login/index");
         }
-        utils\Redirect::to("/public/login/index");
+        utils\Redirect::to("/public/Login/index");
     }
 
     /**
@@ -76,10 +76,10 @@ class Login extends core\Controller
         utils\Auth::checkUnAuth();
         if(models\UserLogin::_login())
         {
-            $this->ID=utils\Session::get("USER");
-            utils\Redirect::to("/public/user/dash/{$this->ID}");       
+            $this->ID=utils\Session::get(utils\Config::get("SESSION_USER"));
+            utils\Redirect::to("/public/User/dash/{$this->ID}");       
         }
-        utils\Redirect::to("/public/login/index");
+        utils\Redirect::to("/public/Login/index");
     }
 
     /**
@@ -98,9 +98,9 @@ class Login extends core\Controller
             utils\Auth::checkAuth();
             if(models\UserLogin::_logout())
             {
-                utils\Redirect::to("/public/login/index");
+                utils\Redirect::to("/public/Login/index");
             }
         }
-        utils\Redirect::to("/public/user/dash/{$user}");
+        utils\Redirect::to("/public/User/dash/{$user}");
     }
 }

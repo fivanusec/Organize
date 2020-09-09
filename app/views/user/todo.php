@@ -1,9 +1,10 @@
 <?= $this->getCSS(); ?>
+
 <div class="container border-left border-bottom border-top border-right justify-content-center">
   <div class="button-box text-center">
     <br>
     <a class="btn btn-primary" style="color:white; background-color: rgb(201, 150, 150); border:none;" data-toggle="modal" data-target="#createModal">New Todo List</a>
-    <a href="<?= $this->makeURL("user/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="color:white; border:none;">Dashboard</a>
+    <a href="<?= $this->makeURL("User/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="color:white; border:none;">Dashboard</a>
   </div>
   <br>
 </div>
@@ -41,7 +42,7 @@
           </button>
         </div>
         <div class="modal-body" role="form">
-          <form method="POST" action="<?= $this->makeUrl("user/createTodo/{$this->user->ID}/{$this->todoID}"); ?>">
+          <form method="POST" action="<?= $this->makeUrl("User/createTodo/{$this->user->ID}/{$this->todoID}"); ?>">
             <div class="form-group">
               <label for="card-name" class="col-form-label">Name:</label>
               <input name="TodoName" type="text" class="form-control" id="name">
@@ -72,7 +73,7 @@
             </button>
           </div>
           <div class="modal-body" role="form">
-            <form method="POST" action="<?= $this->makeUrl("user/updateTodo/{$this->Todo_List[$count]->Todo_List_ID}/{$this->todoID}/{$this->user->ID}"); ?>">
+            <form method="POST" action="<?= $this->makeUrl("User/updateTodo/{$this->Todo_List[$count]->Todo_List_ID}/{$this->todoID}/{$this->user->ID}"); ?>">
               <div class="form-group">
                 <label for="card-name" class="col-form-label">Name:</label>
                 <input name="todoNameEdit<?= $this->Todo_List[$count]->Todo_List_ID; ?>" value="<?= $this->Todo_List[$count]->Todo_Name; ?>" type="text" class="form-control" id="name">

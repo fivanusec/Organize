@@ -49,6 +49,7 @@ class User extends core\Controller
         {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
+        utils\Redirect::to("/public/user/dash/{$userID}");
     }
 
     /**
@@ -277,10 +278,9 @@ class User extends core\Controller
         utils\Auth::checkAuth();
 
         if ($user) {
-            $userSession = "USER";
-            if (utils\Session::sessionExists($userSession)) 
+            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
             {
-                $user = utils\Session::get($userSession);
+                $user = utils\Session::get(utils\Config::get("SESSION_USER"));
             }
         }
 
@@ -326,10 +326,9 @@ class User extends core\Controller
 
         if ($user) 
         {
-            $userSession = "USER";
-            if (utils\Session::sessionExists($userSession)) 
+            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
             {
-                $user = utils\Session::get($userSession);
+                $user = utils\Session::get(utils\Config::get("SESSION_USER"));
             }
         }
 
@@ -387,10 +386,9 @@ class User extends core\Controller
 
         if ($user) 
         {
-            $userSession = "USER";
-            if (utils\Session::sessionExists($userSession)) 
+            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
             {
-                $user = utils\Session::get($userSession);
+                $user = utils\Session::get(utils\Config::get("SESSION_USER"));
             }
         }
 
@@ -451,10 +449,9 @@ class User extends core\Controller
 
         if ($user) 
         {
-            $userSession = "USER";
-            if (utils\Session::sessionExists($userSession)) 
+            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
             {
-                $user = utils\Session::get($userSession);
+                $user = utils\Session::get(utils\Config::get("SESSION_USER"));
             }
         }
 
