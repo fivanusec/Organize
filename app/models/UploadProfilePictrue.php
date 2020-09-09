@@ -19,13 +19,13 @@ class UploadProfilePictrue
                 "Image_Name"=>"ProfilePicture{$UserID}",
                 "Image_Dir"=>"img/pic{$UserID}.jpg"
             ]);
-            utils\Flash::success("Profile picture succesfuly updated!");
+            //utils\Flash::success("Profile picture succesfuly updated!");
             return true;
         }
         catch(Exception $e)
         {
-            utils\Flash::danger($e->getMessage());
-            return false;
+            //utils\Flash::danger($e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -36,13 +36,13 @@ class UploadProfilePictrue
             $ProfilePictrue = new ProfilePictrue;
             $TargetFile = $_FILES['file'];
             $upload = $ProfilePictrue->uploadPictrue($TargetFile, $UserID);
-            utils\Flash::success("Upload was successfull!");
+            //utils\Flash::success("Upload was successfull!");
             return $upload;
         } 
         catch (Exception $e) 
         {
-            utils\Flash::danger($e->getMessage());
-            return false;
+            //utils\Flash::danger($e->getMessage());
+            die($e->getMessage());
         }
     }
 }

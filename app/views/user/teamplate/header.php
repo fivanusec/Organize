@@ -27,5 +27,4 @@
                 Log out
             </a>
         </nav>
-
         <br>

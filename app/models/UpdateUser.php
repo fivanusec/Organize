@@ -37,13 +37,14 @@ class UpdateUser
             ],
             $UserID);
 
-            utils\Flash::success("Your data is updated successfully!");
+            //utils\Flash::success("Your data is updated successfully!");
             return true;
         }
         catch(Exception $e)
         {
-            utils\Flash::danger("There was an error while updating your data!");
-            return false;
+            //utils\Flash::danger("There was an error while updating your data!");
+            die($e->getMessage());
         }
+        return false;
     }
 }

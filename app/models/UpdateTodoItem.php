@@ -17,14 +17,15 @@ class UpdateTodoItem
             ],
             $TodoItemID);
 
-            utils\Flash::success("Todo item updated sucessfully!");
+            //utils\Flash::success("Todo item updated sucessfully!");
             return true;
         }
         catch(Exception $e)
         {
-            utils\Flash::danger($e->getMessage());
-            return false;
+            //utils\Flash::danger($e->getMessage());
+            die($e->getMessage());
         }
+        return false;
     }
     
     public static function _finish($TodoItemID)
@@ -38,13 +39,14 @@ class UpdateTodoItem
             ],
             $TodoItemID);
 
-            utils\Flash::success("Well done!");
+            //utils\Flash::success("Well done!");
             return true;
         }
         catch(Exception $e)
         {
-            utils\Flash::danger($e->getMessage());
-            return false;
+            //utils\Flash::danger($e->getMessage());
+            die($e->getMessage());
         }
+        return false;
     }
 }

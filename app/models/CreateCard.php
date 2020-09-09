@@ -21,7 +21,7 @@ class CreateCard{
                     "Todo_ID"=>rand(0,999999999)
                 ]
             );
-            utils\Flash::success("Card created successfuly!");
+            //utils\Flash::success("Card created successfuly!");
             return $cardID;
         }
         catch(Exception $e)

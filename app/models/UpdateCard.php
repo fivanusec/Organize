@@ -18,13 +18,14 @@ class UpdateCard{
             ],
             $cardID);
 
-            utils\Flash::success("Card updated successfully!");
+            //utils\Flash::success("Card updated successfully!");
             return true;
         }
         catch(Exception $e)
         {
-            utils\Flash::danger($e->getMessage());
-            return false;
+            //utils\Flash::danger($e->getMessage());
+            die($e->getMessage());
         }
+        return false;
     }
 }

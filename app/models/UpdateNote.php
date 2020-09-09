@@ -16,12 +16,13 @@ class UpdateNote
 					"Note_Data" => utils\Input::request('noteData'. $NoteID)
 				],
 			$NoteID);
-			utils\Flash::success("Note succesfully updated!");
+			//utils\Flash::success("Note succesfully updated!");
 			return true;
 		}
 		catch(Exception $e)
 		{
-			utils\Flash::info($e->getMessage());
+			//utils\Flash::info($e->getMessage());
+			die($e->getMessage());
 		}
 		return false;
 	}
