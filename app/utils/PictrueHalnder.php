@@ -26,7 +26,7 @@ class PictrueHandler
         }
         try
         {
-            move_uploaded_file($targetFile['tmp_name'], $target_Dir . "pic{$ID}.".$imageFileType);
+            move_uploaded_file($targetFile['tmp_name'], $target_Dir . "pic{$ID}.jpg");
             return true;
         }
         catch(Exception $e)

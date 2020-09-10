@@ -3,6 +3,7 @@
 namespace app\models;
 use app\utils;
 use app\core;
+use Exception;
 
 class ProfilePictrue extends core\Model
 {
@@ -30,5 +31,13 @@ class ProfilePictrue extends core\Model
     public function insertDB($table,array $fields)
     {
         return($this->create($table, $fields));
+    }
+
+    public function updateDB(array $fields, $userID=null)
+    {
+        if($this->update("profile_images","User_ID",$fields,$userID))
+        {
+            throw new Exception("There was a problem");
+        }
     }
 }

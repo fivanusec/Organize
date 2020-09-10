@@ -49,8 +49,8 @@ return
          * Login 
          */
 
-        "LOGIN_INVALID_DATA" => "The email or password you entered is not matching one in database",
-        "LOGIN_USER_NOT_FOUND" => "The email you entered doesn't exist in database",
+        "LOGIN_INVALID_DATA" => "The email or password you entered is not matching one in database!",
+        "LOGIN_USER_NOT_FOUND" => "The email you entered doesn't exist in database!",
         "" => "",
 
         /**
@@ -58,6 +58,7 @@ return
          */
 
         "REGISTER_USER_CREATED" => "Account has been successfully created!",
+        "REGISTER_USER_INVALID_EMAIL" => "The email you entered already exists in database!",
         "" => "",
 
         /**

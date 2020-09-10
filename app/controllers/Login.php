@@ -82,6 +82,17 @@ class Login extends core\Controller
         utils\Redirect::to("/public/Login/index");
     }
 
+    public function _loginWithCookie()
+    {
+        utils\Auth::checkUnAuth();
+
+        if (models\UserLogin::loginWithCookie()) {
+            $this->ID=utils\Session::get(utils\Config::get("SESSION_USER"));
+            utils\Redirect::to("/public/User/dash/{$this->ID}"); 
+        }
+        utils\Redirect::to(APP_URL . "login");
+    }
+
     /**
      * Logout: checks if user is logged in and if user is logged in
      * than deletes session in whici is user logged in

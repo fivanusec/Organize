@@ -22,7 +22,8 @@
             </div>
             <?php
             if(isset($_SESSION["USER"])){
-                echo '<a href="'.$this->makeURL("User/dash").'" onclick="setOnLoad(this.id)" class="nav-link" id="signinBtn" style="color: white;">
+                $ID = $_SESSION["USER"];
+                echo '<a href="'.$this->makeURL("User/dash/{$ID}").'" onclick="setOnLoad(this.id)" class="nav-link" id="signinBtn" style="color: white;">
                         My organize
                     </a>';
             }else{

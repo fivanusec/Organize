@@ -28,6 +28,29 @@ class UserLogin
         $expiery=604800;
         return(utils\Cookies::put($cookie, $hash, $expiery));
     }
+
+    public static function loginWithCookie()
+    {
+        if (!utils\Cookies::exists(utils\Config::get("COOKIE_USER"))) 
+        {
+            return false;
+        }
+        $Db = utils\Database::getIstance();
+        $hash = utils\Cookies::get(utils\Config::get("COOKIE_USER"));
+        $check = $Db->select("user_cookies", ["hash", "=", $hash]);
+        if ($check->count()) 
+        {
+            $userID = $Db->first()->user_id;
+            if (($User = User::getInstance($userID))) 
+            {
+                $data = $User->data();
+                utils\Session::put(utils\Config::get("SESSION_USER"), $data->id);
+                return true;
+            }
+        }
+        utils\Cookies::delete(utils\Config::get("COOKIE_USER"));
+        return false;
+    }
     
     public static function _login()
     {
