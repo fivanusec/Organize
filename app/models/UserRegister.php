@@ -23,7 +23,7 @@ class UserRegister
                 "news"=>utils\Input::post("news")==="on",
                 "salt"=>$salt
             ]);
-            utils\Flash::success("Registration was successfull!");
+            utils\Flash::success(utils\Text::get("REGISTER_USER_CREATED"));
             return $userID;
         }
         catch(Exception $e)
