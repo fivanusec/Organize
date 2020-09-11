@@ -9,7 +9,7 @@ class Flash
         if (Session::sessionExists($key)) 
         {
             $session = Session::get($key);
-            Session::closeSession($key);
+            Session::delete($key);
             return $session;
         } 
         elseif (!empty($value)) 
@@ -21,21 +21,21 @@ class Flash
 
     public static function danger($value = "") 
     {
-        return(self::session("There was an error!", $value));
+        return(self::session(Config::get("SESSION_FLASH_DANGER"), $value));
     }
 
     public static function info($value = "") 
     {
-        return(self::session("INFO: ", $value));
+        return(self::session(Config::get("SESSION_FLASH_INFO"), $value));
     }
 
     public static function success($value = "") 
     {
-        return(self::session("Success!", $value));
+        return(self::session(Config::get("SESSION_FLASH_SUCCESS"), $value));
     }
 
     public static function warning($value = "") 
     {
-        return(self::session("There may be an error", $value));
+        return(self::session(Config::get("SESSION_FLASH_WARNING"), $value));
     }
 }

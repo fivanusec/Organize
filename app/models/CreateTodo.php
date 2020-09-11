@@ -25,13 +25,12 @@ class CreateTodo{
                 "Todo_List_ID"=>$genTodoID
             ]);
 
-            //utils\Flash::success("Todo list created successfully!");
+            utils\Flash::success("Todo list created successfully!");
             return $todoID;
         }
         catch(Exception $e)
         {
-            die($e->getMessage());
-            //utils\Flash::warning($e->getMessage());
+            utils\Flash::warning($e->getMessage());
         }
     }
 }

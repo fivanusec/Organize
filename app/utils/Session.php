@@ -10,6 +10,16 @@ class Session
             session_start();
         }
     }
+
+    public static function delete($key)
+    {
+        if(self::sessionExists($key))
+        {
+            unset($_SESSION[$key]);
+            return true;
+        }
+        return false;
+    }
     
     public static function closeSession()
     {

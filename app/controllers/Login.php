@@ -90,7 +90,7 @@ class Login extends core\Controller
             $this->ID=utils\Session::get(utils\Config::get("SESSION_USER"));
             utils\Redirect::to("/public/User/dash/{$this->ID}"); 
         }
-        utils\Redirect::to(APP_URL . "login");
+        utils\Redirect::to("/public/Login/index");
     }
 
     /**
