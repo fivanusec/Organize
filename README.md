@@ -13,13 +13,13 @@ Design pattern is MVC without framework or any support from other packages.
 Runing syntax test while doing app is important so if you want to run on whole project while working
 ## Windows users
     
-    1. Install Linux subsystem on your PC. Here is how on this [link](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-    2. **Shift** + **right mouse click in project directorory** and select **Open linux shell here**
+    1. Install Linux subsystem on your PC. Here is how on this linkm https://docs.microsoft.com/en-us/windows/wsl/install-win10
+    2. Shift + right mouse click in project directorory and select Open linux shell here
     3. Run ./tests 
 
 ## Linux users
 
-    1. Use command cd {path to project} or find it in your file manager and **Right click** and select **Open terminal here**
+    1. Use command cd {path to project} or find it in your file manager and Right click and select Open terminal here
     2. Run ./tests
 
 # Version
