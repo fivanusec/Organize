@@ -17,13 +17,12 @@ class UpdateTodo{
             ],
             $TodoID);
 
-            //utils\Flash::success("Todo updated sucessfully!");
+            utils\Flash::success("Todo updated sucessfully!");
             return true;
         }
         catch(Exception $e)
         {
-            //utils\Flash::danger($e->getMessage());
-            die($e->getMessage());
+            utils\Flash::warning($e->getMessage());
         }
         return false;
     }

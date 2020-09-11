@@ -28,8 +28,7 @@ class CreateTodoListItem{
         }
         catch(Exception $e)
         {
-            die($e->getMessage());
-            //utils\Flash::info($e->getMessage());
+            utils\Flash::warning($e->getMessage());
         }
     }
 }

@@ -59,14 +59,11 @@
         <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden" id="thirdCard" style="color:rgb(201, 150, 150);">
             <h2 style="font-family: 'Merienda One', cursive;">Fast.</h2>
             <p style="font-size: 20px">
-                Trough the research we invested and did on some other things that we really think matter we tried to make 
-                the most fastest solution available on the market, we wanted for our users to have sense of that our solution is pretty fast.
-                Although we are continiously working on making this app even more faster we can prudly say that our solution is really and we mean really fast.
+            Trough the research we invested a lot of time and resources to find the best possible system and solution for your day.
+            We tried to make the most fastest solution available on the market, we wanted for our users to have sense of that our solution is pretty fast. 
+            Although we are continuously working on making this application even more faster we can proudly say that our solution is reliable and good for making your day less of a pain. By dividing to do lists into categories and making you organize your tasks into little groups we already did half of your job. 
+            We stand proud behind our solution and we want to offer best practices for your day, job, what in the world you need to accomplish in your day!
             </p>
-            <P style="font-size: 20px">
-                We found good ways to do your organizeing and we make them as fast as possible so you can enjoy your planning
-                <strong>Your day means to us!</strong>
-            </P>
             <br>
         </div>
     </div>

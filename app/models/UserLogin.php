@@ -28,13 +28,36 @@ class UserLogin
         $expiery=604800;
         return(utils\Cookies::put($cookie, $hash, $expiery));
     }
+
+    public static function loginWithCookie()
+    {
+        if (!utils\Cookies::exists(utils\Config::get("COOKIE_USER"))) 
+        {
+            return false;
+        }
+        $Db = utils\Database::getIstance();
+        $hash = utils\Cookies::get(utils\Config::get("COOKIE_USER"));
+        $check = $Db->select("user_cookies", ["hash", "=", $hash]);
+        if ($check->count()) 
+        {
+            $userID = $Db->first()->user_id;
+            if (($User = User::getInstance($userID))) 
+            {
+                $data = $User->data();
+                utils\Session::put(utils\Config::get("SESSION_USER"), $data->id);
+                return true;
+            }
+        }
+        utils\Cookies::delete(utils\Config::get("COOKIE_USER"));
+        return false;
+    }
     
     public static function _login()
     {
         $email = utils\Input::post("email");
         if(!$User=User::getInstance($email))
         {
-            utils\Flash::info("Email you enterd is wrong!");
+            utils\Flash::info(utils\Text::get("LOGIN_USER_NOT_FOUND"));
             return false;
         }
         try
@@ -43,20 +66,18 @@ class UserLogin
             $password = utils\Input::post("password");
             if(utils\Hash::generate($password, $data->salt) !== $data->Password)
             {
-                utils\Flash::info("Password you enterd is wrong!");
+                utils\Flash::info(utils\Text::get("LOGIN_INVALID_DATA"));
                 return false;
             }
             
-            $remeber = utils\Input::post("remember")==="on";
-            echo $remeber;
-            
+            $remeber = utils\Input::post("remember")==="on";  
             if($remeber and !self::remeberCookies($data->ID))
             {
-                utils\Flash::danger("There is problem with our server!");
+                utils\Flash::danger(utils\Text::get("SERVER_ERROR"));
                 return false;
             }
             
-            utils\Session::put("USER", $data->ID);
+            utils\Session::put(utils\Config::get("SESSION_USER"), $data->ID);
             return true;
         }
         catch(Exception $ex)

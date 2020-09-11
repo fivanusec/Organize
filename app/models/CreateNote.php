@@ -18,13 +18,12 @@ class CreateNote
                     "Todo_List_ID" => $todoID
                 ]
             );
-            //utils\Flash::success("Note created successfully");
+            utils\Flash::success("Note created successfully");
             return $notesID;
         }
         catch(Exception $e)
         {
-            die($e->getMessage());
-            //utils\Flash::danger("There was an error!");
+            utils\Flash::warning("There was an error!");
         }
         return false;
     }
