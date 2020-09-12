@@ -28,6 +28,8 @@ class User extends core\Controller
 
     public function updateuser(string $user)
     {
+        utils\Auth::checkAuth();
+
         if (!models\UpdateUser::updateuser($user)) 
         {
             utils\Redirect::to("/public/user/editUser/{$user}");
@@ -45,6 +47,8 @@ class User extends core\Controller
 
     public function createCard(string $userID = "")
     {
+        utils\Auth::checkAuth();
+
         if (!models\CreateCard::_create($userID)) 
         {
             utils\Redirect::to("/public/user/dash/{$userID}");
@@ -63,6 +67,8 @@ class User extends core\Controller
 
     public function deletecard($Card, string $userID = "")
     {
+        utils\Auth::checkAuth();
+
         if (models\Cards::getDelete($Card)) 
         {
             utils\Redirect::to("/public/user/dash/{$userID}");
@@ -80,7 +86,9 @@ class User extends core\Controller
 
     public function updateCard($Card, string $userID)
     {
-        if (models\UpdateCard::_update($Card)) {
+        utils\Auth::checkAuth();
+        if (models\UpdateCard::_update($Card)) 
+        {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
     }
@@ -96,6 +104,8 @@ class User extends core\Controller
 
     public function createTodo(string $userID = "", string $TodoID = "")
     {
+        utils\Auth::checkAuth();
+
         if (!models\CreateTodo::_create($TodoID)) 
         {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
@@ -114,6 +124,8 @@ class User extends core\Controller
 
     public function updateTodo($TodoListID, $TodoID, string $userID)
     {
+        utils\Auth::checkAuth();
+
         if (models\UpdateTodo::_update($TodoListID)) 
         {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
@@ -132,6 +144,8 @@ class User extends core\Controller
 
     public function deleteTodo($Todo_ID, $userID, $TodoID)
     {
+        utils\Auth::checkAuth();
+
         if (models\Todo::getDelete($Todo_ID)) 
         {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
@@ -148,6 +162,8 @@ class User extends core\Controller
 
     public function uploadProfilePictrue($User_ID)
     {
+        utils\Auth::checkAuth();
+
         if(models\UploadProfilePictrue::_upload($User_ID))
         {
             if(models\UploadProfilePictrue::_createDB($User_ID))
@@ -170,6 +186,8 @@ class User extends core\Controller
 
     public function createTodoListItem(string $User_ID, string $TodoID, string $TodoListID)
     {
+        utils\Auth::checkAuth();
+
         if(!models\CreateTodoListItem::_create($TodoListID))
         {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
@@ -189,6 +207,8 @@ class User extends core\Controller
 
     public function deleteTodoListItem(string $User_ID, string $TodoID, string $TodoListID, string $TodoItemID)
     {
+        utils\Auth::checkAuth();
+
         if(models\TodoList::getDelete($TodoItemID))
         {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
@@ -208,6 +228,8 @@ class User extends core\Controller
 
     public function updateTodoListItem(string $User_ID, string $TodoID, string $TodoListID, string $TodoItemID)
     {
+        utils\Auth::checkAuth();
+
         if(models\UpdateTodoItem::_update($TodoItemID))
         {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
@@ -215,11 +237,20 @@ class User extends core\Controller
     }
 
     /**
-     * Testing
+     * finsih: Finds and updates todo list item completion to 1 in database
+     * @access public
+     * @return void
+     * @since 0.1[ALPHA]
+     * @param string $User_ID
+     * @param string $Todo_ID
+     * @param string $TodoListID
+     * @param string $TodoItemID
      */
 
     public function finishTask(string $User_ID, string $TodoID, string $TodoListID, string $TodoItemID)
     {
+        utils\Auth::checkAuth();
+
         if(models\UpdateTodoItem::_finish($TodoItemID))
         {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
@@ -238,6 +269,8 @@ class User extends core\Controller
 
     public function createNote(string $User_ID, string $TodoID, string $TodoListID)
     {
+        utils\Auth::checkAuth();
+
         if(!models\CreateNote::_create($TodoListID))
         {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
@@ -257,6 +290,8 @@ class User extends core\Controller
 
     public function updateNote(string $NoteID, string $User_ID, string $TodoID, string $TodoListID)
     {
+        utils\Auth::checkAuth();
+        
         if(models\updateNote::_update($NoteID))
         {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");

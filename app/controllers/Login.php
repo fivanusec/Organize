@@ -107,6 +107,7 @@ class Login extends core\Controller
         if($user)
         {
             utils\Auth::checkAuth();
+            
             if(models\UserLogin::_logout())
             {
                 utils\Redirect::to("/public/Login/index");

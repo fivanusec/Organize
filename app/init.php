@@ -2,13 +2,13 @@
 //defines folders
 define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 
-//public
+//defines public
 define('PUBLIC_ROOT',ROOT.'public'.DIRECTORY_SEPARATOR);
 define('PUBLIC_CSS',PUBLIC_ROOT.'css');
 define('PUBLIC_JS',PUBLIC_ROOT.'JS');
 define('PUBLIC_IMG',PUBLIC_ROOT.'img'.DIRECTORY_SEPARATOR);
 
-//app
+//defines app
 define('APP', ROOT . 'app' . DIRECTORY_SEPARATOR);
 define('UTILS', ROOT . 'app' . DIRECTORY_SEPARATOR . 'utils' . DIRECTORY_SEPARATOR);
 define('VIEW', ROOT . 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
@@ -23,16 +23,18 @@ define("HTMLENTITIES_FLAGS", ENT_QUOTES);
 define("HTMLENTITIES_ENCODING", "UTF-8");
 define("HTMLENTITIES_DOUBLE_ENCODE", false);
 
-//defines
+//defines for namspaces
 define("NAMESPACE_CONTROLLER", "\App\Controllers\\");
-require_once CORE . 'app.php';
-require_once CORE . 'controller.php';
-require_once ROOT . "vendor/autoload.php";
 
-//defaults app
+//defaults app header and footer
 define("HEADER_MAIN",'user/teamplate/header');
 define("FOOTER_MAIN",'user/teamplate/footer');
 
 //defaults main {TEMP NAMES}
 define("HEADER_FOR_MAIN",'header');
 define("FOOTER_FOR_MAIN",'footer');
+
+//requieres for app 
+require_once CORE . 'app.php';
+require_once CORE . 'controller.php';
+require_once ROOT . "vendor/autoload.php";

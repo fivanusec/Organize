@@ -18,4 +18,3 @@ class Input
         return(isset($_REQUEST[$name]) ? $_REQUEST[$name] : $default);
     }
 }
-
