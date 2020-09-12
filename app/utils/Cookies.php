@@ -23,4 +23,3 @@ class Cookies
         return(setcookie($key, $value, time() + $expiry, "/"));
     }
 }
-
