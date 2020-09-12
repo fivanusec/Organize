@@ -55,7 +55,7 @@
                             <option selected>Choose...</option>
                             <option value="Student">Student</option>
                             <option value="Bussines">Bussines</option>
-                            <option value="Working">Working</option>
+                            <option value="Personsal">Personal</option>
                           </select>
                       </div>
                       <div class="form-group">

@@ -89,6 +89,7 @@
     <div class="button-box text-center">
         <br>
         <a class="btn btn-primary" style="color:white; background-color: rgb(201, 150, 150); border:none;" data-toggle="modal" data-target="#createNotesModal">New Notes</a>
+        <a href="<?= $this->makeURL("User/todo/{$this->user->ID}/{$this->todoID}") ?>" class="btn btn-secondary" style="border:none; color:white;">My todo lists</a>
         <a href="<?= $this->makeURL("User/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="border:none; color:white;">Dashboard</a>
     </div>
     <br>
@@ -105,15 +106,14 @@
                         <i class="ion ion-clipboard"></i>
                             <h3 class="box-title">Notes: <?= $this->notes[$count]->Note_Name; ?></h3>
                     </div>
-                    <from method = "POST" action="<?=$this->makeURL("User/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
+                    <form method="POST" action="<?=$this->makeURL("User/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}");?>">
                         <div class="box-body text-center form-group">
                             <textarea name="noteData<?= $this->notes[$count]->Note_ID; ?>" rows="14" cols="65" style="resize:none; height: 276px;"><?= $this->notes[$count]->Note_Data; ?></textarea>
                         </div>
                         <div class="box-footer clearfix no-border">
                             <button type="submit" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</button>
-                            <a type="button" class="btn btn-default pull-right"><i class="fa fa-trash"></i> Delete notes</a>
                         </div>
-                    </from>
+                    </form>
                 </div>
             </div>
         <?php endfor; ?>

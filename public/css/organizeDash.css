@@ -100,3 +100,11 @@ body {margin:0;}
 .btn-del:hover{
     color: darkgrey;
 }
+
+.user-creditnails{
+    color: rgba(0, 0, 0, 0.555);
+}
+
+.user-creditnails:hover{
+    color: rgba(0, 0, 0, 0.555);
+}
