@@ -8,16 +8,9 @@
     </div>
     <div class="column-pic-1">
       <?php if (isset($this->user)) : ?>
-        <h2><?= $this->user->Name . " " . $this->user->Surname; ?></h2>
+        <h2><a class="user-creditnails" href="<?= $this->makeUrl("User/editUser/{$this->user->ID}"); ?>"><?= $this->user->Name . " " . $this->user->Surname; ?></a></h2>
         <p><?= $this->user->Type; ?></p>
       <?php endif; ?>
-      <button id="editUser" class="button" style="margin-left:215px;margin-top:-85px" href="<?= $this->makeUrl("User/editUser/{$this->user->ID}"); ?>">
-        <i class="fa fa-edit"></i> Edit</button>
-      <script>
-        document.getElementById("editUser").onclick = function() {
-          window.location.href = "<?= $this->makeUrl("User/edituser/{$this->user->ID}"); ?>";
-        }
-      </script>
     </div>
   </div>
 </div>

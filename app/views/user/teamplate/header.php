@@ -67,13 +67,12 @@
         endif;
         if (($warning = Flash::warning())):
         ?>
-            <div class="alert alert-warning" role="alert"><strong>Warning!</strong> <?= $this->$warning; ?></div>
-            <div class="row justify-content-center fixed-top" style="margin-top:70px;">
+          <div class="row justify-content-center fixed-top" style="margin-top:70px;">
                 <div class="col-md-6 text-center">
                     <div class="alert alert-warning" id="warning" role="alert">
                         <button type="button" class="close" data-dismiss="alert">x</button>
-                        <strong>Ammmmmm!</strong>
-                        <?= $warning ?>
+                        <strong>Warning!</strong>
+                        <?= $warning; ?>
                     </div>
                     </div>
                 </div>
