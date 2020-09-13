@@ -99,6 +99,7 @@ DROP TABLE IF EXISTS `Todo_Item`;
 CREATE TABLE `Todo_Item` (
   `Todo_Item_ID` bigint NOT NULL,
   `Todo_Item_Name` text,
+  `Todo_Item_Completion_Date` date,
   `Todo_Item_Completion` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`Todo_Item_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

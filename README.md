@@ -20,7 +20,8 @@ Runing syntax test while doing app is important so if you want to run on whole p
 ## Linux users
 
     1. Use command cd {path to project} or find it in your file manager and Right click and select Open terminal here
-    2. Run ./tests
+    2. Run sudo chmod +x tests 
+    3. Run ./tests
 
 # Version
 
