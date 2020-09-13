@@ -8,10 +8,10 @@ use app\models;
 use app\prezenter;
 
 /**
- *
+ * User
+ * 
  * @author Filip Ivanusec<fivanusec@gmail.com>
  * @version 0.1[ALPHA]
- *
  */
 
 class User extends core\Controller
@@ -312,7 +312,8 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if ($user) {
+        if ($user) 
+        {
             if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
             {
                 $user = utils\Session::get(utils\Config::get("SESSION_USER"));
@@ -321,10 +322,11 @@ class User extends core\Controller
 
         if (!$User = models\User::getInstance($user)) 
         {
-            echo "Error";
+            utils\Redirect::to(APP_URL);
         }
 
-        if ($TodoID) {
+        if ($TodoID) 
+        {
             if ($Todo = models\Todo::getInstance($TodoID)) 
             {
                 $todo = $Todo->data();
@@ -369,7 +371,7 @@ class User extends core\Controller
 
         if (!$User = models\User::getInstance($user)) 
         {
-            echo "Error";
+            utils\Redirect::to(APP_URL);
         }
 
         if ($Card = models\Cards::getInstance($user)) 
@@ -429,7 +431,7 @@ class User extends core\Controller
 
         if (!$User = models\User::getInstance($user)) 
         {
-            echo "Error";
+            utils\Redirect::to(APP_URL);
         }
 
         if($todoListID)
@@ -492,7 +494,7 @@ class User extends core\Controller
 
         if (!$User = models\User::getInstance($user)) 
         {
-            echo "Error";
+            utils\Redirect::to(APP_URL);
         }
 
         $picture = "img/user.png";
