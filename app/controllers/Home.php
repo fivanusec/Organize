@@ -3,10 +3,11 @@
     use app\core;
     
     /**
-     *
+     *   
+     * Home
+     * 
      * @author Filip Ivanusec<fivanusec@gmail.com>
      * @version 0.1[ALPHA]
-     *
     */
 
     class Home extends core\Controller

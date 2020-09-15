@@ -6,12 +6,13 @@ use app\core;
 use app\utils;
 use app\models;
 use app\prezenter;
+use app\progress;
 
 /**
- *
+ * User
+ * 
  * @author Filip Ivanusec<fivanusec@gmail.com>
  * @version 0.1[ALPHA]
- *
  */
 
 class User extends core\Controller
@@ -312,7 +313,8 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if ($user) {
+        if ($user) 
+        {
             if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
             {
                 $user = utils\Session::get(utils\Config::get("SESSION_USER"));
@@ -321,10 +323,11 @@ class User extends core\Controller
 
         if (!$User = models\User::getInstance($user)) 
         {
-            echo "Error";
+            utils\Redirect::to(APP_URL);
         }
 
-        if ($TodoID) {
+        if ($TodoID) 
+        {
             if ($Todo = models\Todo::getInstance($TodoID)) 
             {
                 $todo = $Todo->data();
@@ -332,6 +335,36 @@ class User extends core\Controller
             else 
             {
                 $todo = [];
+            }
+
+            $progress=[];
+
+            for($count = 0; $count < count($todo); $count++)
+            {
+                if($TodoList = models\TodoList::getInstance($todo[$count]->Todo_List_ID))
+                {
+                    $TodoListData[$count] = $TodoList->data();
+                    $progress[$count] = (new progress\TodoList($TodoList->data()))->checkProgress();
+                }
+                else
+                {
+                    $TodoListData = [];
+                    $progress = [];
+                }
+            }
+        }
+
+        $check = [];
+
+        for($count = 0; $count < count($progress); $count++)
+        {
+            if($progress[$count]->Progress == $progress[$count]->Data)
+            {
+                $check[$count] = true;
+            }
+            else
+            {
+                $check[$count] = false;
             }
         }
 
@@ -341,7 +374,8 @@ class User extends core\Controller
             'title' => 'Todo',
             'user' => (new prezenter\User($User->data()))->present(),
             'todoID' => $TodoID,
-            'Todo_List' => ($todo)
+            'Todo_List' => ($todo),
+            'check' => ($check)
         ]);
     }
 
@@ -369,7 +403,7 @@ class User extends core\Controller
 
         if (!$User = models\User::getInstance($user)) 
         {
-            echo "Error";
+            utils\Redirect::to(APP_URL);
         }
 
         if ($Card = models\Cards::getInstance($user)) 
@@ -429,7 +463,7 @@ class User extends core\Controller
 
         if (!$User = models\User::getInstance($user)) 
         {
-            echo "Error";
+            utils\Redirect::to(APP_URL);
         }
 
         if($todoListID)
@@ -492,7 +526,7 @@ class User extends core\Controller
 
         if (!$User = models\User::getInstance($user)) 
         {
-            echo "Error";
+            utils\Redirect::to(APP_URL);
         }
 
         $picture = "img/user.png";

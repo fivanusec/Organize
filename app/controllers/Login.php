@@ -43,8 +43,7 @@ class Login extends core\Controller
     }
     
     /**
-     * Register: calls the model UserRegister and checks 
-     * if user registererd successfully
+     * Register: Checks if user is authenticated and starts the registering process
      * @example register/_register
      * @access public
      * @return void

@@ -14,13 +14,13 @@ use Exception;
 class App
 {
     /** @var mixed Default controller class */
-    private $controller='home';
+    private $controller = DEFAULT_CONTROLLER;
 
     /** @var mixed Default controller action */
-    private $method='index';
+    private $method = DEFAULT_CONTROLLER_ACTION;
 
     /** @var array Params that pass to Controller */
-    private $params=[];
+    private $params = [];
 
     public function __construct()
     {
@@ -32,7 +32,8 @@ class App
 
     public function getMethod($url)
     {
-        if(isset($url[1])){
+        if(isset($url[1]))
+        {
             if(method_exists($this->controller, $url[1]))
             {
                 $this->method = $url[1];
