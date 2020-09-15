@@ -6,6 +6,7 @@ use app\core;
 use app\utils;
 use app\models;
 use app\prezenter;
+use app\progress;
 
 /**
  * User
@@ -335,6 +336,36 @@ class User extends core\Controller
             {
                 $todo = [];
             }
+
+            $progress=[];
+
+            for($count = 0; $count < count($todo); $count++)
+            {
+                if($TodoList = models\TodoList::getInstance($todo[$count]->Todo_List_ID))
+                {
+                    $TodoListData[$count] = $TodoList->data();
+                    $progress[$count] = (new progress\TodoList($TodoList->data()))->checkProgress();
+                }
+                else
+                {
+                    $TodoListData = [];
+                    $progress = [];
+                }
+            }
+        }
+
+        $check = [];
+
+        for($count = 0; $count < count($progress); $count++)
+        {
+            if($progress[$count]->Progress == $progress[$count]->Data)
+            {
+                $check[$count] = true;
+            }
+            else
+            {
+                $check[$count] = false;
+            }
         }
 
         $this->View->addCSS("css/todo.css");
@@ -343,7 +374,8 @@ class User extends core\Controller
             'title' => 'Todo',
             'user' => (new prezenter\User($User->data()))->present(),
             'todoID' => $TodoID,
-            'Todo_List' => ($todo)
+            'Todo_List' => ($todo),
+            'check' => ($check)
         ]);
     }
 

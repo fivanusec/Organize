@@ -2,8 +2,6 @@
 
 namespace app\core;
 use app\utils\Input;
-use ReflectionClass;
-use ReflectionMethod;
 use Exception;
 
 /**
@@ -16,123 +14,61 @@ use Exception;
 class App
 {
     /** @var mixed Default controller class */
-    private $_class = DEFAULT_CONTROLLER;
+    private $controller = DEFAULT_CONTROLLER;
 
     /** @var mixed Default controller action */
-    private $_method = DEFAULT_CONTROLLER_ACTION;
+    private $method = DEFAULT_CONTROLLER_ACTION;
 
     /** @var array Params that pass to Controller */
-    private $_params = [];
-
-    /**
-     * Construct: Processes the app by parses the URL and sets the class, class
-     * method and method parameters.
-     * @access public
-     * @since 0.1[ALPHA]
-     */
+    private $params = [];
 
     public function __construct()
     {
-        $this->_parseURL();
-        try
-        {
-            $this->_getClass();
-            $this->_getMethod();
-            $this->_getParams();
-        }
-        catch(Exception $e)
-        {
-            die($e->getMessage());
-        }     
+        $url=$this->parseUrl();
+        $this->getController($url);
+        $this->getMethod($url);
+        $this->getParams($url);       
     }
-    
-    /**
-     * Get Class: Checks if the first URL element is set and not empty, replacing
-     * the default controller class string if the given class exists. If the class
-     * exists, said string is replaced with a new instance of it.
-     * @access private
-     * @return void
-     * @since 0.1[ALPHA]
-     * @throws Exception
-     */
 
-    private function _getClass()
+    public function getMethod($url)
     {
-        if (isset($this->_params[0]) and !empty($this->_params[0])) 
+        if(isset($url[1]))
         {
-            $this->_class = NAMESPACE_CONTROLLER . ucfirst(strtolower($this->_params[0]));
-            unset($this->_params[0]);
+            if(method_exists($this->controller, $url[1]))
+            {
+                $this->method = $url[1];
+            }
         }
-        if (!class_exists($this->_class)) 
-        {
-            throw new Exception("The controller {$this->_class} does not exist!");
-        }
-        $this->_class = new $this->_class;
     }
 
-    /**
-     * Get Method: Checks if the second URL element is set and not empty,
-     * replacing the default controller method string if the given action is a
-     * valid class method.
-     * @access private
-     * @return void
-     * @since 0.1[ALPHA]
-     * @throws Exception
-     */
-
-    private function _getMethod()
+    public function getController($url)
     {
-        if (isset($this->_params[1]) and ! empty($this->_params[1])) 
+        if(isset($url[0]))
         {
-            $this->_method = $this->_params[1];
-            unset($this->_params[1]);
+            if(file_exists(CONTROLLERS.$url[0].'.php'))
+            {
+                $this->controller=$url[0];
+            }
         }
-
-        if (!(new ReflectionClass($this->_class))->hasMethod($this->_method)) 
-        {
-            throw new Exception("The controller method {$this->_method} does not exist!");
-        }
-
-        if (!(new ReflectionMethod($this->_class, $this->_method))->isPublic()) 
-        {
-            throw new Exception("The controller method {$this->_method} is not accessible!");
-        }
+        require_once CONTROLLERS.$this->controller.'.php';
+        $this->controller= NAMESPACE_CONTROLLER.ucfirst(strtolower($this->controller));
+        $this->controller= new $this->controller;
     }
 
-    /**
-     * Get Params: Checks if the URL has any remaining elements, setting the 
-     * parameters as a rebase of it if true or an empty array if false.
-     * @access private
-     * @return void
-     * @since 0.1[ALPHA]
-     */
-
-    private function _getParams()
+    private function getParams($url)
     {
-        $this->_params = $this->_params ? array_values($this->_params) : [];
+        unset($url[0]);
+        unset($url[1]);
+        $this->params = $url ? array_values($url) : [];
     }
 
-    /**
-     * Parse URL: Gets the different parts of the URL string.
-     * @access private
-     * @return void
-     * @since 0.1[ALPHA]
-     */
-
-    private function _parseURL()
+    public function parseUrl()
     {
-        if (($url = Input::get("url"))) 
+        if($url=Input::get("url"))
         {
-            $this->_params = explode("/", filter_var(rtrim($url, "/"), FILTER_SANITIZE_URL));
+            return $url=explode('/',filter_var(rtrim($url, '/'), FILTER_SANITIZE_URL));
         }
     }
-
-    /**
-     * Run: Calls the controller class and method with parameters.
-     * @access public
-     * @return void
-     * @since 0.1[ALPHA]
-     */
 
     public function run()
     {

@@ -4,28 +4,16 @@ namespace app\core;
 
 class Progress
 {
-    protected $data = null;
-    protected $completed = 0;
+    protected $data = [];
+    protected $completion = 0;
 
-    public function __construct($data = [])
+    public function __construct($data)
     {
-        $this->data = (Object)$data;
+        $this->data = $data;
     }
 
-    public function getCountData()
+    public function checkProgress()
     {
-        return(count($this->data));
-    }
-
-    protected function sort()
-    {
-        for($count = 0; $count < count($this->data); $count++)
-        {
-            if($this->data->Todo_Item_Completion == 1)
-            {
-                $this->completed++;
-            }
-        }
-        return $this->completed;
+        return((Object) $this->format());
     }
 }

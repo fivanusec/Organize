@@ -35,7 +35,7 @@ class UpdateTodoItem
             $todo->updateItem(
             [
                 "Todo_Item_Completion"=>utils\Input::post('checkBoxItem' . $TodoItemID) != "on",
-                "Todo_Item_Completion_Date" => date("dd.mm.YYYY")
+                //"Todo_Item_Completion_Date" => date("d.m.Y")
             ],
             $TodoItemID);
 
