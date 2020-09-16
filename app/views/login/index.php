@@ -64,7 +64,7 @@
                       </div>
                       <div class="form-group">
                           <label class="form-lbl" style="right: 250px;"for="InputEmail">Email address:</label>
-                          <input name="regEmail" type="email" class="form-control" id="InputEmail">
+                          <input name="Email" type="email" class="form-control" id="InputEmail">
                       </div>
                       <div class="form-group">
                           <label class="form-lbl" for="InputPasswordregister">Password:</label>

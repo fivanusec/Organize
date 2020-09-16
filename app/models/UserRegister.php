@@ -15,7 +15,7 @@ class UserRegister
         "surname" => [
             "required" => true
         ],
-        "regEmail" => [
+        "Email" => [
             "filter" => "email",
             "required" => true,
             "unique" => "users"
