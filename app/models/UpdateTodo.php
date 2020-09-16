@@ -1,29 +1,31 @@
 <?php
 
 namespace app\models;
+
 use app\utils;
 use Exception;
 
-class UpdateTodo{
+class UpdateTodo
+{
     public static function _update($TodoID)
     {
-        try
-        {
+        try {
             $todo = new Todo;
             $todo->updateTodo(
-            [
-                "Todo_Name"=>utils\Input::post("todoNameEdit{$TodoID}"),
-                "Todo_Description"=>utils\Input::post("todoDescEdit{$TodoID}")
-            ],
-            $TodoID);
+                [
+                    "Todo_Name" => utils\Input::post("todoNameEdit{$TodoID}"),
+                    "Todo_Description" => utils\Input::post("todoDescEdit{$TodoID}")
+                ],
+                $TodoID
+            );
 
             utils\Flash::success("Todo updated sucessfully!");
             return true;
-        }
-        catch(Exception $e)
-        {
+        } catch (Exception $e) {
             utils\Flash::warning($e->getMessage());
         }
         return false;
     }
 }
+
+//EOF

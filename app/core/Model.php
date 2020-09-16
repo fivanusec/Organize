@@ -1,6 +1,7 @@
 <?php
 
 namespace app\core;
+
 use app\utils;
 
 /**
@@ -10,14 +11,15 @@ use app\utils;
  * @since 0.1[ALPHA]
  */
 
-class Model{
-    
+class Model
+{
+
     /** @var Db: Set to be instance of utils\Database class */
     protected  $Db = null;
 
     /** @var data: Set to be data that is pulled from database */
-    protected $data=[];
-    
+    protected $data = [];
+
     /**
      * Construct: Calls and sets $Db to new instance of the utils\Database class
      * @access public
@@ -26,9 +28,9 @@ class Model{
 
     public function __construct()
     {
-        $this->Db=utils\Database::getIstance();
+        $this->Db = utils\Database::getIstance();
     }
-    
+
     /**
      * Data: Returns the data pulled from database
      * @access public
@@ -36,9 +38,9 @@ class Model{
      * @since 0.1[ALPHA]
      */
 
-    public function data() 
+    public function data()
     {
-        return($this->data);
+        return ($this->data);
     }
 
     /**
@@ -52,11 +54,11 @@ class Model{
 
     public function upload($targetFile, $ID)
     {
-        $upload = utils\PictrueHandler::upload($targetFile,$ID);
+        $upload = utils\PictrueHandler::upload($targetFile, $ID);
         return $upload;
     }
 
-   /**
+    /**
      * Find: Retrieves and stores a specified record from the database into a 
      * class property. Returns true if the record was found, or false if not.
      * @access protected
@@ -65,12 +67,11 @@ class Model{
      * @return \App\Core\Model
      * @since 0.1[ALPHA]
      */
-    
-    protected function find($table, array $where = []) 
+
+    protected function find($table, array $where = [])
     {
         $data = $this->Db->select($table, $where);
-        if ($data->count()) 
-        {
+        if ($data->count()) {
             $this->data = $data->first();
         }
         return $this;
@@ -89,16 +90,15 @@ class Model{
      * @since 0.1[ALPHA]
      */
 
-    protected function findInner(array $tables=[], array $where=[])
+    protected function findInner(array $tables = [], array $where = [])
     {
-        $data=$this->Db->inner($tables,$where);
-        if($data->count())
-        {
-            $this->data=$data->results();
+        $data = $this->Db->inner($tables, $where);
+        if ($data->count()) {
+            $this->data = $data->results();
         }
         return $this;
     }
-    
+
     /**
      * FindAll: Retrieves and stores a specified record from the database into a 
      * class property. Returns true if the record was found, or false if not.
@@ -115,8 +115,7 @@ class Model{
     protected function findAll($table, array $where = [])
     {
         $data = $this->Db->select($table, $where);
-        if ($data->count()) 
-        {
+        if ($data->count()) {
             $this->data = $data->results();
         }
         return $this;
@@ -132,10 +131,10 @@ class Model{
      * @since 0.1[ALPHA]
      * @throws Exception
      */
-    
-    protected function create($table, array $fields) 
+
+    protected function create($table, array $fields)
     {
-        return($this->Db->insert($table, $fields));
+        return ($this->Db->insert($table, $fields));
     }
 
     /**
@@ -149,9 +148,9 @@ class Model{
      * @throws Exception
      */
 
-    protected function delete($table, array $where =[])
+    protected function delete($table, array $where = [])
     {
-       return($this->Db->delete($table,$where));
+        return ($this->Db->delete($table, $where));
     }
 
     /**
@@ -165,13 +164,12 @@ class Model{
      * @throws Exception
      */
 
-    protected function update($table, $ID,array $fields, $recordID=null)
+    protected function update($table, $ID, array $fields, $recordID = null)
     {
-        if(!$recordID and $this->exists())
-        {
+        if (!$recordID and $this->exists()) {
             $recordID = $this->data()->ID;
         }
-        return(!$this->Db->update($table, $recordID, $fields,$ID));
+        return (!$this->Db->update($table, $recordID, $fields, $ID));
     }
 
     /**
@@ -181,9 +179,11 @@ class Model{
      * @return boolean
      * @since 0.1[ALPHA]
      */
-    
-    public function exists() 
+
+    public function exists()
     {
-        return(!empty($this->data));
+        return (!empty($this->data));
     }
 }
+
+//EOF

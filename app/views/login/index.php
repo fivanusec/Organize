@@ -1,5 +1,6 @@
 <?= $this->getJS(); ?>
-<?= $this->getCSS();?>
+<?= $this->getCSS(); ?>
+
 <div class="container-fluid">
   <ul class="nav nav-tabs" role="tablist" id="userTab">
     <li class="nav-item active">
@@ -27,7 +28,7 @@
                         <input name="password" type="password" class="form-control" id="InputPassword">
                     </div>
                     <div class="form-group">
-                        <input name="crsf_token" type="hidden" value="<?= app\utils\Token::generate(); ?>"/>
+                        <input name="crsf_token" type="hidden" value="<?php echo app\utils\Token::generate(); ?>" >
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="remember" name="remember">
@@ -80,7 +81,7 @@
                           <input name="regPasswordRepeat" type="password" class="form-control" id="InputPasswordregisterRepeat">
                       </div>
                       <div class="form-group">
-                        <input name="crsf_token" type="hidden" value="<?= app\utils\Token::generate(); ?>"/>
+                        <input name="crsf_token" type="hidden" value="<?php echo app\utils\Token::generate(); ?>"/>
                       </div>
                       <div class="form-group form-check text-center">
                         <input type="checkbox" class="form-check-input" name="news" id="newsCheck">

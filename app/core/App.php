@@ -1,6 +1,7 @@
 <?php
 
 namespace app\core;
+
 use app\utils\Input;
 use Exception;
 
@@ -24,18 +25,16 @@ class App
 
     public function __construct()
     {
-        $url=$this->parseUrl();
+        $url = $this->parseUrl();
         $this->getController($url);
         $this->getMethod($url);
-        $this->getParams($url);       
+        $this->getParams($url);
     }
 
     public function getMethod($url)
     {
-        if(isset($url[1]))
-        {
-            if(method_exists($this->controller, $url[1]))
-            {
+        if (isset($url[1])) {
+            if (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];
             }
         }
@@ -43,16 +42,14 @@ class App
 
     public function getController($url)
     {
-        if(isset($url[0]))
-        {
-            if(file_exists(CONTROLLERS.$url[0].'.php'))
-            {
-                $this->controller=$url[0];
+        if (isset($url[0])) {
+            if (file_exists(CONTROLLERS . $url[0] . '.php')) {
+                $this->controller = $url[0];
             }
         }
-        require_once CONTROLLERS.$this->controller.'.php';
-        $this->controller= NAMESPACE_CONTROLLER.ucfirst(strtolower($this->controller));
-        $this->controller= new $this->controller;
+        require_once CONTROLLERS . $this->controller . '.php';
+        $this->controller = NAMESPACE_CONTROLLER . ucfirst(strtolower($this->controller));
+        $this->controller = new $this->controller;
     }
 
     private function getParams($url)
@@ -64,9 +61,8 @@ class App
 
     public function parseUrl()
     {
-        if($url=Input::get("url"))
-        {
-            return $url=explode('/',filter_var(rtrim($url, '/'), FILTER_SANITIZE_URL));
+        if ($url = Input::get("url")) {
+            return $url = explode('/', filter_var(rtrim($url, '/'), FILTER_SANITIZE_URL));
         }
     }
 
@@ -75,3 +71,6 @@ class App
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 }
+
+
+//EOF

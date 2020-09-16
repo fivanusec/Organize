@@ -17,7 +17,7 @@ use app\progress;
 
 class User extends core\Controller
 {
-    
+
     /**
      * Updateuser: Updates user in Database
      * @example user/updateuser
@@ -31,8 +31,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if (!models\UpdateUser::updateuser($user)) 
-        {
+        if (!models\UpdateUser::updateuser($user)) {
             utils\Redirect::to("/public/user/editUser/{$user}");
         }
         utils\Redirect::to("/public/user/editUser/{$user}");
@@ -50,8 +49,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if (!models\CreateCard::_create($userID)) 
-        {
+        if (!models\CreateCard::_create($userID)) {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
         utils\Redirect::to("/public/user/dash/{$userID}");
@@ -70,8 +68,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if (models\Cards::getDelete($Card)) 
-        {
+        if (models\Cards::getDelete($Card)) {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
     }
@@ -88,8 +85,7 @@ class User extends core\Controller
     public function updateCard($Card, string $userID)
     {
         utils\Auth::checkAuth();
-        if (models\UpdateCard::_update($Card)) 
-        {
+        if (models\UpdateCard::_update($Card)) {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
     }
@@ -107,8 +103,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if (!models\CreateTodo::_create($TodoID)) 
-        {
+        if (!models\CreateTodo::_create($TodoID)) {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
@@ -127,8 +122,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if (models\UpdateTodo::_update($TodoListID)) 
-        {
+        if (models\UpdateTodo::_update($TodoListID)) {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
@@ -147,8 +141,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if (models\Todo::getDelete($Todo_ID)) 
-        {
+        if (models\Todo::getDelete($Todo_ID)) {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
     }
@@ -165,10 +158,8 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if(models\UploadProfilePictrue::_upload($User_ID))
-        {
-            if(models\UploadProfilePictrue::_createDB($User_ID))
-            {
+        if (models\UploadProfilePictrue::_upload($User_ID)) {
+            if (models\UploadProfilePictrue::_createDB($User_ID)) {
                 utils\Redirect::to("/public/user/editUser/{$User_ID}");
             }
         }
@@ -189,8 +180,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if(!models\CreateTodoListItem::_create($TodoListID))
-        {
+        if (!models\CreateTodoListItem::_create($TodoListID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
@@ -210,8 +200,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if(models\TodoList::getDelete($TodoItemID))
-        {
+        if (models\TodoList::getDelete($TodoItemID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
@@ -231,8 +220,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if(models\UpdateTodoItem::_update($TodoItemID))
-        {
+        if (models\UpdateTodoItem::_update($TodoItemID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
@@ -252,8 +240,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if(models\UpdateTodoItem::_finish($TodoItemID))
-        {
+        if (models\UpdateTodoItem::_finish($TodoItemID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
@@ -272,8 +259,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if(!models\CreateNote::_create($TodoListID))
-        {
+        if (!models\CreateNote::_create($TodoListID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
@@ -292,9 +278,8 @@ class User extends core\Controller
     public function updateNote(string $NoteID, string $User_ID, string $TodoID, string $TodoListID)
     {
         utils\Auth::checkAuth();
-        
-        if(models\updateNote::_update($NoteID))
-        {
+
+        if (models\updateNote::_update($NoteID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
     }
@@ -313,41 +298,30 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if ($user) 
-        {
-            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
-            {
+        if ($user) {
+            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) {
                 $user = utils\Session::get(utils\Config::get("SESSION_USER"));
             }
         }
 
-        if (!$User = models\User::getInstance($user)) 
-        {
+        if (!$User = models\User::getInstance($user)) {
             utils\Redirect::to(APP_URL);
         }
 
-        if ($TodoID) 
-        {
-            if ($Todo = models\Todo::getInstance($TodoID)) 
-            {
+        if ($TodoID) {
+            if ($Todo = models\Todo::getInstance($TodoID)) {
                 $todo = $Todo->data();
-            } 
-            else 
-            {
+            } else {
                 $todo = [];
             }
 
-            $progress=[];
+            $progress = [];
 
-            for($count = 0; $count < count($todo); $count++)
-            {
-                if($TodoList = models\TodoList::getInstance($todo[$count]->Todo_List_ID))
-                {
+            for ($count = 0; $count < count($todo); $count++) {
+                if ($TodoList = models\TodoList::getInstance($todo[$count]->Todo_List_ID)) {
                     $TodoListData[$count] = $TodoList->data();
                     $progress[$count] = (new progress\TodoList($TodoList->data()))->checkProgress();
-                }
-                else
-                {
+                } else {
                     $TodoListData = [];
                     $progress = [];
                 }
@@ -356,27 +330,25 @@ class User extends core\Controller
 
         $check = [];
 
-        for($count = 0; $count < count($progress); $count++)
-        {
-            if($progress[$count]->Progress == $progress[$count]->Data)
-            {
+        for ($count = 0; $count < count($progress); $count++) {
+            if ($progress[$count]->Progress == $progress[$count]->Data) {
                 $check[$count] = true;
-            }
-            else
-            {
+            } else {
                 $check[$count] = false;
             }
         }
 
         $this->View->addCSS("css/todo.css");
-        $this->View->render('user/todo', 
-        [
-            'title' => 'Todo',
-            'user' => (new prezenter\User($User->data()))->present(),
-            'todoID' => $TodoID,
-            'Todo_List' => ($todo),
-            'check' => ($check)
-        ]);
+        $this->View->render(
+            'user/todo',
+            [
+                'title' => 'Todo',
+                'user' => (new prezenter\User($User->data()))->present(),
+                'todoID' => $TodoID,
+                'Todo_List' => ($todo),
+                'check' => ($check)
+            ]
+        );
     }
 
     /**
@@ -393,35 +365,27 @@ class User extends core\Controller
 
         utils\Auth::checkAuth();
 
-        if ($user) 
-        {
-            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
-            {
+        if ($user) {
+            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) {
                 $user = utils\Session::get(utils\Config::get("SESSION_USER"));
             }
         }
 
-        if (!$User = models\User::getInstance($user)) 
-        {
+        if (!$User = models\User::getInstance($user)) {
             utils\Redirect::to(APP_URL);
         }
 
-        if ($Card = models\Cards::getInstance($user)) 
-        {
+        if ($Card = models\Cards::getInstance($user)) {
             $cards = $Card->data();
-        } 
-        else 
-        {
+        } else {
             $cards = [];
         }
-        
+
         $picture = "img/user.png";
 
-        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) 
-        {
+        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) {
             $profilepictrue = $ProfilePicture->data();
-            if(!empty($profilepictrue))
-            {
+            if (!empty($profilepictrue)) {
                 $picture = $profilepictrue->Image_Dir;
             }
         }
@@ -429,12 +393,14 @@ class User extends core\Controller
         $this->View->addIMG($picture);
         $this->View->addJS("JS/organizeDash.js");
         $this->View->addCSS("css/organizeDash.css");
-        $this->View->render('user/dash', 
-        [
-            'title' => "Dash",
-            'user' => (new prezenter\User($User->data()))->present(),
-            'cards' => ($cards)
-        ]);
+        $this->View->render(
+            'user/dash',
+            [
+                'title' => "Dash",
+                'user' => (new prezenter\User($User->data()))->present(),
+                'cards' => ($cards)
+            ]
+        );
     }
 
     /**
@@ -453,54 +419,45 @@ class User extends core\Controller
 
         utils\Auth::checkAuth();
 
-        if ($user) 
-        {
-            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
-            {
+        if ($user) {
+            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) {
                 $user = utils\Session::get(utils\Config::get("SESSION_USER"));
             }
         }
 
-        if (!$User = models\User::getInstance($user)) 
-        {
+        if (!$User = models\User::getInstance($user)) {
             utils\Redirect::to(APP_URL);
         }
 
-        if($todoListID)
-        {
-            if($TodoList = models\TodoList::getInstance($todoListID))
-            {
+        if ($todoListID) {
+            if ($TodoList = models\TodoList::getInstance($todoListID)) {
                 $todolist = $TodoList->data();
-            }
-            else
-            {
+            } else {
                 $todolist = [];
             }
         }
 
-        if($todoListID)
-        {
-            if($Notes = models\Notes::getInstance($todoListID))
-            {
+        if ($todoListID) {
+            if ($Notes = models\Notes::getInstance($todoListID)) {
                 $notes = $Notes->data();
-            }
-            else
-            {
+            } else {
                 $notes = [];
             }
         }
 
         $this->View->addCSS("css/todoList.css");
         $this->View->addJS("JS/TodoList.js");
-        $this->View->render('user/todo_list', 
-        [
-            'title' => 'Todo List',
-            'user' => (new prezenter\User($User->data()))->present(),
-            'todolist' => ($todolist),
-            'todolistID' =>$todoListID,
-            'notes' => ($notes),
-            'todoID' => $TodoID
-        ]);
+        $this->View->render(
+            'user/todo_list',
+            [
+                'title' => 'Todo List',
+                'user' => (new prezenter\User($User->data()))->present(),
+                'todolist' => ($todolist),
+                'todolistID' => $todoListID,
+                'notes' => ($notes),
+                'todoID' => $TodoID
+            ]
+        );
     }
 
     /**
@@ -516,26 +473,21 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if ($user) 
-        {
-            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) 
-            {
+        if ($user) {
+            if (utils\Session::sessionExists(utils\Config::get("SESSION_USER"))) {
                 $user = utils\Session::get(utils\Config::get("SESSION_USER"));
             }
         }
 
-        if (!$User = models\User::getInstance($user)) 
-        {
+        if (!$User = models\User::getInstance($user)) {
             utils\Redirect::to(APP_URL);
         }
 
         $picture = "img/user.png";
 
-        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) 
-        {
+        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) {
             $profilepictrue = $ProfilePicture->data();
-            if(!empty($profilepictrue))
-            {
+            if (!empty($profilepictrue)) {
                 $picture = $profilepictrue->Image_Dir;
             }
         }
@@ -543,10 +495,15 @@ class User extends core\Controller
         $this->View->addIMG($picture, "mx-auto img-fluid rounded-circle");
         $this->View->addJS("JS/edituser.js");
         $this->View->addCSS("css/editUser.css");
-        $this->View->render('user/editUser', 
-        [
-            'title' => 'Edit user',
-            'user' => (new prezenter\User($User->data()))->present()
-        ]);
+        $this->View->render(
+            'user/editUser',
+            [
+                'title' => 'Edit user',
+                'user' => (new prezenter\User($User->data()))->present()
+            ]
+        );
     }
 }
+
+
+//EOF

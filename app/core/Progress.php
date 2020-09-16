@@ -14,6 +14,8 @@ class Progress
 
     public function checkProgress()
     {
-        return((Object) $this->format());
+        return ((object) $this->format());
     }
 }
+
+//EOF

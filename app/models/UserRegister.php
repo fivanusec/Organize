@@ -61,3 +61,5 @@ class UserRegister
         return false;
     }
 }
+
+//EOF

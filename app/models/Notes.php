@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+
 use app\core;
 use Exception;
 
@@ -9,8 +10,7 @@ class Notes extends core\Model
     public static function getInstance($note)
     {
         $Note = new Notes;
-        if($Note->findNote($note)->exists())
-        {
+        if ($Note->findNote($note)->exists()) {
             return $Note;
         }
         return null;
@@ -19,7 +19,7 @@ class Notes extends core\Model
     public function findNote($note)
     {
         $field = filter_var($note, FILTER_VALIDATE_INT) ? "Todo_List_ID" : (is_numeric($note) ? "Todo_List_ID" : "Note_Name");
-        return($this->findAll(
+        return ($this->findAll(
             "notes",
             [
                 $field,
@@ -31,8 +31,7 @@ class Notes extends core\Model
 
     public function createNote(array $fields)
     {
-        if($noteID = $this->create("notes", $fields))
-        {
+        if ($noteID = $this->create("notes", $fields)) {
             throw new Exception("There was a problem!");
         }
         return $noteID;
@@ -40,9 +39,10 @@ class Notes extends core\Model
 
     public function updateNote(array $fields, $noteID = null)
     {
-        if($this->update("notes", "Note_ID", $fields, $noteID))
-        {
+        if ($this->update("notes", "Note_ID", $fields, $noteID)) {
             throw new Exception("There was a problem!");
         }
     }
 }
+
+//EOF

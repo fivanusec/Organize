@@ -1,4 +1,5 @@
 <?php
+
 namespace app\core;
 
 /**
@@ -11,29 +12,29 @@ namespace app\core;
 
 class View
 {
-    
+
     /** @var string for HTML <script> tag for loading external scripts */
-    protected $_script="";
+    protected $_script = "";
 
     /** @var string for HTML <link> tag for loading external stylesheets */
-    protected $_link="";
+    protected $_link = "";
 
     /** @var string the title of the page */
-    protected $title="";
+    protected $title = "";
 
     /** @var string for HTML <img> tag for loading profile image */
-    protected $img="";
+    protected $img = "";
 
     /**
-    * Gets view from extended controller for rendering main app
-    * @access public
-    * @param string $view
-    * @param array $data[optional]
-    * @return void
-    * @since 0.1[ALPHA]
-    */
+     * Gets view from extended controller for rendering main app
+     * @access public
+     * @param string $view
+     * @param array $data[optional]
+     * @return void
+     * @since 0.1[ALPHA]
+     */
 
-    public function render($view, array $data=[])
+    public function render($view, array $data = [])
     {
         $this->addData($data);
         $this->getFile(HEADER_MAIN);
@@ -42,30 +43,30 @@ class View
     }
 
     /**
-    * Gets view from extended controller for rendering without headers
-    * @access public
-    * @param string $view
-    * @param array $data[optional]
-    * @return void
-    * @since 0.1[ALPHA]
-    */
+     * Gets view from extended controller for rendering without headers
+     * @access public
+     * @param string $view
+     * @param array $data[optional]
+     * @return void
+     * @since 0.1[ALPHA]
+     */
 
-    public function renderWithoutHeader($view,array $data = [])
+    public function renderWithoutHeader($view, array $data = [])
     {
         $this->addData($data);
         $this->getFile($view);
     }
 
     /**
-    * Gets view from extended controller for rendering home page
-    * @access public
-    * @param string $view
-    * @param array $data[optional]
-    * @return void
-    * @since 0.1[ALPHA]
-    */
+     * Gets view from extended controller for rendering home page
+     * @access public
+     * @param string $view
+     * @param array $data[optional]
+     * @return void
+     * @since 0.1[ALPHA]
+     */
 
-    public function renderMain($view,array $data = [])
+    public function renderMain($view, array $data = [])
     {
         $this->addData($data);
         $this->getFile(HEADER_FOR_MAIN);
@@ -79,10 +80,10 @@ class View
      * @return string
      * @since 0.1[ALPHA]
      */
-    
-    public function escapeHTML($string) 
+
+    public function escapeHTML($string)
     {
-        return(htmlentities($string, HTMLENTITIES_FLAGS, HTMLENTITIES_ENCODING, HTMLENTITIES_DOUBLE_ENCODE));
+        return (htmlentities($string, HTMLENTITIES_FLAGS, HTMLENTITIES_ENCODING, HTMLENTITIES_DOUBLE_ENCODE));
     }
 
     /**
@@ -91,16 +92,15 @@ class View
      * @return string
      * @since 0.1[ALPHA]
      */
-    
-    public function makeURL($path = "") 
+
+    public function makeURL($path = "")
     {
-        if (is_array($path)) 
-        {
-            return(APP_URL . implode("/", $path));
+        if (is_array($path)) {
+            return (APP_URL . implode("/", $path));
         }
-        return(APP_URL . $path);
+        return (APP_URL . $path);
     }
-    
+
     /**
      * Adds data to called view 
      * @param  array $data
@@ -108,14 +108,13 @@ class View
      * @since 0.1[ALPHA]
      */
 
-    public function addData(array $data) 
+    public function addData(array $data)
     {
-        foreach ($data as $key => $value) 
-        {
+        foreach ($data as $key => $value) {
             $this->{$key} = $value;
         }
     }
-    
+
     /**
      * Adds CSS to called view in form of <link> tags
      * @param  mixed $_link
@@ -125,21 +124,18 @@ class View
 
     public function addCSS($files)
     {
-        if(!is_array($files))
-        {
-            $files=(array)$files;
+        if (!is_array($files)) {
+            $files = (array)$files;
         }
 
-        foreach($files as $file)
-        {
-            if (file_exists(PUBLIC_ROOT. $file)) 
-            {
+        foreach ($files as $file) {
+            if (file_exists(PUBLIC_ROOT . $file)) {
                 $this->_link .= '<link type="text/css" rel="stylesheet" href="' . $this->makeURL($file) . '" />' . "\n";
             }
         }
     }
 
-     /**
+    /**
      * Adds JS to called view in form of <script> tag
      * @param  mixed $_script
      * @return void
@@ -148,15 +144,12 @@ class View
 
     public function addJS($files)
     {
-        if(!is_array($files))
-        {
-            $files=(array)$files;
+        if (!is_array($files)) {
+            $files = (array)$files;
         }
 
-        foreach($files as $file)
-        {
-            if (file_exists(PUBLIC_ROOT . $file)) 
-            {
+        foreach ($files as $file) {
+            if (file_exists(PUBLIC_ROOT . $file)) {
                 $this->_script .= '<script type="text/javascript" src="' . $this->makeURL($file) . '"></script>' . "\n";
             }
         }
@@ -169,18 +162,15 @@ class View
      * @since 0.1[ALPHA]
      */
 
-    public function addIMG($files, $class="profilePic")
+    public function addIMG($files, $class = "profilePic")
     {
-        if(!is_array($files))
-        {
+        if (!is_array($files)) {
             $files = (array)$files;
         }
 
-        foreach($files as $file)
-        {
-            if(file_exists(PUBLIC_ROOT . $file))
-            {
-                $this->img .= '<img class="'.$class.'" id="profilePicture" alt="avatar" src="'.$this->makeURL($file).'"/>';
+        foreach ($files as $file) {
+            if (file_exists(PUBLIC_ROOT . $file)) {
+                $this->img .= '<img class="' . $class . '" id="profilePicture" alt="avatar" src="' . $this->makeURL($file) . '"/>';
             }
         }
     }
@@ -227,10 +217,11 @@ class View
 
     public function getFile($file)
     {
-        $filename=VIEW.$file.'.php';
-        if(file_exists($filename))
-        {
+        $filename = VIEW . $file . '.php';
+        if (file_exists($filename)) {
             require $filename;
         }
     }
 }
+
+//EOF

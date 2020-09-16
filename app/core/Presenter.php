@@ -1,4 +1,5 @@
 <?php
+
 namespace app\core;
 
 /**
@@ -11,7 +12,7 @@ namespace app\core;
 class Presenter
 {
     /** @var data: Data that is set to format by presenter */
-    protected $data =null;
+    protected $data = null;
 
     /**
      * Construct: Sets the given data to @var $data
@@ -19,10 +20,10 @@ class Presenter
      * @param mixed $data
      * @since 0.1[ALPHA]
      */
-    
-    public function __construct($data = []) 
+
+    public function __construct($data = [])
     {
-        $this->data = (Object) $data;
+        $this->data = (object) $data;
     }
 
     /**
@@ -31,9 +32,11 @@ class Presenter
      * @return string
      * @since 0.1[ALPHA]
      */
-    
+
     public function present()
     {
-        return((Object) $this->format());
+        return ((object) $this->format());
     }
 }
+
+//EOF

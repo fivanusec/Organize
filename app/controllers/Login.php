@@ -1,4 +1,5 @@
 <?php
+
 namespace app\controllers;
 
 use app\core;
@@ -11,7 +12,7 @@ use app\utils;
  * 
  * @author Filip Ivanusec<fivanusec@gmail.com>
  * @version 0.1[ALPHA]
-*/
+ */
 
 class Login extends core\Controller
 {
@@ -20,7 +21,7 @@ class Login extends core\Controller
      * Initializes variables for usage in Login controller
      */
 
-    protected $ID=null;
+    protected $ID = null;
 
     /**
      * Index: Renders login/index controller 
@@ -36,12 +37,14 @@ class Login extends core\Controller
 
         $this->View->addCSS("css/signin.css");
         $this->View->addJS("JS/signin.js");
-        $this->View->renderMain('login/index',
-        [
-           'title'=>'Log in'
-        ]);
+        $this->View->renderMain(
+            'login/index',
+            [
+                'title' => 'Log in'
+            ]
+        );
     }
-    
+
     /**
      * Register: Checks if user is authenticated and starts the registering process
      * @example register/_register
@@ -53,9 +56,8 @@ class Login extends core\Controller
     public function register()
     {
         utils\Auth::checkUnAuth();
-        
-        if(!models\UserRegister::_register())
-        {
+
+        if (!models\UserRegister::_register()) {
             utils\Redirect::to("/public/Login/index");
         }
         utils\Redirect::to("/public/Login/index");
@@ -69,14 +71,13 @@ class Login extends core\Controller
      * @return void
      * @since 0.1[ALPHA]
      */
-    
+
     public function login()
     {
         utils\Auth::checkUnAuth();
-        if(models\UserLogin::_login())
-        {
-            $this->ID=utils\Session::get(utils\Config::get("SESSION_USER"));
-            utils\Redirect::to("/public/User/dash/{$this->ID}");       
+        if (models\UserLogin::_login()) {
+            $this->ID = utils\Session::get(utils\Config::get("SESSION_USER"));
+            utils\Redirect::to("/public/User/dash/{$this->ID}");
         }
         utils\Redirect::to("/public/Login/index");
     }
@@ -86,8 +87,8 @@ class Login extends core\Controller
         utils\Auth::checkUnAuth();
 
         if (models\UserLogin::loginWithCookie()) {
-            $this->ID=utils\Session::get(utils\Config::get("SESSION_USER"));
-            utils\Redirect::to("/public/User/dash/{$this->ID}"); 
+            $this->ID = utils\Session::get(utils\Config::get("SESSION_USER"));
+            utils\Redirect::to("/public/User/dash/{$this->ID}");
         }
         utils\Redirect::to("/public/Login/index");
     }
@@ -100,18 +101,18 @@ class Login extends core\Controller
      * @return void
      * @since 0.1[ALPHA]
      */
-    
-    public function logOut($user="")
+
+    public function logOut($user = "")
     {
-        if($user)
-        {
+        if ($user) {
             utils\Auth::checkAuth();
-            
-            if(models\UserLogin::_logout())
-            {
+
+            if (models\UserLogin::_logout()) {
                 utils\Redirect::to("/public/Login/index");
             }
         }
         utils\Redirect::to("/public/User/dash/{$user}");
     }
 }
+
+//EOF

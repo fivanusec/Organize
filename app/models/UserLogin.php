@@ -104,3 +104,5 @@ class UserLogin
         return true;
     }
 }
+
+//EOF
