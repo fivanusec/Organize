@@ -1,11 +1,11 @@
-#profilePic{
+#profilePic {
     height: 100px;
     width: 100px;
 }
 
-.btn{
+.btn {
     border-radius: 4px;
-    background-color:rgb(201, 150, 150);
+    background-color: rgb(201, 150, 150);
     border: none;
     color: white;
     cursor: pointer;

@@ -6,21 +6,21 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7
 {
-    public static $prefixLengthsPsr4 = array (
-        'a' => 
-        array (
+    public static $prefixLengthsPsr4 = array(
+        'a' =>
+        array(
             'app\\' => 4,
         ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'app\\' => 
-        array (
+    public static $prefixDirsPsr4 = array(
+        'app\\' =>
+        array(
             0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
-    public static $classMap = array (
+    public static $classMap = array(
         'app\\controllers\\Home' => __DIR__ . '/../..' . '/app/controllers/home.php',
         'app\\controllers\\Login' => __DIR__ . '/../..' . '/app/controllers/login.php',
         'app\\controllers\\User' => __DIR__ . '/../..' . '/app/controllers/user.php',
@@ -62,7 +62,6 @@ class ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7
             $loader->prefixLengthsPsr4 = ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7::$classMap;
-
         }, null, ClassLoader::class);
     }
 }

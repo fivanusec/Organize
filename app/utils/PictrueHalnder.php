@@ -12,25 +12,22 @@ class PictrueHandler
         $imageFileType = strtolower(pathinfo($targetFile['name'], PATHINFO_EXTENSION));
 
         $check = getimagesize($targetFile['tmp_name']);
-        if (!$check !== false) 
-        {
+        if (!$check !== false) {
             Flash::info("File is not a pictrue!");
             return false;
         }
 
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif")
-        {
+        if (
+            $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif"
+        ) {
             Flash::info("Only .JPG,.PNG, .JPEG, .GIF are allowed");
             return false;
         }
-        try
-        {
+        try {
             move_uploaded_file($targetFile['tmp_name'], $target_Dir . "pic{$ID}.jpg");
             return true;
-        }
-        catch(Exception $e)
-        {
+        } catch (Exception $e) {
             Flash::info($e->getMessage());
             return false;
         }

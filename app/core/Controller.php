@@ -1,5 +1,7 @@
 <?php
+
 namespace app\core;
+
 use app\utils;
 
 /**
@@ -12,8 +14,8 @@ use app\utils;
 class Controller
 {
     /** @var View: Set to be instance of the core\View class */
-    protected $View=null;
-    
+    protected $View = null;
+
     /**
      * Construct: Constructs and gets the new instance of core\View class,
      * which is accessed by all of the controllers that extend this class
@@ -40,7 +42,6 @@ class Controller
         }
 
         //Creation of new instance of the core\View class
-        $this->View= new View();
+        $this->View = new View();
     }
 }
-

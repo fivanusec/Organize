@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+
 use app\utils;
 use Exception;
 
@@ -8,19 +9,17 @@ class UpdateNote
 {
 	public static function _update($NoteID)
 	{
-		try
-		{
+		try {
 			$note = new Notes;
 			$note->updateNote(
 				[
-					"Note_Data" => utils\Input::request('noteData'. $NoteID)
+					"Note_Data" => utils\Input::request('noteData' . $NoteID)
 				],
-			$NoteID);
+				$NoteID
+			);
 			utils\Flash::success("Note succesfully updated!");
 			return true;
-		}
-		catch(Exception $e)
-		{
+		} catch (Exception $e) {
 			utils\Flash::warning($e->getMessage());
 		}
 		return false;

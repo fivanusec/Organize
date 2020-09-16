@@ -1,95 +1,133 @@
 /* fonts */
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap'); /*poziv font-family: 'EB Garamond', serif;*/
-@import url('https://fonts.googleapis.com/css?family=Merienda+One&display=swap');/*poziv font-family: 'Merienda One', cursive;*/
 
-body {margin:0;}
-@keyframes navAnimation{
-    0% {margin-left: 0px; margin-right: 5px;}
-    25%{margin-left: 5px; margin-right: 0px;}
-    50%{margin-left: 0px; margin-right: 5px;}
-    75%{margin-left: 5px; margin-right: 0px;}
-    100%{margin-left: 0px; margin-right: 5px;}
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+
+/*poziv font-family: 'EB Garamond', serif;*/
+
+@import url('https://fonts.googleapis.com/css?family=Merienda+One&display=swap');
+
+/*poziv font-family: 'Merienda One', cursive;*/
+
+body {
+    margin: 0;
 }
-.navbar{
+
+@keyframes navAnimation {
+    0% {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+    25% {
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    50% {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+    75% {
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    100% {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+}
+
+.navbar {
     background-color: rgb(201, 150, 150);
 }
-.navbar-brand{
+
+.navbar-brand {
     color: white;
     font-family: 'Merienda One', cursive;
     font-size: 1.25rem;
 }
-.nav-link{
+
+.nav-link {
     font-family: 'EB Garamond', serif;
     color: white;
     font-size: 24px;
 }
-.nav-item a:hover{
+
+.nav-item a:hover {
     cursor: pointer;
     animation-name: navAnimation;
     animation-duration: 1s;
     animation-iteration-count: infinite;
 }
-.login{
+
+.login {
     font-family: 'EB Garamond', serif;
     font-size: 24px;
 }
-.login:hover{
+
+.login:hover {
     cursor: pointer;
     animation-name: navAnimation;
     animation-duration: 1s;
     animation-iteration-count: infinite;
 }
-.button{
+
+.button {
     border-radius: 4px;
-    background-color:rgb(201, 150, 150);
+    background-color: rgb(201, 150, 150);
     border: none;
     color: white;
     cursor: pointer;
     margin: 1px;
     font-size: 24px;
 }
+
 .column {
     float: center;
     width: 49%;
     border-radius: 4px;
-    background-color:rgb(201, 150, 150);
+    background-color: rgb(201, 150, 150);
     border: none;
     color: white;
     padding: 20px;
     transition: all 0.5s;
     margin: 1px;
 }
-.column span:after{
+
+.column span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     transition: 0.5s;
 }
-.column:hover span{
+
+.column:hover span {
     padding-right: 25px;
     border-color: white;
 }
-.column:hover span:after{
+
+.column:hover span:after {
     opacity: 1;
     right: 0;
 }
+
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
-.profilePic{
+
+.profilePic {
     height: 100px;
     width: 100px;
 }
-.column-pic-1{
+
+.column-pic-1 {
     padding-left: 10px;
     padding-top: 25px;
 }
 
-.btn-del{
-    height:15px;
+.btn-del {
+    height: 15px;
     width: 15px;
     color: white;
     float: right;
@@ -97,14 +135,14 @@ body {margin:0;}
     font-size: 25px;
 }
 
-.btn-del:hover{
+.btn-del:hover {
     color: darkgrey;
 }
 
-.user-creditnails{
+.user-creditnails {
     color: rgba(0, 0, 0, 0.555);
 }
 
-.user-creditnails:hover{
+.user-creditnails:hover {
     color: rgba(0, 0, 0, 0.555);
 }

@@ -1,5 +1,5 @@
 <?= $this->getJS(); ?>
-<?= $this->getCSS();?>
+<?= $this->getCSS(); ?>
 
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id="firstCard">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
@@ -21,7 +21,7 @@
             <button onclick="smoothScroll(document.getElementById('interfaceCont1'))" type="button" class="learnMore-btn-2">Learn more</button>
         </div>
     </div>
-        <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" id="thirdCard">
+    <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" id="thirdCard">
         <div class="my-3 p-3">
             <h2 class="display-5" style="color: rgb(201, 150, 150);">Fast.</h2>
             <p class="lead" style="color: rgb(201, 150, 150);">We spent number of hours working on extremly fast system.
@@ -59,10 +59,10 @@
         <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden" id="thirdCard" style="color:rgb(201, 150, 150);">
             <h2 style="font-family: 'Merienda One', cursive;">Fast.</h2>
             <p style="font-size: 20px">
-            Trough the research we invested a lot of time and resources to find the best possible system and solution for your day.
-            We tried to make the most fastest solution available on the market, we wanted for our users to have sense of that our solution is pretty fast. 
-            Although we are continuously working on making this application even more faster we can proudly say that our solution is reliable and good for making your day less of a pain. By dividing to do lists into categories and making you organize your tasks into little groups we already did half of your job. 
-            We stand proud behind our solution and we want to offer best practices for your day, job, what in the world you need to accomplish in your day!
+                Trough the research we invested a lot of time and resources to find the best possible system and solution for your day.
+                We tried to make the most fastest solution available on the market, we wanted for our users to have sense of that our solution is pretty fast.
+                Although we are continuously working on making this application even more faster we can proudly say that our solution is reliable and good for making your day less of a pain. By dividing to do lists into categories and making you organize your tasks into little groups we already did half of your job.
+                We stand proud behind our solution and we want to offer best practices for your day, job, what in the world you need to accomplish in your day!
             </p>
             <br>
         </div>

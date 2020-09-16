@@ -1,6 +1,6 @@
-.btn{
+.btn {
     border-radius: 4px;
-    background-color:rgb(201, 150, 150);
+    background-color: rgb(201, 150, 150);
     border: none;
     color: white;
     cursor: pointer;
@@ -8,16 +8,16 @@
     font-size: 18px;
 }
 
-#meter_wrapper{
- border:1px solid grey;
- margin-left:38%;
- margin-top:20px;
- width:200px;
- height:35px;
- border-radius:3px;
+#meter_wrapper {
+    border: 1px solid grey;
+    margin-left: 38%;
+    margin-top: 20px;
+    width: 200px;
+    height: 35px;
+    border-radius: 3px;
 }
 
-#meter{
- width:0px;
- height:35px;
+#meter {
+    width: 0px;
+    height: 35px;
 }
