@@ -26,6 +26,9 @@
                         <label class="form-lbl" for="InputPassword">Password</label>
                         <input name="password" type="password" class="form-control" id="InputPassword">
                     </div>
+                    <div class="form-group">
+                        <input name="crsf_token" type="hidden" value="<?= app\utils\Token::generate(); ?>"/>
+                    </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="remember" name="remember">
                         <label class="form-check-label" for="remeberCheck">Remeber me?</label>
@@ -74,7 +77,10 @@
                       </div>
                       <div class="form-group">
                           <label class="form-lbl" for="InputPasswordregisterRepeat">Confirm password:</label>
-                          <input type="password" class="form-control" id="InputPasswordregisterRepeat">
+                          <input name="regPasswordRepeat" type="password" class="form-control" id="InputPasswordregisterRepeat">
+                      </div>
+                      <div class="form-group">
+                        <input name="crsf_token" type="hidden" value="<?= app\utils\Token::generate(); ?>"/>
                       </div>
                       <div class="form-group form-check text-center">
                         <input type="checkbox" class="form-check-input" name="news" id="newsCheck">
