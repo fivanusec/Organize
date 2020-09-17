@@ -6,7 +6,7 @@ use app\utils\Input;
 use Exception;
 
 /**
- * Core App class
+ * App
  *
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @version 0.1[ALPHA]

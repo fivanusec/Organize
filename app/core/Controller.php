@@ -5,7 +5,7 @@ namespace app\core;
 use app\utils;
 
 /**
- * Core controller
+ * Controller
  * 
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @since 0.1[ALPHA] 

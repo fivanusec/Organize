@@ -3,7 +3,7 @@
 namespace app\core;
 
 /**
- * Core presenter
+ * Presenter
  * 
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @since 0.1[ALPHA]
