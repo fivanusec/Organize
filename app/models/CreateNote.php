@@ -26,5 +26,8 @@ class CreateNote
         return false;
     }
 }
+<<<<<<< HEAD
 
 //EOF
+=======
+>>>>>>> master

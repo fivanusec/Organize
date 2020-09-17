@@ -3,10 +3,10 @@
 define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 
 //defines public
-define('PUBLIC_ROOT',ROOT.'public'.DIRECTORY_SEPARATOR);
-define('PUBLIC_CSS',PUBLIC_ROOT.'css');
-define('PUBLIC_JS',PUBLIC_ROOT.'JS');
-define('PUBLIC_IMG',PUBLIC_ROOT.'img'.DIRECTORY_SEPARATOR);
+define('PUBLIC_ROOT', ROOT . 'public' . DIRECTORY_SEPARATOR);
+define('PUBLIC_CSS', PUBLIC_ROOT . 'css');
+define('PUBLIC_JS', PUBLIC_ROOT . 'JS');
+define('PUBLIC_IMG', PUBLIC_ROOT . 'img' . DIRECTORY_SEPARATOR);
 
 //defines app
 define('APP', ROOT . 'app' . DIRECTORY_SEPARATOR);
@@ -23,18 +23,22 @@ define("HTMLENTITIES_FLAGS", ENT_QUOTES);
 define("HTMLENTITIES_ENCODING", "UTF-8");
 define("HTMLENTITIES_DOUBLE_ENCODE", false);
 define("DEFAULT_CONTROLLER", "Home");
+<<<<<<< HEAD
 define("DEFAULT_CONTROLLER_ACTION" , "index");
+=======
+define("DEFAULT_CONTROLLER_ACTION", "index");
+>>>>>>> master
 
 //defines for namspaces
 define("NAMESPACE_CONTROLLER", "\App\Controllers\\");
 
 //defaults app header and footer
-define("HEADER_MAIN",'user/teamplate/header');
-define("FOOTER_MAIN",'user/teamplate/footer');
+define("HEADER_MAIN", 'user/teamplate/header');
+define("FOOTER_MAIN", 'user/teamplate/footer');
 
 //defaults main {TEMP NAMES}
-define("HEADER_FOR_MAIN",'header');
-define("FOOTER_FOR_MAIN",'footer');
+define("HEADER_FOR_MAIN", 'header');
+define("FOOTER_FOR_MAIN", 'footer');
 
 //requieres for app 
 require_once CORE . 'app.php';

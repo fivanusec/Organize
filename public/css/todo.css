@@ -1,17 +1,17 @@
 .card {
     margin-bottom: 10px;
     margin-left: 20px;
-  }
+}
 
-  .btn-del {
+.btn-del {
     height: 10px;
     width: 10px;
     color: rgb(201, 150, 150);
     float: right;
     margin-top: -10px;
     font-size: 20px;
-  }
+}
 
-  .btn-del:hover {
+.btn-del:hover {
     color: darkgrey;
-  }
+}

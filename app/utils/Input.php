@@ -4,6 +4,7 @@ namespace app\utils;
 
 class Input
 {
+<<<<<<< HEAD
     public static function check(array $source, array $inputs, $recordID = null)
     {
         if (!Input::exists()) {
@@ -33,6 +34,8 @@ class Input
         return false;
     }
 
+=======
+>>>>>>> master
     public static function get($name, $default = '')
     {
         return (isset($_GET[$name]) ? $_GET[$name] : $default);
@@ -48,5 +51,8 @@ class Input
         return (isset($_REQUEST[$name]) ? $_REQUEST[$name] : $default);
     }
 }
+<<<<<<< HEAD
 
 //EOF
+=======
+>>>>>>> master

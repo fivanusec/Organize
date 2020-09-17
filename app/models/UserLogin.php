@@ -9,6 +9,7 @@ use app\utils;
 class UserLogin
 {
 
+<<<<<<< HEAD
     private static $_inputs = [
         "email" => [
             "filter" => "email",
@@ -22,6 +23,11 @@ class UserLogin
     public static function remeberCookies($userID)
     {
         $Db = utils\Database::getInstance();
+=======
+    public static function remeberCookies($userID)
+    {
+        $Db = utils\Database::getIstance();
+>>>>>>> master
         $check = $Db->select("user_cookies", ["User_ID", "=", $userID]);
         if ($check->count()) {
             $hash = $check->first()->hash;
@@ -104,5 +110,8 @@ class UserLogin
         return true;
     }
 }
+<<<<<<< HEAD
 
 //EOF
+=======
+>>>>>>> master

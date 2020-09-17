@@ -3,7 +3,11 @@
 namespace app\core;
 
 /**
+<<<<<<< HEAD
  * Presenter
+=======
+ * Core presenter
+>>>>>>> master
  * 
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @since 0.1[ALPHA]
@@ -38,5 +42,8 @@ class Presenter
         return ((object) $this->format());
     }
 }
+<<<<<<< HEAD
 
 //EOF
+=======
+>>>>>>> master

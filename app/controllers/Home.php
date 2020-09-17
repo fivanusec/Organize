@@ -35,5 +35,8 @@ class Home extends core\Controller
         );
     }
 }
+<<<<<<< HEAD
 
 //EOF
+=======
+>>>>>>> master

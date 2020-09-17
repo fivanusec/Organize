@@ -15,6 +15,7 @@
     <?php for ($count = 0; $count < count($this->Todo_List); $count++) : ?>
       <div id="<?= $this->Todo_List[$count]->Todo_List_ID; ?>" class="card text-center">
         <div class="card-body">
+<<<<<<< HEAD
            <?php if(count($this->check) != 0): ?>
             <?php if($this->check[$count] == true): ?>
               <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-check-square"></i></h5>
@@ -22,6 +23,15 @@
               <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-times-circle"></i></h5>
             <?php endif; ?>
           <?php else: ?>
+=======
+          <?php if (count($this->check) != 0) : ?>
+            <?php if ($this->check[$count] == true) : ?>
+              <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-check-square"></i></h5>
+            <?php else : ?>
+              <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-times-circle"></i></h5>
+            <?php endif; ?>
+          <?php else : ?>
+>>>>>>> master
             <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-times-circle"></i></h5>
           <?php endif; ?>
           <p class="card-text"><?= $this->Todo_List[$count]->Todo_Description; ?></p>
@@ -32,7 +42,7 @@
       </div>
       <script>
         document.getElementById("del<?= $this->Todo_List[$count]->Todo_List_ID; ?>").onclick = function() {
-          window.location.href = "<?= $this->makeUrl("user/deleteTodo/{$this->Todo_List[$count]->Todo_List_ID}/{$this->user->ID}/{$this->todoID}");?>";
+          window.location.href = "<?= $this->makeUrl("user/deleteTodo/{$this->Todo_List[$count]->Todo_List_ID}/{$this->user->ID}/{$this->todoID}"); ?>";
         }
       </script>
     <?php endfor; ?>

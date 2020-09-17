@@ -223,5 +223,8 @@ class View
         }
     }
 }
+<<<<<<< HEAD
 
 //EOF
+=======
+>>>>>>> master

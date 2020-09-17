@@ -2,13 +2,16 @@ body {
     margin: 0;
     min-width: 250px;
 }
+
 * {
     box-sizing: border-box;
 }
+
 ul {
     margin: 0;
     padding: 0;
 }
+
 .ul-todo .li-todo {
     cursor: pointer;
     position: relative;
@@ -17,24 +20,27 @@ ul {
     background: #eee;
     font-size: 18px;
     transition: 0.2s;
-    
     /* make the list items unselectable */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
+
 .li-todo:nth-child(odd) {
     background: #f9f9f9;
 }
+
 .li-todo:hover {
     background: #ddd;
 }
+
 .li-todo.checked {
     background: rgb(94, 185, 58);
     color: #fff;
     text-decoration: line-through;
 }
+
 .li-todo.checked:before {
     content: '';
     position: absolute;
@@ -47,6 +53,7 @@ ul {
     height: 15px;
     width: 7p
 }
+
 .close {
     position: absolute;
     right: 0;
@@ -54,28 +61,31 @@ ul {
     padding: 12px 16px 12px 16px;
     margin-top: 1px;
 }
+
 .close:hover {
     background-color: #f9f9f9;
     color: white;
 }
+
 .todo-list {
     background-color: #f9f9f9;
     padding: 30px 40px;
     color: white;
     text-align: center;
 }
+
 .todo-list:after {
     content: "";
     display: table;
     clear: both;
 }
-.label{
+
+.label {
     color: black;
 }
-hr.line-complete{
+
+hr.line-complete {
     border: 5px solid green;
     border-radius: 5px;
     width: 0%;
 }
-
-  

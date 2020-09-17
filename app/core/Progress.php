@@ -2,6 +2,7 @@
 
 namespace app\core;
 
+<<<<<<< HEAD
 /**
  * Progress: Progress system 
  * 
@@ -24,11 +25,19 @@ class Progress
      * @param mixed $data
      * @since 0.1[ALPHA]
      */
+=======
+class Progress
+{
+    protected $data = [];
+    protected $completion = 0;
+
+>>>>>>> master
     public function __construct($data)
     {
         $this->data = $data;
     }
 
+<<<<<<< HEAD
     /**
      * CheckProgress: Calls and returns format function in folder progress
      * @access public
@@ -36,10 +45,15 @@ class Progress
      * @since 0.1[ALPHA]
      */
     
+=======
+>>>>>>> master
     public function checkProgress()
     {
         return ((object) $this->format());
     }
 }
+<<<<<<< HEAD
 
 //EOF
+=======
+>>>>>>> master

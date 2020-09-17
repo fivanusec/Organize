@@ -38,26 +38,26 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">User type</label>
                     <div class="col-lg-9">
-                        <?php if($this->user->Type == "Student"): ?>
+                        <?php if ($this->user->Type == "Student") : ?>
                             <select name="type" class="custom-select" id="userTypeSelect">
-                            <option selected><?= $this->user->Type; ?></option>
-                            <option value="Bussines">Bussines</option>
-                            <option value="Personsal">Personal</option>
-                          </select>
-                        <?php endif; 
-                        if($this->user->Type == "Bussines"): ?>
+                                <option selected><?= $this->user->Type; ?></option>
+                                <option value="Bussines">Bussines</option>
+                                <option value="Personsal">Personal</option>
+                            </select>
+                        <?php endif;
+                        if ($this->user->Type == "Bussines") : ?>
                             <select name="type" class="custom-select" id="userTypeSelect">
-                            <option selected><?= $this->user->Type; ?></option>
-                            <option value="Student">Student</option>
-                            <option value="Personsal">Personal</option>
-                          </select>
-                        <?php endif; 
-                        if($this->user->Type == "Personal"): ?>
+                                <option selected><?= $this->user->Type; ?></option>
+                                <option value="Student">Student</option>
+                                <option value="Personsal">Personal</option>
+                            </select>
+                        <?php endif;
+                        if ($this->user->Type == "Personal") : ?>
                             <select name="type" class="custom-select" id="userTypeSelect">
-                            <option selected><?= $this->user->Type; ?></option>
-                            <option value="Bussines">Bussines</option>
-                            <option value="Student">Student</option>
-                          </select>
+                                <option selected><?= $this->user->Type; ?></option>
+                                <option value="Bussines">Bussines</option>
+                                <option value="Student">Student</option>
+                            </select>
                         <?php endif; ?>
                     </div>
                 </div>
