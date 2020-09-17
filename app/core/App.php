@@ -6,7 +6,7 @@ use app\utils\Input;
 use Exception;
 
 /**
- * Core App class
+ * App
  *
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @version 0.1[ALPHA]
@@ -71,3 +71,9 @@ class App
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 }
+<<<<<<< HEAD
+
+
+//EOF
+=======
+>>>>>>> master

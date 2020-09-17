@@ -7,8 +7,34 @@ use app\utils;
 
 class UserRegister
 {
+
+    private static $_inputs = [
+        "name" => [
+            "required" => true
+        ],
+        "surname" => [
+            "required" => true
+        ],
+        "Email" => [
+            "filter" => "email",
+            "required" => true,
+            "unique" => "users"
+        ],
+        "regPassword" => [
+            "min_characters" => 6,
+            "required" => true
+        ],
+        "regPasswordRepeat" => [
+            "matches" => "regPassword",
+            "required" => true
+        ]
+    ];
+
     public static function _register()
     {
+        if (!utils\Input::check($_POST, self::$_inputs)) {
+            return false;
+        }
         $salt = utils\Hash::generateSalt(32);
         if (!$User = User::getInstance(utils\Input::post("regEmail"))) {
             try {
@@ -35,3 +61,5 @@ class UserRegister
         return false;
     }
 }
+
+//EOF

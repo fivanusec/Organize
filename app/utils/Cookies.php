@@ -24,3 +24,8 @@ class Cookies
         return (setcookie($key, $value, time() + $expiry, "/"));
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

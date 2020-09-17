@@ -22,3 +22,8 @@ class Auth
         }
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

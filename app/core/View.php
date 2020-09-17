@@ -4,7 +4,7 @@ namespace app\core;
 
 /**
  * 
- * Core View class
+ * View
  * 
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @version 0.1[ALPHA]
@@ -223,3 +223,8 @@ class View
         }
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

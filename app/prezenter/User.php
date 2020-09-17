@@ -28,3 +28,5 @@ class User extends core\Presenter
             ];
     }
 }
+
+//EOF

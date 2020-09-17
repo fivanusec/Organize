@@ -114,3 +114,8 @@ class Login extends core\Controller
         utils\Redirect::to("/public/User/dash/{$user}");
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

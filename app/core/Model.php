@@ -5,7 +5,11 @@ namespace app\core;
 use app\utils;
 
 /**
+<<<<<<< HEAD
+ * Model
+=======
  * Core model
+>>>>>>> master
  * 
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @since 0.1[ALPHA]
@@ -28,7 +32,11 @@ class Model
 
     public function __construct()
     {
+<<<<<<< HEAD
+        $this->Db = utils\Database::getInstance();
+=======
         $this->Db = utils\Database::getIstance();
+>>>>>>> master
     }
 
     /**
@@ -185,3 +193,8 @@ class Model
         return (!empty($this->data));
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

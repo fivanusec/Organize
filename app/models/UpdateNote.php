@@ -25,3 +25,8 @@ class UpdateNote
 		return false;
 	}
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

@@ -60,3 +60,5 @@ class UploadProfilePictrue
         }
     }
 }
+
+//EOF

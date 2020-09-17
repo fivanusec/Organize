@@ -16,3 +16,8 @@ class Notes extends core\Presenter
             ];
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

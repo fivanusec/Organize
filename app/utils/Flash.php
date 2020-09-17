@@ -36,3 +36,8 @@ class Flash
         return (self::session(Config::get("SESSION_FLASH_WARNING"), $value));
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

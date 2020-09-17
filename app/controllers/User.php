@@ -34,7 +34,7 @@ class User extends core\Controller
         if (!models\UpdateUser::updateuser($user)) {
             utils\Redirect::to("/public/user/editUser/{$user}");
         }
-        utils\Redirect::to("/public/user/editUser/{$user}");
+        utils\Redirect::to(500);
     }
 
     /**
@@ -52,7 +52,7 @@ class User extends core\Controller
         if (!models\CreateCard::_create($userID)) {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
-        utils\Redirect::to("/public/user/dash/{$userID}");
+        utils\Redirect::to(500);
     }
 
     /**
@@ -71,6 +71,7 @@ class User extends core\Controller
         if (models\Cards::getDelete($Card)) {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -88,6 +89,7 @@ class User extends core\Controller
         if (models\UpdateCard::_update($Card)) {
             utils\Redirect::to("/public/user/dash/{$userID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -106,6 +108,7 @@ class User extends core\Controller
         if (!models\CreateTodo::_create($TodoID)) {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -125,6 +128,7 @@ class User extends core\Controller
         if (models\UpdateTodo::_update($TodoListID)) {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -144,6 +148,7 @@ class User extends core\Controller
         if (models\Todo::getDelete($Todo_ID)) {
             utils\Redirect::to("/public/user/todo/{$userID}/{$TodoID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -163,7 +168,7 @@ class User extends core\Controller
                 utils\Redirect::to("/public/user/editUser/{$User_ID}");
             }
         }
-        utils\Redirect::to("/public/user/editUser/{$User_ID}");
+        utils\Redirect::to(500);
     }
 
     /**
@@ -183,6 +188,7 @@ class User extends core\Controller
         if (!models\CreateTodoListItem::_create($TodoListID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -203,6 +209,7 @@ class User extends core\Controller
         if (models\TodoList::getDelete($TodoItemID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -223,6 +230,7 @@ class User extends core\Controller
         if (models\UpdateTodoItem::_update($TodoItemID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -243,6 +251,7 @@ class User extends core\Controller
         if (models\UpdateTodoItem::_finish($TodoItemID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -262,6 +271,7 @@ class User extends core\Controller
         if (!models\CreateNote::_create($TodoListID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -282,6 +292,7 @@ class User extends core\Controller
         if (models\updateNote::_update($NoteID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
+        utils\Redirect::to(500);
     }
 
     /**
@@ -504,3 +515,8 @@ class User extends core\Controller
         );
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

@@ -28,7 +28,7 @@ class Database
         }
     }
 
-    public static function getIstance()
+    public static function getInstance()
     {
         if (!isset(self::$Database)) {
             self::$Database = new Database;
@@ -171,3 +171,8 @@ class Database
         return ($this->results(0));
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

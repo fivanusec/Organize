@@ -19,4 +19,10 @@ class TodoItem extends core\Presenter
 				"Item_Completion" => $this->data->Todo_Item_Completion
 			];
 	}
+<<<<<<< HEAD
 }
+
+//EOF
+=======
+}
+>>>>>>> master

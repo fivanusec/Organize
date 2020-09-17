@@ -45,3 +45,8 @@ class User extends core\Model
         }
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

@@ -28,3 +28,5 @@ class UpdateCard
         return false;
     }
 }
+
+//EOF

@@ -9,9 +9,25 @@ use app\utils;
 class UserLogin
 {
 
+<<<<<<< HEAD
+    private static $_inputs = [
+        "email" => [
+            "filter" => "email",
+            "required" => true
+        ],
+        "password" => [
+            "required" => true
+        ]
+    ];
+
+    public static function remeberCookies($userID)
+    {
+        $Db = utils\Database::getInstance();
+=======
     public static function remeberCookies($userID)
     {
         $Db = utils\Database::getIstance();
+>>>>>>> master
         $check = $Db->select("user_cookies", ["User_ID", "=", $userID]);
         if ($check->count()) {
             $hash = $check->first()->hash;
@@ -31,7 +47,7 @@ class UserLogin
         if (!utils\Cookies::exists(utils\Config::get("COOKIE_USER"))) {
             return false;
         }
-        $Db = utils\Database::getIstance();
+        $Db = utils\Database::getInstance();
         $hash = utils\Cookies::get(utils\Config::get("COOKIE_USER"));
         $check = $Db->select("user_cookies", ["hash", "=", $hash]);
         if ($check->count()) {
@@ -48,6 +64,9 @@ class UserLogin
 
     public static function _login()
     {
+        if (!utils\Input::check($_POST, self::$_inputs)) {
+            return false;
+        }
         $email = utils\Input::post("email");
         if (!$User = User::getInstance($email)) {
             utils\Flash::info(utils\Text::get("LOGIN_USER_NOT_FOUND"));
@@ -77,7 +96,22 @@ class UserLogin
 
     public static function _logout()
     {
+        $cookie = utils\Config::get("COOKIE_USER");
+        if (utils\Cookies::exists($cookie)) {
+            $Db = utils\Database::getInstance();
+            $hash = utils\Cookies::get($cookie);
+            $check = $Db->delete("user_cookies", ["hash", "=", $hash]);
+            if ($check->count()) {
+                utils\Cookies::delete($cookie);
+            }
+        }
+
         utils\Session::closeSession();
         return true;
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

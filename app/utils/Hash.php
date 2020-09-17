@@ -24,3 +24,8 @@ class Hash
         return (self::generate(uniqid()));
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master

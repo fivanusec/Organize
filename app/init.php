@@ -23,7 +23,11 @@ define("HTMLENTITIES_FLAGS", ENT_QUOTES);
 define("HTMLENTITIES_ENCODING", "UTF-8");
 define("HTMLENTITIES_DOUBLE_ENCODE", false);
 define("DEFAULT_CONTROLLER", "Home");
+<<<<<<< HEAD
+define("DEFAULT_CONTROLLER_ACTION" , "index");
+=======
 define("DEFAULT_CONTROLLER_ACTION", "index");
+>>>>>>> master
 
 //defines for namspaces
 define("NAMESPACE_CONTROLLER", "\App\Controllers\\");

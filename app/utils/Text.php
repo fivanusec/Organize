@@ -23,3 +23,8 @@ class Text
         return "";
     }
 }
+<<<<<<< HEAD
+
+//EOF
+=======
+>>>>>>> master
