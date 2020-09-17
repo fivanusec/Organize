@@ -30,8 +30,5 @@ class CreateCard
         return false;
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

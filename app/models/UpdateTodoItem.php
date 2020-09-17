@@ -47,8 +47,5 @@ class UpdateTodoItem
         return false;
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

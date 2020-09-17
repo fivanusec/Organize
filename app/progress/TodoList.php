@@ -16,8 +16,5 @@ class TodoList extends core\Progress
         return ["Progress" => $this->completion, "Data" => count($this->data)];
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

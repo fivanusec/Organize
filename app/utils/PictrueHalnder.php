@@ -33,8 +33,5 @@ class PictrueHandler
         }
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master
