@@ -8,7 +8,9 @@ class Redirect
     {
         if ($location) {
             if ($location === 404) {
-                echo "Error";
+                Response::error(404, ["Oh no something went wrong"]);
+            } elseif($location === 500) {
+                Response::error(500, ["Oh no something went wrong"]);
             } else {
                 header("Location: " . $location);
             }
