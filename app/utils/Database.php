@@ -171,8 +171,5 @@ class Database
         return ($this->results(0));
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

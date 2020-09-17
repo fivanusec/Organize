@@ -66,8 +66,5 @@ class Cards extends core\Model
         ));
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

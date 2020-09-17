@@ -42,8 +42,5 @@ class Session
         }
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

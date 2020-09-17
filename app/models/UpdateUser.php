@@ -45,8 +45,5 @@ class UpdateUser
         return false;
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

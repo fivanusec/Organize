@@ -35,8 +35,5 @@ class CreateTodo
         }
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

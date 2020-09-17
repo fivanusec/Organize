@@ -79,8 +79,5 @@ class Todo extends Core\Model
         return $TodoPrep;
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

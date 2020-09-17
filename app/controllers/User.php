@@ -515,8 +515,5 @@ class User extends core\Controller
         );
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

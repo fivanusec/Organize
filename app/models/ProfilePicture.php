@@ -40,8 +40,5 @@ class ProfilePictrue extends core\Model
         }
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master
