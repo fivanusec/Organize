@@ -14,8 +14,5 @@ class Config
         return (array_key_exists($key, self::$_config) ? self::$_config[$key] : null);
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

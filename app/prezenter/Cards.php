@@ -21,8 +21,5 @@ class Cards extends core\Presenter
             ];
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

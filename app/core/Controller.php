@@ -49,8 +49,5 @@ class Controller
         $this->View = new View();
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master

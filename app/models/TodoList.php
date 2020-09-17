@@ -80,8 +80,5 @@ class TodoList extends core\Model
         }
     }
 }
-<<<<<<< HEAD
 
 //EOF
-=======
->>>>>>> master
