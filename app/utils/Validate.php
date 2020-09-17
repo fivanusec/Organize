@@ -12,7 +12,7 @@ class Validate
 
     public function __construct(array $source, $recordID = null)
     {
-        $this->_Db = Database::getIstance();
+        $this->_Db = Database::getInstance();
         $this->_recordID = $recordID;
         $this->_source = $source;
     }

@@ -505,5 +505,4 @@ class User extends core\Controller
     }
 }
 
-
 //EOF

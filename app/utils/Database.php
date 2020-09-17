@@ -28,7 +28,7 @@ class Database
         }
     }
 
-    public static function getIstance()
+    public static function getInstance()
     {
         if (!isset(self::$Database)) {
             self::$Database = new Database;

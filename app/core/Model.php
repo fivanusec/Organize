@@ -28,7 +28,7 @@ class Model
 
     public function __construct()
     {
-        $this->Db = utils\Database::getIstance();
+        $this->Db = utils\Database::getInstance();
     }
 
     /**

@@ -21,7 +21,7 @@ class UserLogin
 
     public static function remeberCookies($userID)
     {
-        $Db = utils\Database::getIstance();
+        $Db = utils\Database::getInstance();
         $check = $Db->select("user_cookies", ["User_ID", "=", $userID]);
         if ($check->count()) {
             $hash = $check->first()->hash;
@@ -41,7 +41,7 @@ class UserLogin
         if (!utils\Cookies::exists(utils\Config::get("COOKIE_USER"))) {
             return false;
         }
-        $Db = utils\Database::getIstance();
+        $Db = utils\Database::getInstance();
         $hash = utils\Cookies::get(utils\Config::get("COOKIE_USER"));
         $check = $Db->select("user_cookies", ["hash", "=", $hash]);
         if ($check->count()) {
@@ -92,7 +92,7 @@ class UserLogin
     {
         $cookie = utils\Config::get("COOKIE_USER");
         if (utils\Cookies::exists($cookie)) {
-            $Db = utils\Database::getIstance();
+            $Db = utils\Database::getInstance();
             $hash = utils\Cookies::get($cookie);
             $check = $Db->delete("user_cookies", ["hash", "=", $hash]);
             if ($check->count()) {
