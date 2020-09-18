@@ -10,7 +10,7 @@ The file you create and edit name it with the first capital letter like you woul
 
 File should follow this example:
 
-```
+```php
 <?php
 
 //code
@@ -23,7 +23,7 @@ File should follow this example:
 
 Displaying data on views goes trough short echo tag like so:
 
-```
+```php
 <div class="example">
     <?= $this->data; ?>
 </div>
@@ -31,7 +31,7 @@ Displaying data on views goes trough short echo tag like so:
 
 If, for, switch loops:
 
-```
+```php
 <div class="example">
     <?php if(something_happens): >
         <tag that needs displaying>
@@ -47,7 +47,7 @@ If, for, switch loops:
 
 Typical namespace name is main_folder(mostly app)\subfolder
 
-```
+```php
 <?php
 
 namespace app\utils;
@@ -60,7 +60,7 @@ namespace app\utils;
 
 Typical name for classes is starting with first capital letter
 
-```
+```php
 <?php
 
 namespace app\utils;
@@ -77,7 +77,7 @@ class Userlogin
 
 Functions should start with small letter, contain 2 words or more(if possible) in whicih second word starts with capital letter
 
-```
+```php
 <?php
 
 namespace app\utils;
@@ -102,7 +102,7 @@ class Userlogin
 
 The code inside function should be formated as presented(that also reflects on curly braces, brackets, parenthasies, varibale declaration, calling functions etc.):
 
-```
+```php
 <?php
 
 namespace app\utils;
@@ -135,7 +135,7 @@ class Userlogin
 
 ## For example on all rules in action
 
-```
+```php
 <?php
 
 namespace app\utils;
