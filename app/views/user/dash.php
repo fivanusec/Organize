@@ -72,7 +72,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="button" style="font-size: 24px;" data-toggle="modal" data-target="#createModal" onclick="createNewcard()">Create</button>
+              <button type="submit" class="btn btn-primary" style="background-color: rgb(201, 150, 150); border-color:rgb(201, 150, 150);" data-toggle="modal" data-target="#createModal" onclick="createNewcard()">Create</button>
             </div>
           </form>
         </div>
@@ -103,7 +103,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="button" style="font-size: 24px;" data-toggle="modal" data-target="#editModal<?= $this->cards[$count]->Card_ID; ?>">Update</button>
+                <button type="submit" class="btn btn-primary" style="background-color: rgb(201, 150, 150); border-color:rgb(201, 150, 150);" data-toggle="modal" data-target="#editModal<?= $this->cards[$count]->Card_ID; ?>">Update</button>
               </div>
             </form>
           </div>
