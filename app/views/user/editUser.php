@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                    <label class="col-lg-3 col-form-label form-control-label">City</label>
                     <div class="col-lg-6">
                         <input name="city" class="form-control" type="text" value="<?= $this->user->City; ?>" placeholder="City" />
                     </div>
