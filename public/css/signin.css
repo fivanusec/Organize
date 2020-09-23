@@ -1,11 +1,11 @@
 .btn {
-    border-radius: 4px;
     background-color: rgb(201, 150, 150);
     border: none;
     color: white;
     cursor: pointer;
     margin: 1px;
     font-size: 18px;
+    border-radius: 12px !important;
 }
 
 #meter_wrapper {
@@ -20,4 +20,24 @@
 #meter {
     width: 0px;
     height: 35px;
+}
+
+.nav-link {
+    font-family: 'Merienda One', cursive;
+}
+
+input[type=text] {
+    border-radius: 12px;
+}
+
+input[type=email] {
+    border-radius: 12px;
+}
+
+input[type=password] {
+    border-radius: 12px;
+}
+
+.custom-select {
+    border-radius: 12px;
 }

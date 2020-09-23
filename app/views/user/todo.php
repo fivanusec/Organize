@@ -13,6 +13,9 @@
   <div class="row justify-content-center">
     <?php for ($count = 0; $count < count($this->Todo_List); $count++) : ?>
       <div id="<?= $this->Todo_List[$count]->Todo_List_ID; ?>" class="card text-center">
+      <div class="card-header">
+        <i class="ion ion-clipboard"></i>
+      </div>
         <div class="card-body">
            <?php if(count($this->check) != 0): ?>
             <?php if($this->check[$count] == true): ?>

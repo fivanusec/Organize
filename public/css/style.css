@@ -36,19 +36,23 @@ body {
 }
 
 .navbar {
-    background-color: rgb(201, 150, 150);
+    background-color: white;
 }
 
 .navbar-brand {
-    color: white;
-    font-family: 'Merienda One', cursive;
-    font-size: 28px;
+    font-family: 'Merienda One', cursive !important;
+    color: rgb(201, 150, 150) !important;
+    font-size: 28px !important;
 }
 
 .nav-link {
     font-family: 'EB Garamond', serif;
-    color: white;
+    color: rgb(201, 150, 150) !important;
     font-size: 24px;
+}
+
+.nav-link:hover {
+    color: rgb(141, 136, 136);
 }
 
 .nav-item a:hover {

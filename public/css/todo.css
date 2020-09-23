@@ -3,9 +3,24 @@
 }
 
 .card {
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-top-color: rgb(201, 150, 150) !important;
     margin-bottom: 10px;
     margin-left: 20px;
     border-radius: 12px !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    color: rgb(201, 150, 150);
+    display: block;
+    padding: 10px;
+    position: relative;
 }
 
 .btn-del {
