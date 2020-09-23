@@ -6,7 +6,6 @@
             <h2 class="text-center font-weight-light">User profile</h2>
         </div>
         <div class="col-lg-8">
-            <a href="<?= $this->makeURL("User/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="color:white; border:none;">Dashboard</a>
         </div>
         <br>
         <div class="col-lg-8 order-lg-1 personal-info">

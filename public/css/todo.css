@@ -1,6 +1,11 @@
+.container {
+    border-radius: 12px !important;
+}
+
 .card {
     margin-bottom: 10px;
     margin-left: 20px;
+    border-radius: 12px !important;
 }
 
 .btn-del {
@@ -10,6 +15,10 @@
     float: right;
     margin-top: -10px;
     font-size: 20px;
+}
+
+input[type=text] {
+    border-radius: 12px;
 }
 
 .btn-del:hover {

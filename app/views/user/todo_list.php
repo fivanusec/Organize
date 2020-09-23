@@ -90,7 +90,6 @@
         <br>
         <a class="btn btn-primary" style="color:white; background-color: rgb(201, 150, 150); border:none;" data-toggle="modal" data-target="#createNotesModal">New Notes</a>
         <a href="<?= $this->makeURL("User/todo/{$this->user->ID}/{$this->todoID}") ?>" class="btn btn-secondary" style="border:none; color:white;">My todo lists</a>
-        <a href="<?= $this->makeURL("User/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="border:none; color:white;">Dashboard</a>
     </div>
     <br>
 </div>
@@ -108,7 +107,7 @@
                     </div>
                     <form method="POST" action="<?= $this->makeURL("User/updateNote/{$this->notes[$count]->Note_ID}/{$this->user->ID}/{$this->todoID}/{$this->todolistID}"); ?>">
                         <div class="box-body text-center form-group">
-                            <textarea name="noteData<?= $this->notes[$count]->Note_ID; ?>" rows="14" cols="65" style="resize:none; height: 276px;"><?= $this->notes[$count]->Note_Data; ?></textarea>
+                            <textarea name="noteData<?= $this->notes[$count]->Note_ID; ?>" rows="auto" cols="auto"><?= $this->notes[$count]->Note_Data; ?></textarea>
                         </div>
                         <div class="box-footer clearfix no-border">
                             <button type="submit" class="btn btn-default pull-right"><i class="fa fa-save"></i> Save notes</button>
@@ -126,7 +125,7 @@
                 <div class="box-body">
                     <ul class="todo-list ui-sortable">
                         <?php for ($count = 0; $count < count($this->todolist); $count++) : ?>
-                            <li>
+                            <li class="todo-data">
                                 <form method="POST" action="<?= $this->makeUrl("User/finishTask/{$this->user->ID}/{$this->todoID}/{$this->todolistID}/{$this->todolist[$count]->Todo_Item_ID}") ?>">
                                     <span class="handle ui-sortable-handle">
                                         <i class="fa fa-ellipsis-v"></i>

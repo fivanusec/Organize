@@ -1,0 +1,60 @@
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+
+/*poziv font-family: 'EB Garamond', serif;*/
+
+@import url('https://fonts.googleapis.com/css?family=Merienda+One&display=swap');
+
+/*poziv font-family: 'Merienda One', cursive;*/
+
+body {
+    margin: 0;
+}
+
+.btn {
+    border-radius: 12px !important;
+}
+
+@keyframes navAnimation {
+    0% {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+    25% {
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    50% {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+    75% {
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    100% {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+}
+
+.navbar {
+    background-color: white;
+}
+
+.navbar-brand {
+    font-family: 'Merienda One', cursive !important;
+    color: rgb(201, 150, 150) !important;
+    font-size: 28px !important;
+}
+
+.nav-link {
+    font-family: 'Merienda One', cursive !important;
+    color: rgb(201, 150, 150);
+    font-size: 24px;
+}
+
+.nav-link:hover {
+    color: rgb(141, 136, 136);
+}

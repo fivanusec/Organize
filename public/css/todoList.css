@@ -1,9 +1,9 @@
-.box.box-aqua {
-    border-top-color: rgb(201, 150, 150) !important;
+.container {
+    border-radius: 12px !important;
 }
 
-.box.box-success {
-    border-top-color: rgb(201, 150, 150);
+.box.box-aqua {
+    border-top-color: rgb(201, 150, 150) !important;
 }
 
 .box {
@@ -12,6 +12,7 @@
     border-top: 3px solid #d2d6de;
     margin-bottom: 20px;
     width: 100%;
+    border-radius: 12px !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -117,10 +118,30 @@
     text-decoration: none;
 }
 
-#notes-text {
+textarea {
+    height: 20em;
+    width: 36em;
     resize: none;
+    border-radius: 12px;
 }
 
 .disable {
     text-decoration: line-through;
+}
+
+input[type=text] {
+    border-radius: 12px;
+}
+
+.handle:hover {
+    cursor: grab;
+}
+
+@media screen and (max-width: 768px) {
+    textarea {
+        height: 20em;
+        width: 31em;
+        resize: none;
+        border-radius: 12px;
+    }
 }
