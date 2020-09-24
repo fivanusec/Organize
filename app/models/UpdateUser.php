@@ -5,8 +5,27 @@ namespace app\models;
 use app\utils;
 use Exception;
 
+/**
+ * UpdateUser
+ * 
+ * @author Filip Ivanusec <fivnausec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
+
 class UpdateUser
 {
+
+    /**
+     * updateuser: Validates the input form from update form,
+     * Retrives user data from database and updates it.
+     * If everything went successfull retruns true,
+     * else false
+     * @access public
+     * @param string $UserID
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
+
     public static function updateuser($UserID)
     {
         if (!$User = User::getInstance($UserID)) {

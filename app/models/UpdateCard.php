@@ -5,8 +5,27 @@ namespace app\models;
 use app\utils;
 use Exception;
 
+/**
+ * UpdateCard
+ * 
+ * @author Filip Ivanusec <fivanusec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
+
 class UpdateCard
 {
+
+    /**
+     * _update: Validates the input form from update modal,
+     * updates card in the database.
+     * If everything went successfull retruns true,
+     * else false
+     * @access public
+     * @param string $CardID
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
+
     public static function _update($cardID)
     {
         try {

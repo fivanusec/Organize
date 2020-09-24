@@ -5,8 +5,26 @@ namespace app\models;
 use app\utils;
 use Exception;
 
+/**
+ * CreateNote
+ * 
+ * @author Filip Ivanusec <fivanusec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
+
 class CreateNote
 {
+
+    /**
+     * _create: Validates the input form from create modal,
+     * creates new note in the database.
+     * If everything went successfull retruns unique note ID,
+     * else false
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
+
     public static function _create($todoID)
     {
         try {

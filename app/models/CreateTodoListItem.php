@@ -5,8 +5,25 @@ namespace app\models;
 use app\utils;
 use Exception;
 
+/**
+ * CreateTodoListItem
+ * 
+ * @author Filip Ivanusec <fivanusec@gmail.com>
+ */
+
 class CreateTodoListItem
 {
+
+    /**
+     * _create: Validates the input form from create modal,
+     * creates new todolist item in the database.
+     * If everything went successfull retruns unique todolist item ID,
+     * else false
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
+
     public static function _create($TodoListID)
     {
         try {
