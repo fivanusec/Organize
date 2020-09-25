@@ -2,6 +2,10 @@ div {
     font-family: 'EB Garamond', serif;
 }
 
+.nav-link {
+    font-family: 'Merienda One', cursive;
+}
+
 @keyframes cardAnimation {
     0% {
         opacity: 20%;

@@ -39,3 +39,7 @@ input[type=text] {
 .btn-del:hover {
     color: darkgrey;
 }
+
+.modal-content {
+    border-radius: 12px;
+}
