@@ -350,6 +350,7 @@ class User extends core\Controller
         }
 
         $this->View->addCSS("css/todo.css");
+        $this->View->addJS("JS/todo.js");
         $this->View->render(
             'user/todo',
             [

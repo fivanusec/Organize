@@ -1,9 +1,13 @@
+.container {
+    border-radius: 12px !important;
+}
+
 .box.box-aqua {
     border-top-color: rgb(201, 150, 150) !important;
 }
 
-.box.box-success {
-    border-top-color: rgb(201, 150, 150);
+.modal-content {
+    border-radius: 12px;
 }
 
 .box {
@@ -12,6 +16,7 @@
     border-top: 3px solid #d2d6de;
     margin-bottom: 20px;
     width: 100%;
+    border-radius: 12px !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -115,12 +120,33 @@
 
 .tool-link:hover {
     text-decoration: none;
+    color: #666;
 }
 
-#notes-text {
+textarea {
+    height: 20em;
+    width: 36em;
     resize: none;
+    border-radius: 12px;
 }
 
 .disable {
     text-decoration: line-through;
+}
+
+input[type=text] {
+    border-radius: 12px;
+}
+
+.handle:hover {
+    cursor: grab;
+}
+
+@media screen and (max-width: 768px) {
+    textarea {
+        height: 20em;
+        width: 31em;
+        resize: none;
+        border-radius: 12px;
+    }
 }

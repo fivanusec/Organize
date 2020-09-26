@@ -8,8 +8,8 @@ use app\utils\Flash;
 </title>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="/public/css/userHeader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -18,15 +18,15 @@ use app\utils\Flash;
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <a class="navbar-brand">
+    <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
+        <a class="navbar-brand" href="<?=$this->makeUrl("User/dash/{$this->user->ID}");?>">
             Organize!
         </a>
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
             </ul>
         </div>
-        <a href="<?= $this->makeUrl("Login/logOut/{$this->user->ID}"); ?>" class="nav-link" style="color: white;">
+        <a class="nav-link" href="<?= $this->makeUrl("Login/logOut/{$this->user->ID}"); ?>" class="nav-link">
             Log out
         </a>
     </nav>

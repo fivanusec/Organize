@@ -24,18 +24,12 @@ use app\utils\Flash;
             <ul class="navbar-nav">
             </ul>
         </div>
-        <?php
-        if (isset($_SESSION["USER"])) {
-            $ID = $_SESSION["USER"];
-            echo '<a href="' . $this->makeURL("User/dash/{$ID}") . '" onclick="setOnLoad(this.id)" class="nav-link" id="signinBtn" style="color: white;">
-                        My organize
-                    </a>';
-        } else {
-            echo '<a href="' . $this->makeURL("Login/index") . '" onclick="setOnLoad(this.id)" class="nav-link" id="signinBtn" style="color: white;">
-                        Sign in
-                    </a>';
-        }
-        ?>
+        <?php if(isset($_SESSION[app\utils\Config::get("SESSION_USER")])): ?>
+            <?php $ID = app\utils\Session::get(app\utils\Config::get("SESSION_USER")); ?>
+            <a href="<?= $this->makeURL("User/dash/{$ID}"); ?>" class="nav-link" id="signinBtn">My organize</a>
+        <?php else: ?>
+            <a href="<?= $this->makeURL("Login/index"); ?>" class="nav-link" id="signinBtn">Sign in</a>
+        <?php endif;?>
     </nav>
     <?php if (($danger = Flash::danger())) : ?>
         <div class="row justify-content-center fixed-top" style="margin-top:70px;">

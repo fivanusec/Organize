@@ -3,6 +3,10 @@
     width: 100px;
 }
 
+#uploadBtn {
+    margin-left: 5px;
+}
+
 .btn {
     border-radius: 4px;
     background-color: rgb(201, 150, 150);
@@ -10,4 +14,24 @@
     color: white;
     cursor: pointer;
     margin: 1px;
+}
+
+.custom-select {
+    border-radius: 12px;
+}
+
+input[type=text] {
+    border-radius: 12px;
+}
+
+input[type=email] {
+    border-radius: 12px;
+}
+
+input[type=password] {
+    border-radius: 12px;
+}
+
+input[type=file] {
+    border-radius: 12px;
 }

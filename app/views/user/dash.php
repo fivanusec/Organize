@@ -18,8 +18,8 @@
 <div class="container">
   <nav class="nav nav-pills justify-content-right">
     <button class="button" data-toggle="modal" data-target="#createModal"><i class="fa fa-plus-circle"></i> New</button>
-    <button class="button" onclick="listView()"><i class="fa fa-bars"></i> List</button>
-    <button class="button" onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
+    <button class="button" id = "listBtn" onclick="listView()"><i class="fa fa-bars"></i> List</button>
+    <button class="button" id = "gridBtn" onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
   </nav>
 </div>
 <br>
