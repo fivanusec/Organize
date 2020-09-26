@@ -120,6 +120,7 @@
 
 .tool-link:hover {
     text-decoration: none;
+    color: #666;
 }
 
 textarea {

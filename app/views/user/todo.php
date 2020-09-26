@@ -1,4 +1,5 @@
 <?= $this->getCSS(); ?>
+<?= $this->getJS(); ?>
 
 <div class="container border-left border-bottom border-top border-right justify-content-center">
   <div class="button-box text-center">
@@ -13,18 +14,24 @@
   <div class="row justify-content-center">
     <?php for ($count = 0; $count < count($this->Todo_List); $count++) : ?>
       <div id="<?= $this->Todo_List[$count]->Todo_List_ID; ?>" class="card text-center">
-      <div class="card-header">
-        <i class="ion ion-clipboard"></i>
-      </div>
+        <div class="card-header">
+          <i class="ion ion-clipboard"></i>
+        </div>
         <div class="card-body">
-           <?php if(count($this->check) != 0): ?>
-            <?php if($this->check[$count] == true): ?>
-              <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-check-square"></i></h5>
-            <?php else: ?>
-              <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-times-circle"></i></h5>
+          <?php if (count($this->check) != 0) : ?>
+            <?php if ($this->check[$count] == true) : ?>
+              <h5 data-toggle="popover" data-trigger="hover" title="Great job!" data-content="You completed all of your tasks!" class="card-title">
+                <?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-check-square"></i>
+              </h5>
+            <?php else : ?>
+              <h5 data-toggle="popover" data-trigger="hover" title="Heads up!" data-content="Some of your tasks are not completed!" class="card-title">
+                <?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-times-circle"></i>
+              </h5>
             <?php endif; ?>
-          <?php else: ?>
-            <h5 class="card-title"><?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-times-circle"></i></h5>
+          <?php else : ?>
+            <h5 data-toggle="popover" data-trigger="hover" title="Heads up!" data-content="Your list appears to be empty!" class="card-title">
+              <?= $this->Todo_List[$count]->Todo_Name; ?> <i class="fa fa-times-circle"></i>
+            </h5>
           <?php endif; ?>
           <p class="card-text"><?= $this->Todo_List[$count]->Todo_Description; ?></p>
           <a href="<?= $this->makeUrl("user/todoList/{$this->user->ID}/{$this->todoID}/{$this->Todo_List[$count]->Todo_List_ID}"); ?>" style="color:white; background-color: rgb(201, 150, 150); border:none;" class="btn btn-primary">Open todo</a>
