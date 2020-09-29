@@ -6,6 +6,24 @@ div {
     font-family: 'Merienda One', cursive;
 }
 
+@keyframes slideInFromUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 @keyframes cardAnimation {
     0% {
         opacity: 20%;
@@ -28,17 +46,22 @@ div {
     animation-name: cardAnimation;
     animation-duration: 1s;
     animation-iteration-count: initial;
-    background-color: rgb(201, 150, 150);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(201, 150, 150, 1) 87%, rgba(201, 150, 150, 1) 100%);
 }
 
 #h2-card1 {
     font-family: 'Merienda One', cursive;
     color: white;
+    animation: 1s ease-out 0s 1 slideInFromUp;
+    animation-direction: reverse;
 }
 
 #p-card1 {
     font-family: 'Merienda One', cursive;
     color: white;
+    animation: 1s ease-out 0s 1 slideInFromUp;
+    animation-direction: reverse;
 }
 
 #secondCard {
@@ -53,14 +76,18 @@ div {
 #h2-card2 {
     font-family: 'Merienda One', cursive;
     color: rgb(201, 150, 150);
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 #p-card2 {
     font-family: 'Merienda One', cursive;
     color: rgb(201, 150, 150);
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 .front-img {
+    animation: 1s ease-out 0s 1 slideInFromUp;
+    animation-direction: reverse;
     width: 650px;
 }
 
