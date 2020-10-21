@@ -6,8 +6,27 @@ use app\utils;
 use app\utils\PictrueHandler;
 use Exception;
 
+/**
+ * UploadProfilePictrue
+ * 
+ * @author Filip Ivanusec <fivanusec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
+
 class UploadProfilePictrue
 {
+
+    /**
+     * _createDB: If record doesn't exist :Validates the input form from create form,
+     * creates new profile picture record in the database.
+     * If everything went successfull retruns true,
+     * else false
+     * else calls updateDB and updates record Image_Dir.
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
+
     public static function _createDB($UserID)
     {
         if (!$Picture = ProfilePictrue::getInstance($UserID)) {
@@ -45,6 +64,16 @@ class UploadProfilePictrue
             return false;
         }
     }
+
+    /**
+     * _upload: Validates the input form,
+     * upload pictrue to server img folder.
+     * If everything went successfull retruns unique upload ID,
+     * else false
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
 
     public static function _upload($UserID)
     {

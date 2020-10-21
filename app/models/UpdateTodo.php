@@ -5,8 +5,27 @@ namespace app\models;
 use app\utils;
 use Exception;
 
+/**
+ * UpdateTodo
+ * 
+ * @author Filip Ivanusec <fivanusec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
+
 class UpdateTodo
 {
+
+    /**
+     * _update: Validates the input form from update modal,
+     * updates Todo in the database.
+     * If everything went successfull retruns true,
+     * else false
+     * @access public
+     * @param string $TodoID
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
+    
     public static function _update($TodoID)
     {
         try {

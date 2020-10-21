@@ -5,8 +5,27 @@ namespace app\models;
 use app\utils;
 use Exception;
 
+/**
+ * UpdateNote
+ * 
+ * @author Filip Ivansuec <fivanusec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
+
 class UpdateNote
 {
+
+	/**
+     * _update: Validates the input form from textarea,
+     * updates notes in the database.
+     * If everything went successfull retruns true,
+     * else false
+     * @access public
+	 * @param string $NoteID
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
+
 	public static function _update($NoteID)
 	{
 		try {

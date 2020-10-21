@@ -5,9 +5,17 @@ namespace app\models;
 use Exception;
 use app\utils;
 
+/**
+ * UserLogin
+ * 
+ * @author Filip Ivanusec <fivanusec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
 
 class UserLogin
 {
+
+    /** @var array The login form inputs. */
 
     private static $_inputs = [
         "email" => [
@@ -18,6 +26,15 @@ class UserLogin
             "required" => true
         ]
     ];
+
+    /**
+     * Create Remember Cookie: Inserts a remember-me hash into database and
+     * cookie.
+     * @access public
+     * @param string $userID
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
 
     public static function remeberCookies($userID)
     {
@@ -35,6 +52,16 @@ class UserLogin
         $expiery = 604800;
         return (utils\Cookies::put($cookie, $hash, $expiery));
     }
+
+    /**
+     * Login With Cookie: Checks if a remember me cookie has been exists and
+     * attempts to login the user if the cookie value is found in the database
+     * - writing all necessary data into the session if the login was successful.
+     * Returns true if everything is okay, otherwise turns false.
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
 
     public static function loginWithCookie()
     {
@@ -55,6 +82,17 @@ class UserLogin
         utils\Cookies::delete(utils\Config::get("COOKIE_USER"));
         return false;
     }
+
+    /**
+     * Login: Validates the login form inputs, checks the user exists and that
+     * the supplied password is correct - writing all necessary data into the
+     * session if the login was successful. Returns true if everything is okay,
+     * otherwise turns false.
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     * @throws Exception
+     */
 
     public static function _login()
     {
@@ -87,6 +125,14 @@ class UserLogin
         }
         return false;
     }
+
+    /**
+     * Logout: Delete cookie and session. Returns true if everything is okay,
+     * otherwise turns false.
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
 
     public static function _logout()
     {

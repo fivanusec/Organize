@@ -5,9 +5,25 @@ namespace app\models;
 use Exception;
 use app\utils;
 
+/**
+ * CreateCard
+ * 
+ * @author Filip Ivanusec <fivanusec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
 
 class CreateCard
 {
+
+    /**
+     * _create: Validates the input form from create modal,
+     * creates new card in the database.
+     * If everything went successfull retruns unique  card ID,
+     * else false
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
 
     public static function _create($userID)
     {

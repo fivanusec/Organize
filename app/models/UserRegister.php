@@ -5,8 +5,16 @@ namespace app\models;
 use Exception;
 use app\utils;
 
+/**
+ * UserRegister
+ * 
+ * @author Filip Ivanusec <fivanusec@gmail.com>
+ * @since 0.1[ALPHA]
+ */
+
 class UserRegister
 {
+    /** @var array The register form inputs. */
 
     private static $_inputs = [
         "name" => [
@@ -29,6 +37,16 @@ class UserRegister
             "required" => true
         ]
     ];
+
+    /**
+     * Register: Validates the register form inputs, creates a new user in the
+     * database and writes all necessary data into the session if the
+     * registration was successful. Returns the new user's ID if everything is
+     * okay, otherwise turns false.
+     * @access public
+     * @return boolean
+     * @since 0.1[ALPHA]
+     */
 
     public static function _register()
     {
