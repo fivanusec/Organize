@@ -6,7 +6,6 @@
             <h2 class="text-center font-weight-light">User profile</h2>
         </div>
         <div class="col-lg-8">
-            <a href="<?= $this->makeURL("User/dash/{$this->user->ID}") ?>" class="btn btn-secondary" style="color:white; border:none;">Dashboard</a>
         </div>
         <br>
         <div class="col-lg-8 order-lg-1 personal-info">
@@ -74,7 +73,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                    <label class="col-lg-3 col-form-label form-control-label">City</label>
                     <div class="col-lg-6">
                         <input name="city" class="form-control" type="text" value="<?= $this->user->City; ?>" placeholder="City" />
                     </div>
@@ -112,8 +111,9 @@
                         <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
                     </div>
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary"><i class="fa fa-upload"></i></button>
+                        <button id="uploadBtn" type="submit" class="btn btn-secondary"><i class="fa fa-upload"></i></button>
                     </div>
+                </div>
             </form>
         </div>
     </div>

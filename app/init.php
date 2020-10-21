@@ -26,7 +26,11 @@ define("DEFAULT_CONTROLLER", "Home");
 define("DEFAULT_CONTROLLER_ACTION" , "index");
 
 //defines for namspaces
-define("NAMESPACE_CONTROLLER", "\App\Controllers\\");
+define("NAMESPACE_CONTROLLER", "app\controllers\\");
+
+//defines starting point 
+define("DEFAULT_CONTROLLER", NAMESPACE_CONTROLLER . "Home");
+define("DEFAULT_CONTROLLER_ACTION" , "index");
 
 //defaults app header and footer
 define("HEADER_MAIN", 'user/teamplate/header');
@@ -36,7 +40,9 @@ define("FOOTER_MAIN", 'user/teamplate/footer');
 define("HEADER_FOR_MAIN", 'header');
 define("FOOTER_FOR_MAIN", 'footer');
 
+//error files
+define("DEFAULT_404_PATH", "error/404.php");
+define("DEFAULT_500_PATH", "error/500.php");
+
 //requieres for app 
-require_once CORE . 'app.php';
-require_once CORE . 'controller.php';
 require_once ROOT . "vendor/autoload.php";
