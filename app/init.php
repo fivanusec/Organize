@@ -22,6 +22,8 @@ define("HELLO", "HELLO");
 define("HTMLENTITIES_FLAGS", ENT_QUOTES);
 define("HTMLENTITIES_ENCODING", "UTF-8");
 define("HTMLENTITIES_DOUBLE_ENCODE", false);
+define("DEFAULT_CONTROLLER", "Home");
+define("DEFAULT_CONTROLLER_ACTION" , "index");
 
 //defines for namspaces
 define("NAMESPACE_CONTROLLER", "app\controllers\\");
