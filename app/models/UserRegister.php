@@ -23,17 +23,12 @@ class UserRegister
         "surname" => [
             "required" => true
         ],
-        "Email" => [
+        "regEmail" => [
             "filter" => "email",
-            "required" => true,
-            "unique" => "users"
+            "required" => true
         ],
         "regPassword" => [
             "min_characters" => 6,
-            "required" => true
-        ],
-        "regPasswordRepeat" => [
-            "matches" => "regPassword",
             "required" => true
         ]
     ];
