@@ -9,7 +9,7 @@
         </div>
         <br>
         <div class="col-lg-8 order-lg-1 personal-info">
-            <form action="<?= $this->makeUrl("User/updateuser/{$this->user->ID}"); ?>" role="form" method="POST">
+            <form action="<?= $this->makeUrl("user/updateuser/{$this->user->ID}"); ?>" role="form" method="POST">
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">First name</label>
                     <div class="col-lg-9">
@@ -29,7 +29,11 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Company</label>
+                  <?php if($this->user->Type == "Student"): ?>
+                    <label class="col-lg-3 col-form-label form-control-label">School</label>
+                  <?php elseif($this->user->Type == "Bussines"): ?>
+                      <label class="col-lg-3 col-form-label form-control-label">Bussines</label>
+                  <?php endif; ?>
                     <div class="col-lg-9">
                         <input name="company" class="form-control" type="text" value="<?= $this->user->Company; ?>" />
                     </div>
@@ -102,19 +106,7 @@
             </form>
         </div>
         <div class="col-lg-4 order-lg-0 text-center">
-            <?= $this->getIMG(); ?>
-            <h6 class="my-4">Upload a new photo</h6>
-            <form method="POST" enctype="multipart/form-data" action="<?= $this->makeURL("User/uploadProfilePictrue/{$this->user->ID}"); ?>">
-                <div class="input-group px-xl-4">
-                    <div class="custom-file">
-                        <input name="file" type="file" class="custom-file-input" id="inputGroupFile02">
-                        <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                        <button id="uploadBtn" type="submit" class="btn btn-secondary"><i class="fa fa-upload"></i></button>
-                    </div>
-                </div>
-            </form>
+
         </div>
     </div>
 </div>

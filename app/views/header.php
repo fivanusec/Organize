@@ -26,9 +26,9 @@ use app\utils\Flash;
         </div>
         <?php if(isset($_SESSION[app\utils\Config::get("SESSION_USER")])): ?>
             <?php $ID = app\utils\Session::get(app\utils\Config::get("SESSION_USER")); ?>
-            <a href="<?= $this->makeURL("User/dash/{$ID}"); ?>" class="nav-link" id="signinBtn">My organize</a>
+            <a href="<?= $this->makeURL("user/dash/{$ID}"); ?>" class="nav-link" id="signinBtn">My organize</a>
         <?php else: ?>
-            <a href="<?= $this->makeURL("Login/index"); ?>" class="nav-link" id="signinBtn">Sign in</a>
+            <a href="<?= $this->makeURL("login/index"); ?>" class="nav-link" id="signinBtn">Sign in</a>
         <?php endif;?>
     </nav>
     <?php if (($danger = Flash::danger())) : ?>

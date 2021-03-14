@@ -19,14 +19,14 @@ use app\utils\Flash;
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
-        <a class="navbar-brand" href="<?=$this->makeUrl("User/dash/{$this->user->ID}");?>">
+        <a class="navbar-brand" href="<?=$this->makeUrl("user/dash/{$this->user->ID}");?>">
             Organize!
         </a>
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
             </ul>
         </div>
-        <a class="nav-link" href="<?= $this->makeUrl("Login/logOut/{$this->user->ID}"); ?>" class="nav-link">
+        <a class="nav-link" href="<?= $this->makeUrl("login/logOut/{$this->user->ID}"); ?>" class="nav-link">
             Log out
         </a>
     </nav>

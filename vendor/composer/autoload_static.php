@@ -11,6 +11,10 @@ class ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7
         array (
             'app\\' => 4,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -18,55 +22,14 @@ class ComposerStaticInitac4519e9c4ff4101f8c94d635a9e20d7
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
     );
 
     public static $classMap = array (
-        'app\\controllers\\Home' => __DIR__ . '/../..' . '/app/controllers/Home.php',
-        'app\\controllers\\Login' => __DIR__ . '/../..' . '/app/controllers/Login.php',
-        'app\\controllers\\User' => __DIR__ . '/../..' . '/app/controllers/User.php',
-        'app\\core\\App' => __DIR__ . '/../..' . '/app/core/App.php',
-        'app\\core\\Controller' => __DIR__ . '/../..' . '/app/core/Controller.php',
-        'app\\core\\Model' => __DIR__ . '/../..' . '/app/core/Model.php',
-        'app\\core\\Presenter' => __DIR__ . '/../..' . '/app/core/Presenter.php',
-        'app\\core\\Progress' => __DIR__ . '/../..' . '/app/core/Progress.php',
-        'app\\core\\View' => __DIR__ . '/../..' . '/app/core/View.php',
-        'app\\models\\Cards' => __DIR__ . '/../..' . '/app/models/Cards.php',
-        'app\\models\\CreateCard' => __DIR__ . '/../..' . '/app/models/CreateCard.php',
-        'app\\models\\CreateNote' => __DIR__ . '/../..' . '/app/models/CreateNote.php',
-        'app\\models\\CreateTodo' => __DIR__ . '/../..' . '/app/models/CreateTodo.php',
-        'app\\models\\CreateTodoListItem' => __DIR__ . '/../..' . '/app/models/CreateTodoListItem.php',
-        'app\\models\\Notes' => __DIR__ . '/../..' . '/app/models/Notes.php',
-        'app\\models\\ProfilePictrue' => __DIR__ . '/../..' . '/app/models/ProfilePicture.php',
-        'app\\models\\Todo' => __DIR__ . '/../..' . '/app/models/Todo.php',
-        'app\\models\\TodoList' => __DIR__ . '/../..' . '/app/models/TodoList.php',
-        'app\\models\\UpdateCard' => __DIR__ . '/../..' . '/app/models/UpdateCard.php',
-        'app\\models\\UpdateNote' => __DIR__ . '/../..' . '/app/models/UpdateNote.php',
-        'app\\models\\UpdateTodo' => __DIR__ . '/../..' . '/app/models/UpdateTodo.php',
-        'app\\models\\UpdateTodoItem' => __DIR__ . '/../..' . '/app/models/UpdateTodoItem.php',
-        'app\\models\\UpdateUser' => __DIR__ . '/../..' . '/app/models/UpdateUser.php',
-        'app\\models\\UploadProfilePictrue' => __DIR__ . '/../..' . '/app/models/UploadProfilePictrue.php',
-        'app\\models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
-        'app\\models\\UserLogin' => __DIR__ . '/../..' . '/app/models/UserLogin.php',
-        'app\\models\\UserRegister' => __DIR__ . '/../..' . '/app/models/UserRegister.php',
-        'app\\prezenter\\Cards' => __DIR__ . '/../..' . '/app/prezenter/Cards.php',
-        'app\\prezenter\\Notes' => __DIR__ . '/../..' . '/app/prezenter/Notes.php',
-        'app\\prezenter\\TodoItem' => __DIR__ . '/../..' . '/app/prezenter/TodoItem.php',
-        'app\\prezenter\\User' => __DIR__ . '/../..' . '/app/prezenter/User.php',
-        'app\\progress\\TodoList' => __DIR__ . '/../..' . '/app/progress/TodoList.php',
-        'app\\utils\\Auth' => __DIR__ . '/../..' . '/app/utils/Auth.php',
-        'app\\utils\\Config' => __DIR__ . '/../..' . '/app/utils/Config.php',
-        'app\\utils\\Cookies' => __DIR__ . '/../..' . '/app/utils/Cookies.php',
-        'app\\utils\\Database' => __DIR__ . '/../..' . '/app/utils/Database.php',
-        'app\\utils\\Flash' => __DIR__ . '/../..' . '/app/utils/Flash.php',
-        'app\\utils\\Hash' => __DIR__ . '/../..' . '/app/utils/Hash.php',
-        'app\\utils\\Input' => __DIR__ . '/../..' . '/app/utils/Input.php',
-        'app\\utils\\PictrueHandler' => __DIR__ . '/../..' . '/app/utils/PictrueHalnder.php',
-        'app\\utils\\Redirect' => __DIR__ . '/../..' . '/app/utils/Redirect.php',
-        'app\\utils\\Response' => __DIR__ . '/../..' . '/app/utils/Response.php',
-        'app\\utils\\Session' => __DIR__ . '/../..' . '/app/utils/Session.php',
-        'app\\utils\\Text' => __DIR__ . '/../..' . '/app/utils/Text.php',
-        'app\\utils\\Token' => __DIR__ . '/../..' . '/app/utils/Token.php',
-        'app\\utils\\Validate' => __DIR__ . '/../..' . '/app/utils/Validate.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

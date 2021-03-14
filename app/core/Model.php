@@ -6,7 +6,7 @@ use app\utils;
 
 /**
  * Model
- * 
+ *
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @since 0.1[ALPHA]
  */
@@ -59,7 +59,7 @@ class Model
     }
 
     /**
-     * Find: Retrieves and stores a specified record from the database into a 
+     * Find: Retrieves and stores a specified record from the database into a
      * class property. Returns true if the record was found, or false if not.
      * @access protected
      * @param string $table
@@ -78,11 +78,11 @@ class Model
     }
 
     /**
-     * FindInner: Retrieves and stores a specified record from the database into a 
+     * FindInner: Retrieves and stores a specified record from the database into a
      * class property. Returns true if the record was found, or false if not.
-     * 
+     *
      * NOTE: This method connects into database to run queries that contains INNER JOIN
-     * 
+     *
      * @access protected
      * @param string $table
      * @param array $where
@@ -100,11 +100,11 @@ class Model
     }
 
     /**
-     * FindAll: Retrieves and stores a specified record from the database into a 
+     * FindAll: Retrieves and stores a specified record from the database into a
      * class property. Returns true if the record was found, or false if not.
-     * 
+     *
      * NOTE: This method connects into database to retrive all data from query
-     * 
+     *
      * @access protected
      * @param string $table
      * @param array $where
@@ -166,6 +166,7 @@ class Model
 
     protected function update($table, $ID, array $fields, $recordID = null)
     {
+      echo "Model update";
         if (!$recordID and $this->exists()) {
             $recordID = $this->data()->ID;
         }

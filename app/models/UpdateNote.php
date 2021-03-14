@@ -7,7 +7,7 @@ use Exception;
 
 /**
  * UpdateNote
- * 
+ *
  * @author Filip Ivansuec <fivanusec@gmail.com>
  * @since 0.1[ALPHA]
  */
@@ -32,7 +32,7 @@ class UpdateNote
 			$note = new Notes;
 			$note->updateNote(
 				[
-					"Note_Data" => utils\Input::request('noteData' . $NoteID)
+					"Note_Data" => utils\Input::request("noteData{$NoteIDs}")
 				],
 				$NoteID
 			);

@@ -79,7 +79,7 @@ class Database
 
     public function query($sql, array $params = [])
     {
-        //echo $sql ."\n"; //mostly testing output from queries
+        // echo $sql ."\n"; //mostly testing output from queries
         $this->_count = 0;
         $this->_error = false;
         $this->_results = [];
@@ -92,7 +92,7 @@ class Database
                 $this->_count = $this->_query->rowCount();
             } else {
                 $this->_error = true;
-                //die(print_r($this->_query->errorInfo()));
+                // die(print_r($this->_query->errorInfo()));
             }
         }
         return $this;

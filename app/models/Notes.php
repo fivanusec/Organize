@@ -7,7 +7,7 @@ use Exception;
 
 /**
  * Notes
- * 
+ *
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @since 0.1[ALPHA]
  */
@@ -16,7 +16,7 @@ class Notes extends core\Model
 {
 
     /**
-     * getInstance: Return new instance of Notes model 
+     * getInstance: Return new instance of Notes model
      * with ALL notes data if exists in database
      * @access public
      * @param string $note
@@ -35,7 +35,7 @@ class Notes extends core\Model
 
     /**
      * findNote: Retrives and stroes specified card record from database
-     * into a class property. Returns true if record was found, or false 
+     * into a class property. Returns true if record was found, or false
      * if not
      * @access public
      * @param string $note
@@ -87,6 +87,7 @@ class Notes extends core\Model
 
     public function updateNote(array $fields, $noteID = null)
     {
+        echo "Model";
         if ($this->update("notes", "Note_ID", $fields, $noteID)) {
             throw new Exception("There was a problem!");
         }

@@ -7,7 +7,7 @@ use app\utils;
 
 /**
  * UserRegister
- * 
+ *
  * @author Filip Ivanusec <fivanusec@gmail.com>
  * @since 0.1[ALPHA]
  */
@@ -64,6 +64,7 @@ class UserRegister
                         "salt" => $salt
                     ]
                 );
+                // utils\SendEmail::send(utils\Input::post("regEmail"))
                 utils\Flash::success(utils\Text::get("REGISTER_USER_CREATED"));
                 return $userID;
             } catch (Exception $e) {

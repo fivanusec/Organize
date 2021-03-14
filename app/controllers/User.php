@@ -10,7 +10,7 @@ use app\progress;
 
 /**
  * User
- * 
+ *
  * @author Filip Ivanusec<fivanusec@gmail.com>
  * @version 0.1[ALPHA]
  */
@@ -98,7 +98,7 @@ class User extends core\Controller
      * @return void
      * @since 0.1[ALPHA]
      * @param string $userID
-     * @param string $TodoID 
+     * @param string $TodoID
      */
 
     public function createTodo(string $userID = "", string $TodoID = "")
@@ -112,7 +112,7 @@ class User extends core\Controller
     }
 
     /**
-     * updateTodo: Updates TODO 
+     * updateTodo: Updates TODO
      * @access public
      * @return void
      * @since 0.1[ALPHA]
@@ -289,7 +289,7 @@ class User extends core\Controller
     {
         utils\Auth::checkAuth();
 
-        if (models\updateNote::_update($NoteID)) {
+        if (!models\updateNote::_update($NoteID)) {
             utils\Redirect::to("/public/user/todolist/{$User_ID}/{$TodoID}/{$TodoListID}");
         }
         utils\Redirect::to(500);
@@ -393,16 +393,16 @@ class User extends core\Controller
             $cards = [];
         }
 
-        $picture = "img/user.png";
-
-        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) {
-            $profilepictrue = $ProfilePicture->data();
-            if (!empty($profilepictrue)) {
-                $picture = $profilepictrue->Image_Dir;
-            }
-        }
-
-        $this->View->addIMG($picture);
+        // $picture = "img/user.png";
+        //
+        // if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) {
+        //     $profilepictrue = $ProfilePicture->data();
+        //     if (!empty($profilepictrue)) {
+        //         $picture = $profilepictrue->Image_Dir;
+        //     }
+        // }
+        //
+        // $this->View->addIMG($picture);
         $this->View->addJS("JS/organizeDash.js");
         $this->View->addCSS("css/organizeDash.css");
         $this->View->render(
@@ -497,14 +497,16 @@ class User extends core\Controller
 
         $picture = "img/user.png";
 
-        if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) {
-            $profilepictrue = $ProfilePicture->data();
-            if (!empty($profilepictrue)) {
-                $picture = $profilepictrue->Image_Dir;
-            }
-        }
-
-        $this->View->addIMG($picture, "mx-auto img-fluid rounded-circle");
+        // if ($ProfilePicture = models\ProfilePictrue::getInstance($user)) {
+        //     $profilepictrue = $ProfilePicture->data();
+        //     echo $profilepictrue;
+        //     if (!empty($profilepictrue)) {
+        //         $picture = $profilepictrue->Image_Dir;
+        //     }
+        // }
+        //
+        // echo $picture;
+        // $this->View->addIMG($picture, "mx-auto img-fluid rounded-circle");
         $this->View->addJS("JS/edituser.js");
         $this->View->addCSS("css/editUser.css");
         $this->View->render(
